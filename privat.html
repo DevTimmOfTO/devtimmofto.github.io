@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Space | DevTimmOfTO</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/profil_pic.png">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;1,200&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            opacity: 0.8;
+            z-index: -1;
+            background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+        }
+    </style>
+    <script src="scripts.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans text-gray-800">
+    <!-- Language Switcher -->
+    <div class="bg-purple-800 text-white text-sm py-2 px-4 flex justify-end space-x-4">
+        <button onclick="setLanguage('de')">Deutsch</button>
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('fr')">Français</button>
+    </div>
+    
+    <header class="bg-purple-800 text-white py-4 text-center">
+        <h1 class="text-2xl font-bold">DevTimmOfTO - Private Space 🎮</h1>
+        <p class="text-lg" data-i18n="portfolioTopStartDesc">Mein persönlicher Bereich mit allem was ich mag</p>
+    </header>
+
+    <nav class="bg-purple-700 py-2 flex justify-center">
+        <a href="#personal" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navPersonal">Persönliches</a>
+        <a href="#favours" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navFavoursThings">Lieblings-...</a>
+        <a href="#gaming" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navGaming">Gaming</a>
+        <a href="#entertainment" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navEntertainment">Entertainment</a>
+    </nav>
+
+    <div class="container mx-auto mt-8 px-4">
+        <section id="personal" class="mb-8">
+            <h2 class="text-3xl font-semibold mb-4 text-purple-700" data-i18n="headingPersonal">Das bin ich wirklich 😄</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="profile-container md:mr-8">
+                    <div class="profile-circle"></div>
+                    <img src="img/profil_pic.png" alt="DevTimmOfTO's profile picture"
+                        title="The profil picture of DevTimmOfTO" class="rounded-full w-32 h-32 m-1 ">
+                </div>
+                <div class="text-lg" data-i18n="textPersonalAboutMe">
+                    <p>Yo! Ich bin DevTimmOfTO, aber eigentlich einfach Timm. 🤙</p>
+                    <p>19 Jahre alt, Oberstufenschüler und lebe noch bei meinen Eltern (aber hey, wer tut das nicht in dem Alter? 😅).</p>
+                    <p>Ich liebe Backend-Development, aber auch einfach chillen und zocken!</p>
+                    <p><strong>Fun Fact:</strong> Ich bin ein 4*townie - ich liebe 4*Town 🌟</p>
+                    <p>Meine Leidenschaften: GTA-RP-Serverentwicklung, Roblox-Projekte, DIY-Zeug und OSM-Mapping wenn ich mal Lust drauf hab.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gaming" class="mb-8">
+            <h2 class="text-3xl font-semibold mb-4 text-purple-700" data-i18n="headingGaming">Gaming 🎮</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Lieblingsspiele</h3>
+                    <iframe src="https://store.steampowered.com/widget/370350/" frameborder="0" width="100%" height="190"></iframe>
+                    <iframe src="https://store.steampowered.com/widget/289070/" frameborder="0" width="100%" height="190"></iframe>
+                    <iframe src="https://store.steampowered.com/widget/1066780/" frameborder="1" width="100%" height="190"></iframe>
+                    <iframe src="https://store.steampowered.com/widget/1040730/" frameborder="0" width="100%" height="190"></iframe>
+                    <iframe src="https://store.steampowered.com/widget/529340/" frameborder="0" width="100%" height="190"></iframe>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Gaming Links</h3>
+                    <div class="space-y-4">
+                        <a href="https://www.twitch.tv/DevTimmOfTO" class="block bg-purple-600 text-white p-4 rounded-lg hover:bg-purple-700 transition">
+                            <i class="fa-brands fa-twitch mr-2"></i>Mein Twitch - DevTimmOfTO
+                        </a>
+                        <a href="https://discord.com/users/629199560002109453" class="block bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition">
+                            <i class="fa-brands fa-discord mr-2"></i>Discord - Let's zocken!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="favours" class="mb-8">
+            <h2 class="text-3xl font-semibold mb-4 text-purple-700" data-i18n="headingFavours">Meine Lieblings-... 💜</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pb-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2" data-i18n="headingFavoursSeries">Serien</h3>
+                    <div class="space-y-4">
+                        <div class="iframely-embed pb-2 rounded-xl">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt0106080/"
+                                    data-iframely-url="//iframely.net/7SdU41Q"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt4277128/"
+                                    data-iframely-url="//iframely.net/UonbAgX"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt1552785/"
+                                    data-iframely-url="//iframely.net/Ujnx4w7V?theme=light"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt0312172/"
+                                    data-iframely-url="//iframely.net/jbC7yAB"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt0491738/"
+                                    data-iframely-url="//iframely.net/r5Ufd33"></a></div>
+                        </div>
+                    </div>
+                    <script async src="//iframely.net/embed.js"></script>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2" data-i18n="headingFavoursFilms">Filme</h3>
+                    <div class="space-y-4">
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt8097030/"
+                                    data-iframely-url="//iframely.net/bURmbsaa?theme=light"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt15789038/"
+                                    data-iframely-url="//iframely.net/om6WPQS8?theme=light"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt2096673/"
+                                    data-iframely-url="//iframely.net/7G90LDY?theme=light"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt0107048/"
+                                    data-iframely-url="//iframely.net/cY6u8Z0?theme=light"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt0382932/"
+                                    data-iframely-url="//iframely.net/YYv8hXaU?theme=light"></a></div>
+                        </div>
+                        <div class="iframely-embed pb-2">
+                            <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a
+                                    href="https://www.imdb.com/title/tt1217209/"
+                                    data-iframely-url="//iframely.net/pKA8B1yd?theme=light"></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2" data-i18n="headingFavoursSongs">Musik 🎵</h3>
+                    <div class="space-y-2">
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/0W5Yp04z8hWSwZCuNt0vAf?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/0d83zVs3OmdjrhfoAxg1dE?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/5yyqx4brn6Bm9U1Rj9ENnz?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/2stkLJ0JNcXkIRDNF3ld6c?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/0SccFtYdj75y6lL2OW10Cf?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/2dJ1UJEQQq3jkLSJP4ZIoi?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/20I6sIOMTCkB6w7ryavxtO?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/0iGckQFyv6svOfAbAY9aWJ?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/39J2ievGlF1UmLeqjDr8Fb?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/2ihCaVdNZmnHZWt0fvAM7B?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2" data-i18n="headingFavoursColor">Lieblingsfarbe 🎨</h3>
+                    <div class="flex items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-16 h-16">
+                            <rect height="100" width="100" fill="#BA3BF9"></rect>
+                        </svg>
+                        <p class="text-lg">Purple/Violet - #BA3BF9 💜</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Streaming & Content 📺</h3>
+                    <div class="space-y-2">
+                        <p><strong>Lieblings-Streamer:</strong> Papaplatte (natürlich! 🐸)</p>
+                        <p><strong>Lieblings-Serie:</strong> Brooklyn Nine-Nine</p>
+                        <p><strong>Lieblings-Film:</strong> Turning Red</p>
+                        <a href="https://www.youtube.com/@DevTimmOfTO" class="block bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition mt-4">
+                            <i class="fa-brands fa-youtube mr-2"></i>Mein YouTube Channel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="entertainment" class="mb-8">
+            <h2 class="text-3xl font-semibold mb-4 text-purple-700" data-i18n="headingEntertainment">Random Fun Stuff 🎊</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Meine Ziele 📚</h3>
+                    <ul class="space-y-2">
+                        <li>📖 <strong>Englisch:</strong> C1 Level erreichen</li>
+                        <li>🇫🇷 <strong>Französisch:</strong> B2 schaffen</li>
+                        <li>💻 <strong>Programmieren:</strong> Mehr Praxis, weniger Theorie</li>
+                        <li>🎓 <strong>Abi:</strong> Erstmal gut überstehen 😅</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Fun Facts über mich 🤓</h3>
+                    <ul class="space-y-2">
+                        <li>🏠 Lebe noch bei den Eltern (wie gesagt, ist normal!)</li>
+                        <li>🎮 Zocke zu viel, aber es macht Spaß</li>
+                        <li>🛠️ DIY-Projekte sind mein Ding</li>
+                        <li>🗺️ OSM-Mapping wenn ich mal Lust hab</li>
+                        <li>⭐ Bin stolzer 4*townie - 4town4ever</li>
+                        <li>🎯 Minimalistisch leben ist mein Ziel</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="social-private" class="mb-8">
+            <h2 class="text-3xl font-semibold mb-4 text-purple-700">Alle meine Links 🔗</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="https://github.com/DevTimmOfTO" title="GitHub" 
+                   class="bg-gray-800 text-white p-4 rounded-lg text-center hover:bg-gray-700 transition">
+                    <i class="fa-brands fa-github fa-2xl mb-2"></i>
+                    <p class="text-sm">GitHub</p>
+                </a>
+                <a href="https://www.youtube.com/@DevTimmOfTO" title="YouTube"
+                   class="bg-red-600 text-white p-4 rounded-lg text-center hover:bg-red-500 transition">
+                    <i class="fa-brands fa-youtube fa-2xl mb-2"></i>
+                    <p class="text-sm">YouTube</p>
+                </a>
+                <a href="https://discord.com/users/629199560002109453" title="Discord"
+                   class="bg-blue-600 text-white p-4 rounded-lg text-center hover:bg-blue-500 transition">
+                    <i class="fa-brands fa-discord fa-2xl mb-2"></i>
+                    <p class="text-sm">Discord</p>
+                </a>
+                <a href="https://www.twitch.tv/DevTimmOfTO" title="Twitch"
+                   class="bg-purple-600 text-white p-4 rounded-lg text-center hover:bg-purple-500 transition">
+                    <i class="fa-brands fa-twitch fa-2xl mb-2"></i>
+                    <p class="text-sm">Twitch</p>
+                </a>
+                <a href="https://www.linkedin.com/in/timm-johannes-g%C3%B6ring-476aa0245/" title="LinkedIn"
+                   class="bg-blue-700 text-white p-4 rounded-lg text-center hover:bg-blue-600 transition">
+                    <i class="fa-brands fa-linkedin fa-2xl mb-2"></i>
+                    <p class="text-sm">LinkedIn</p>
+                </a>
+                <a href="mailto:DevTimmOfTO.dev@gmail.com" title="E-Mail"
+                   class="bg-green-600 text-white p-4 rounded-lg text-center hover:bg-green-500 transition">
+                    <i class="fa-regular fa-envelope fa-2xl mb-2"></i>
+                    <p class="text-sm">E-Mail</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-purple-800 text-white text-center py-4 mt-8">
+        <p>© 2025 Timm Johannes Göring | Mein privater Bereich - Nicht für Bewerbungen gedacht! 😄</p>
+    </footer>
+
+    <script>
+        const translations = {
+            de: {
+                portfolioTopStartDesc: "Mein persönlicher Bereich mit allem was ich mag",
+                navPersonal: "Persönliches",
+                navFavoursThings: "Lieblings-...",
+                navGaming: "Gaming",
+                navEntertainment: "Entertainment",
+                headingPersonal: "Das bin ich wirklich 😄",
+                textPersonalAboutMe: "Yo! Ich bin DevTimmOfTO, aber eigentlich einfach Timm...",
+                headingGaming: "Gaming 🎮",
+                headingFavours: "Meine Lieblings-... 💜",
+                headingFavoursSeries: "Serien",
+                headingFavoursFilms: "Filme", 
+                headingFavoursSongs: "Musik 🎵",
+                headingFavoursColor: "Lieblingsfarbe 🎨",
+                headingEntertainment: "Random Fun Stuff 🎊",
+            },
+            en: {
+                portfolioTopStartDesc: "My personal space with everything I love",
+                navPersonal: "Personal",
+                navFavoursThings: "Favorites",
+                navGaming: "Gaming",
+                navEntertainment: "Entertainment", 
+                headingPersonal: "This is the real me 😄",
+                textPersonalAboutMe: "Yo! I'm DevTimmOfTO, but just call me Timm...",
+                headingGaming: "Gaming 🎮",
+                headingFavours: "My Favorites... 💜",
+                headingFavoursSeries: "Series",
+                headingFavoursFilms: "Movies",
+                headingFavoursSongs: "Music 🎵", 
+                headingFavoursColor: "Favorite Color 🎨",
+                headingEntertainment: "Random Fun Stuff 🎊",
+            },
+            fr: {
+                portfolioTopStartDesc: "Mon espace personnel avec tout ce que j'aime",
+                navPersonal: "Personnel",
+                navFavoursThings: "Préférés",
+                navGaming: "Gaming",
+                navEntertainment: "Divertissement",
+                headingPersonal: "Voici qui je suis vraiment 😄", 
+                textPersonalAboutMe: "Yo! Je suis DevTimmOfTO, mais appelez-moi juste Timm...",
+                headingGaming: "Gaming 🎮",
+                headingFavours: "Mes Préférés... 💜",
+                headingFavoursSeries: "Séries",
+                headingFavoursFilms: "Films",
+                headingFavoursSongs: "Musique 🎵",
+                headingFavoursColor: "Couleur Préférée 🎨", 
+                headingEntertainment: "Trucs Amusants 🎊",
+            }
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.textContent = translations[lang][key] || key;
+            });
+        }
+    </script>
+</body>
+
+</html>
