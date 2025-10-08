@@ -9,139 +9,183 @@
     <link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
     <link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
     <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .mono {
             font-family: 'JetBrains Mono', monospace;
         }
-        
+
         body {
             background: linear-gradient(135deg, #2064f8 0%, #2064f8 100%);
             min-height: 100vh;
         }
-        
+
         .glass {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .glass-dark {
             background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .neon-glow {
             box-shadow: 0 0 20px rgba(144, 249, 59, 0.4);
         }
-        
+
         .profile-glow {
             background: conic-gradient(from 0deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #ff006e);
             animation: rotate 8s linear infinite;
         }
-        
+
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
             opacity: 0;
         }
-        
+
         @keyframes fadeIn {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
-        
+
         .slide-up {
             animation: slideUp 0.6s ease-out forwards;
             opacity: 0;
             transform: translateY(20px);
         }
-        
+
         @keyframes slideUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .floating {
             animation: float 6s ease-in-out infinite;
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
-        
+
         .grid-pattern {
-            background-image: 
-                radial-gradient(circle at 2px 2px, rgba(255,255,255,.15) 1px, transparent 0);
+            background-image:
+                radial-gradient(circle at 2px 2px, rgba(255, 255, 255, .15) 1px, transparent 0);
             background-size: 40px 40px;
         }
-        
+
         .gradient-text {
             background: linear-gradient(135deg, #d4f132c5 0%, #f19946 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hover-lift {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .hover-lift:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-        
+
         .music-visualizer {
             display: flex;
             align-items: end;
             gap: 2px;
             height: 20px;
         }
-        
+
         .bar {
             width: 3px;
             background: linear-gradient(to top, #ff006e, #8338ec);
             animation: musicBars 1.5s ease-in-out infinite;
         }
-        
-        .bar:nth-child(1) { animation-delay: 0s; }
-        .bar:nth-child(2) { animation-delay: 0.2s; }
-        .bar:nth-child(3) { animation-delay: 0.4s; }
-        .bar:nth-child(4) { animation-delay: 0.1s; }
-        .bar:nth-child(5) { animation-delay: 0.3s; }
-        
-        @keyframes musicBars {
-            0%, 100% { height: 5px; }
-            50% { height: 20px; }
+
+        .bar:nth-child(1) {
+            animation-delay: 0s;
         }
-        
+
+        .bar:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .bar:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .bar:nth-child(4) {
+            animation-delay: 0.1s;
+        }
+
+        .bar:nth-child(5) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes musicBars {
+
+            0%,
+            100% {
+                height: 5px;
+            }
+
+            50% {
+                height: 20px;
+            }
+        }
+
         .pulse-ring {
             animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
         }
-        
+
         @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 1; }
-            100% { transform: scale(2.4); opacity: 0; }
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
         }
-        
+
         .cyber-border {
             position: relative;
             overflow: hidden;
         }
-        
+
         .cyber-border::before {
             content: '';
             position: absolute;
@@ -152,10 +196,15 @@
             background: linear-gradient(90deg, transparent, #00ff41, transparent);
             animation: cyber-scan 2s infinite;
         }
-        
+
         @keyframes cyber-scan {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
     </style>
 </head>
@@ -163,13 +212,17 @@
 <body class="min-h-screen text-white overflow-x-hidden">
     <!-- Animated Background -->
     <div class="fixed inset-0 grid-pattern opacity-20"></div>
-    
+
     <!-- Floating Particles -->
     <div class="fixed inset-0 pointer-events-none">
-        <div class="absolute w-2 h-2 bg-purple-400 rounded-full opacity-60 floating" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="absolute w-1 h-1 bg-blue-400 rounded-full opacity-40 floating" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
-        <div class="absolute w-3 h-3 bg-pink-400 rounded-full opacity-30 floating" style="top: 80%; left: 20%; animation-delay: 4s;"></div>
-        <div class="absolute w-1 h-1 bg-green-400 rounded-full opacity-50 floating" style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+        <div class="absolute w-2 h-2 bg-purple-400 rounded-full opacity-60 floating"
+            style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="absolute w-1 h-1 bg-blue-400 rounded-full opacity-40 floating"
+            style="top: 60%; left: 80%; animation-delay: 2s;"></div>
+        <div class="absolute w-3 h-3 bg-pink-400 rounded-full opacity-30 floating"
+            style="top: 80%; left: 20%; animation-delay: 4s;"></div>
+        <div class="absolute w-1 h-1 bg-green-400 rounded-full opacity-50 floating"
+            style="top: 30%; left: 70%; animation-delay: 1s;"></div>
     </div>
 
     <!-- Navigation -->
@@ -179,9 +232,9 @@
                 <div class="flex items-center space-x-4">
                     <div class="relative">
                         <div class="absolute inset-0 bg-purple-500 rounded-full pulse-ring"></div>
-                        <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-sm font-bold">
-                            T
-                        </div>
+                        <img src="img/profil_pic.png" alt="DevTimmOfTO"
+                                class="w-8 h-8 rounded-full object-cover">
+                        
                     </div>
                     <span class="text-xl font-bold gradient-text mono">DevTimmOfTO</span>
                     <div class="music-visualizer ml-4">
@@ -192,29 +245,39 @@
                         <div class="bar"></div>
                     </div>
                 </div>
-                
+
                 <div class="hidden md:flex space-x-8">
                     <a href="#personal" class="hover:text-purple-300 transition-colors duration-300 relative group">
                         <span>Personal</span>
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full"></div>
+                        <div
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full">
+                        </div>
                     </a>
                     <a href="#dev" class="hover:text-green-300 transition-colors duration-300 relative group">
                         <span>Dev</span>
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></div>
+                        <div
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full">
+                        </div>
                     </a>
                     <a href="#gaming" class="hover:text-pink-300 transition-colors duration-300 relative group">
                         <span>Gaming</span>
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></div>
+                        <div
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full">
+                        </div>
                     </a>
                     <a href="#entertainment" class="hover:text-blue-300 transition-colors duration-300 relative group">
                         <span>Entertainment</span>
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></div>
+                        <div
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full">
+                        </div>
                     </a>
                 </div>
-                
+
                 <div class="flex space-x-2">
-                    <button onclick="setLanguage('de')" class="px-3 py-1 rounded-full text-xs glass hover:bg-white/20 transition-all">DE</button>
-                    <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-xs glass hover:bg-white/20 transition-all">EN</button>
+                    <button onclick="setLanguage('de')"
+                        class="px-3 py-1 rounded-full text-xs glass hover:bg-white/20 transition-all">DE</button>
+                    <button onclick="setLanguage('en')"
+                        class="px-3 py-1 rounded-full text-xs glass hover:bg-white/20 transition-all">EN</button>
                 </div>
             </div>
         </div>
@@ -226,18 +289,20 @@
             <div class="fade-in" style="animation-delay: 0.2s;">
                 <div class="relative inline-block mb-8">
                     <div class="profile-glow w-32 h-32 rounded-full p-1">
-                        <a href="index.html"><img src="img/profil_pic.png" alt="DevTimmOfTO" class="w-full h-full rounded-full object-cover"></a>
+                        <a href="index.html"><img src="img/profil_pic.png" alt="DevTimmOfTO"
+                                class="w-full h-full rounded-full object-cover"></a>
                     </div>
                 </div>
-                
+
                 <h1 class="text-6xl md:text-8xl font-bold mb-6 gradient-text">
                     Hey, ich bin <span class="mono neon-glow">Timm</span>
                 </h1>
-                
+
                 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-                    19 • Backend Dev • 4⭐townie • Gaming Enthusiast • Oberstufenschüler der trotzdem Zeit zum Coden hat 🚀
+                    19 • Backend Dev • 4⭐townie • Gaming Enthusiast • Oberstufenschüler der trotzdem Zeit zum Coden hat
+                    🚀
                 </p>
-                
+
                 <div class="flex flex-wrap justify-center gap-4 mb-12">
                     <div class="glass px-6 py-3 rounded-full flex items-center space-x-2 hover-lift">
                         <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -260,7 +325,7 @@
                     <span class="gradient-text">Über</span> <span class="mono neon-glow">mich</span> 🎭
                 </h2>
             </div>
-            
+
             <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.2s;">
                     <h3 class="text-2xl font-bold mb-6 flex items-center">
@@ -268,13 +333,16 @@
                         About Me
                     </h3>
                     <div class="space-y-4 text-gray-200">
-                        <p>Yo! Ich bin DevTimmOfTO, aber eigentlich einfach <strong class="text-purple-300">Timm</strong>. 🤙</p>
-                        <p>19 Jahre alt, Oberstufenschüler und lebe noch bei meinen Eltern (aber hey, wer tut das nicht in dem Alter? 😅)</p>
-                        <p>Ich liebe <span class="text-blue-300">Backend-Development</span>, aber auch einfach chillen und zocken!</p>
+                        <p>Yo! Ich bin DevTimmOfTO, aber eigentlich einfach <strong
+                                class="text-purple-300">Timm</strong>. 🤙</p>
+                        <p>19 Jahre alt, Oberstufenschüler und lebe noch bei meinen Eltern (aber hey, wer tut das nicht
+                            in dem Alter? 😅)</p>
+                        <p>Ich liebe <span class="text-blue-300">Backend-Development</span>, aber auch einfach chillen
+                            und zocken!</p>
                         <p><strong class="text-pink-300">Fun Fact:</strong> Ich bin ein 4⭐townie - ich ❤️ 4⭐town</p>
                     </div>
                 </div>
-                
+
                 <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.3s;">
                     <h3 class="text-2xl font-bold mb-6 flex items-center">
                         <i class="fa-solid fa-rocket mr-3 text-pink-400"></i>
@@ -311,7 +379,7 @@
                     <span class="gradient-text">Dev</span> <span class="mono neon-glow">Corner</span> 💻
                 </h2>
             </div>
-            
+
             <!-- Tech Stack -->
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
                 <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.2s;">
@@ -331,11 +399,11 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="flex items-center">
-                                <i class="fa-brands  text-yellow-300 mr-2"></i>
+                                <i class="fa-brands fa-microsoft text-green-600 mr-2"></i>
                                 C#
                             </span>
                             <div class="w-20 h-2 bg-gray-700 rounded-full">
-                                <div class="w-3/4 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
+                                <div class="w-5/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
                             </div>
                         </div>
                         <div class="flex items-center justify-between">
@@ -356,9 +424,18 @@
                                 <div class="w-4/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
                             </div>
                         </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center">
+                                <i class="fa-brands fa-rust text-pink-200 mr-2"></i>
+                                Rust
+                            </span>
+                            <div class="w-20 h-2 bg-gray-700 rounded-full">
+                                <div class="w-1/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.3s;">
                     <h3 class="text-2xl font-bold mb-6 flex items-center">
                         <i class="fa-solid fa-rocket mr-3 text-purple-400"></i>
@@ -366,34 +443,38 @@
                     </h3>
                     <div class="space-y-6">
                         <div class="border-l-4 border-purple-400 pl-4">
-                            <div class="font-semibold text-purple-300">GTA-RP Server</div>
-                            <div class="text-sm text-gray-400 mb-2">Backend Development</div>
+                            <div class="font-semibold text-purple-300">CivTechXR</div>
+                            <div class="text-sm text-gray-400 mb-2">GTA-RP Server, Backend Development</div>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-purple-600/30 text-purple-300 text-xs rounded-full">C#</span>
-                                <span class="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded-full">MongoDB</span>
+                                <span class="px-2 py-1 bg-purple-600/30 text-purple-300 text-xs rounded-full">C#,
+                                    F#</span>
+                                <span class="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded-full">MongoDB,
+                                    AI</span>
                             </div>
                         </div>
-                        
+
                         <div class="border-l-4 border-green-400 pl-4">
-                            <div class="font-semibold text-green-300">Biggest Map for Lotus-Simulator</div>
-                            <div class="text-sm text-gray-400 mb-2">Lotus Map for Toronto</div>
+                            <div class="font-semibold text-green-300">Lotus Map for Toronto</div>
+                            <div class="text-sm text-gray-400 mb-2">Biggest Map for Lotus-Simulator</div>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-green-600/30 text-green-300 text-xs rounded-full">Lotus-Simulator</span>
+                                <span
+                                    class="px-2 py-1 bg-green-600/30 text-green-300 text-xs rounded-full">Lotus-Simulator</span>
                                 <span class="px-2 py-1 bg-pink-600/30 text-pink-300 text-xs rounded-full">Rust</span>
                             </div>
                         </div>
-                        
+
                         <div class="border-l-4 border-blue-400 pl-4">
                             <div class="font-semibold text-blue-300">OSM Mapping</div>
-                            <div class="text-sm text-gray-400 mb-2">Hobby Project</div>
+                            <div class="text-sm text-gray-400 mb-2">Small Side Project</div>
                             <div class="flex space-x-2">
                                 <span class="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded-full">JOSM</span>
-                                <span class="px-2 py-1 bg-yellow-600/30 text-yellow-300 text-xs rounded-full">Geographic Data</span>
+                                <span class="px-2 py-1 bg-yellow-600/30 text-yellow-300 text-xs rounded-full">Geographic
+                                    Data</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.4s;">
                     <h3 class="text-2xl font-bold mb-6 flex items-center">
                         <i class="fa-solid fa-brain mr-3 text-pink-400"></i>
@@ -402,13 +483,13 @@
                     <div class="space-y-4">
                         <div class="text-center">
                             <div class="text-3xl font-bold text-green-400 mono">7+</div>
-                            <div class="text-sm text-gray-400">Jahre Coding</div>
+                            <div class="text-sm text-gray-400">Years Coding Experience</div>
                         </div>
                         <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
                         <div class="space-y-3">
                             <div class="flex items-center space-x-2">
                                 <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                <span class="text-sm">Started mit C# </span>
+                                <span class="text-sm">Started with HTML & C# </span>
                             </div>
                             <div class="flex items-center space-x-2">
                                 <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
@@ -420,13 +501,13 @@
                             </div>
                             <div class="flex items-center space-x-2">
                                 <div class="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
-                                <span class="text-sm">Always Learning 📚</span>
+                                <span class="text-sm">Learning Rust 📚</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Dev Tools & Setup -->
             <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.5s;">
@@ -465,31 +546,41 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.6s;">
                     <h3 class="text-2xl font-bold mb-6 flex items-center">
                         <i class="fa-solid fa-lightbulb mr-3 text-yellow-400"></i>
-                        Dev Philosophy
+                        Dev Skillset & Mindset
                     </h3>
                     <div class="space-y-4 text-gray-200">
+
                         <div class="border-l-4 border-yellow-400 pl-4">
-                            <div class="font-semibold text-yellow-300">"Code for humans, not machines"</div>
-                            <div class="text-sm text-gray-400">Readable > Clever</div>
+                            <div class="font-semibold text-yellow-300">"Clean architecture first"</div>
+                            <div class="text-sm text-gray-400">Writing structured, maintainable code is non-negotiable
+                            </div>
                         </div>
+
                         <div class="border-l-4 border-green-400 pl-4">
-                            <div class="font-semibold text-green-300">"Backend is where the magic happens"</div>
-                            <div class="text-sm text-gray-400">Data structures & algorithms ❤️</div>
+                            <div class="font-semibold text-green-300">"Backend logic is my comfort zone"</div>
+                            <div class="text-sm text-gray-400">C#, Python & database design — from APIs to data flow
+                            </div>
                         </div>
+
                         <div class="border-l-4 border-purple-400 pl-4">
-                            <div class="font-semibold text-purple-300">"Learn by building, not by reading"</div>
-                            <div class="text-sm text-gray-400">Hands-on approach</div>
+                            <div class="font-semibold text-purple-300">"Front-end with intent"</div>
+                            <div class="text-sm text-gray-400">Crafting responsive, accessible UIs that actually feel
+                                good</div>
                         </div>
+
                         <div class="border-l-4 border-blue-400 pl-4">
-                            <div class="font-semibold text-blue-300">"Keep it simple, make it work"</div>
-                            <div class="text-sm text-gray-400">Minimalist mindset</div>
+                            <div class="font-semibold text-blue-300">"Think in systems, build with purpose"</div>
+                            <div class="text-sm text-gray-400">Full-stack mindset — connecting logic, data, and design
+                            </div>
                         </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -502,7 +593,7 @@
                     <span class="gradient-text">Gaming</span> <span class="mono neon-glow">Zone</span> 🎮
                 </h2>
             </div>
-            
+
             <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <div class="slide-up" style="animation-delay: 0.2s;">
                     <div class="glass p-8 rounded-3xl hover-lift cyber-border h-fit">
@@ -511,13 +602,16 @@
                             Lieblingsspiele
                         </h3>
                         <div class="space-y-4">
-                            <iframe src="https://store.steampowered.com/widget/370350/" frameborder="0" width="100%" height="190" class="rounded-lg"></iframe>
-                            <iframe src="https://store.steampowered.com/widget/289070/" frameborder="0" width="100%" height="190" class="rounded-lg"></iframe>
-                            <iframe src="https://store.steampowered.com/widget/1066780/" frameborder="0" width="100%" height="190" class="rounded-lg"></iframe>
+                            <iframe src="https://store.steampowered.com/widget/370350/" frameborder="0" width="100%"
+                                height="190" class="rounded-lg"></iframe>
+                            <iframe src="https://store.steampowered.com/widget/289070/" frameborder="0" width="100%"
+                                height="190" class="rounded-lg"></iframe>
+                            <iframe src="https://store.steampowered.com/widget/1066780/" frameborder="0" width="100%"
+                                height="190" class="rounded-lg"></iframe>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="slide-up" style="animation-delay: 0.3s;">
                     <div class="glass p-8 rounded-3xl hover-lift cyber-border h-fit mb-8">
                         <h3 class="text-2xl font-bold mb-6 flex items-center">
@@ -539,19 +633,22 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="space-y-4">
-                        <a href="https://www.twitch.tv/DevTimmOfTO" class="block glass-dark p-6 rounded-2xl hover-lift transition-all duration-300 group">
+                        <a href="https://www.twitch.tv/DevTimmOfTO"
+                            class="block glass-dark p-6 rounded-2xl hover-lift transition-all duration-300 group">
                             <div class="flex items-center">
                                 <i class="fa-brands fa-twitch text-2xl text-purple-400 mr-4"></i>
                                 <div>
-                                    <div class="font-semibold group-hover:text-purple-300 transition-colors">Twitch Stream</div>
+                                    <div class="font-semibold group-hover:text-purple-300 transition-colors">Twitch
+                                        Stream</div>
                                     <div class="text-sm text-gray-400">Manchmal live 📺</div>
                                 </div>
                             </div>
                         </a>
-                        
-                        <a href="https://discord.com/users/629199560002109453" class="block glass-dark p-6 rounded-2xl hover-lift transition-all duration-300 group">
+
+                        <a href="https://discord.com/users/629199560002109453"
+                            class="block glass-dark p-6 rounded-2xl hover-lift transition-all duration-300 group">
                             <div class="flex items-center">
                                 <i class="fa-brands fa-discord text-2xl text-blue-400 mr-4"></i>
                                 <div>
@@ -574,27 +671,39 @@
                     <span class="gradient-text">Entertainment</span> <span class="mono neon-glow">Hub</span> 🎵
                 </h2>
             </div>
-            
+
             <!-- Music Section -->
             <div class="mb-16 slide-up" style="animation-delay: 0.2s;">
                 <h3 class="text-3xl font-bold mb-8 text-center flex items-center justify-center">
                     <i class="fa-brands fa-spotify mr-3 text-green-400"></i>
                     Meine Playlist Vibes
                 </h3>
-                
+
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     <div class="glass p-6 rounded-2xl hover-lift">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0W5Yp04z8hWSwZCuNt0vAf?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/0W5Yp04z8hWSwZCuNt0vAf?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
                     </div>
                     <div class="glass p-6 rounded-2xl hover-lift">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0d83zVs3OmdjrhfoAxg1dE?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/0d83zVs3OmdjrhfoAxg1dE?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
                     </div>
                     <div class="glass p-6 rounded-2xl hover-lift">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5yyqx4brn6Bm9U1Rj9ENnz?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/5yyqx4brn6Bm9U1Rj9ENnz?utm_source=generator"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Movies & Series -->
             <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
                 <div class="slide-up" style="animation-delay: 0.3s;">
@@ -604,11 +713,14 @@
                             Top Series
                         </h3>
                         <div class="space-y-6">
-                            <div class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://wallpaperaccess.com/full/1455759.jpg" 
-                                     alt="Brooklyn Nine-Nine" class="w-16 h-20 object-cover rounded-lg">
+                            <div
+                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
+                                <img src="https://wallpaperaccess.com/full/1455759.jpg" alt="Brooklyn Nine-Nine"
+                                    class="w-16 h-20 object-cover rounded-lg">
                                 <div class="flex-1">
-                                    <div class="font-semibold text-yellow-300 group-hover:text-yellow-200 transition-colors">Brooklyn Nine-Nine</div>
+                                    <div
+                                        class="font-semibold text-yellow-300 group-hover:text-yellow-200 transition-colors">
+                                        Brooklyn Nine-Nine</div>
                                     <div class="text-sm text-gray-400">Best Comedy ever! 😂</div>
                                     <div class="flex items-center mt-2">
                                         <div class="flex text-yellow-400 text-xs">
@@ -618,12 +730,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://www.zdf.de/assets/die-anstalt-sendungteaser-100~640x720?cb=1734427743140" 
-                                     alt="Avatar: The Last Airbender" class="w-16 h-20 object-cover rounded-lg">
+
+                            <div
+                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
+                                <img src="https://www.zdf.de/assets/die-anstalt-sendungteaser-100~640x720?cb=1734427743140"
+                                    alt="Avatar: The Last Airbender" class="w-16 h-20 object-cover rounded-lg">
                                 <div class="flex-1">
-                                    <div class="font-semibold text-green-300 group-hover:text-green-200 transition-colors">Die Anstalt</div>
+                                    <div
+                                        class="font-semibold text-green-300 group-hover:text-green-200 transition-colors">
+                                        Die Anstalt</div>
                                     <div class="text-sm text-gray-400">Beste Satire am Tag</div>
                                     <div class="flex items-center mt-2">
                                         <div class="flex text-green-400 text-xs">
@@ -633,12 +748,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://tse2.mm.bing.net/th/id/OIP.W02gd-qSe3VsrcpGvdpujgHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" 
-                                     alt="The Office" class="w-16 h-20 object-cover rounded-lg">
+
+                            <div
+                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
+                                <img src="https://tse2.mm.bing.net/th/id/OIP.W02gd-qSe3VsrcpGvdpujgHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                                    alt="The Office" class="w-16 h-20 object-cover rounded-lg">
                                 <div class="flex-1">
-                                    <div class="font-semibold text-purple-300 group-hover:text-purple-200 transition-colors">The Office (US)</div>
+                                    <div
+                                        class="font-semibold text-purple-300 group-hover:text-purple-200 transition-colors">
+                                        The Office (US)</div>
                                     <div class="text-sm text-gray-400">Comfort show 📺</div>
                                     <div class="flex items-center mt-2">
                                         <div class="flex text-purple-400 text-xs">
@@ -651,7 +769,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="slide-up" style="animation-delay: 0.4s;">
                     <div class="glass p-8 rounded-3xl hover-lift cyber-border">
                         <h3 class="text-2xl font-bold mb-6 flex items-center">
@@ -659,11 +777,13 @@
                             Favorite Movies
                         </h3>
                         <div class="space-y-6">
-                            <div class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://th.bing.com/th/id/R.14fdf8960a9bb38c99237c103660f277?rik=TFPbqghy%2b4goYw&pid=ImgRaw&r=0" 
-                                     alt="Turning Red" class="w-16 h-20 object-cover rounded-lg">
+                            <div
+                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
+                                <img src="https://th.bing.com/th/id/R.14fdf8960a9bb38c99237c103660f277?rik=TFPbqghy%2b4goYw&pid=ImgRaw&r=0"
+                                    alt="Turning Red" class="w-16 h-20 object-cover rounded-lg">
                                 <div class="flex-1">
-                                    <div class="font-semibold text-red-300 group-hover:text-red-200 transition-colors">Turning Red</div>
+                                    <div class="font-semibold text-red-300 group-hover:text-red-200 transition-colors">
+                                        Turning Red</div>
                                     <div class="text-sm text-gray-400">Underrated Pixar gem 🐼</div>
                                     <div class="flex items-center mt-2">
                                         <div class="flex text-red-400 text-xs">
@@ -673,12 +793,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://lumiere-a.akamaihd.net/v1/images/p_disney_elemental_homeent_v1_2292_0312c1d7.jpeg?region=0,0,540,810" 
-                                     alt="Spider-Man: Into the Spider-Verse" class="w-16 h-20 object-cover rounded-lg">
+
+                            <div
+                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
+                                <img src="https://lumiere-a.akamaihd.net/v1/images/p_disney_elemental_homeent_v1_2292_0312c1d7.jpeg?region=0,0,540,810"
+                                    alt="Spider-Man: Into the Spider-Verse" class="w-16 h-20 object-cover rounded-lg">
                                 <div class="flex-1">
-                                    <div class="font-semibold text-blue-300 group-hover:text-blue-200 transition-colors">Elemental</div>
+                                    <div
+                                        class="font-semibold text-blue-300 group-hover:text-blue-200 transition-colors">
+                                        Elemental</div>
                                     <div class="text-sm text-gray-400">Best Romantic Movie by Pixar ❤️</div>
                                     <div class="flex items-center mt-2">
                                         <div class="flex text-blue-400 text-xs">
@@ -688,12 +811,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://image.tmdb.org/t/p/original/u5Ut5uygWnTRWGRoPVzlLsetiIp.jpg" 
-                                     alt="The Dark Knight" class="w-16 h-20 object-cover rounded-lg">
+
+                            <div
+                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
+                                <img src="https://image.tmdb.org/t/p/original/u5Ut5uygWnTRWGRoPVzlLsetiIp.jpg"
+                                    alt="The Dark Knight" class="w-16 h-20 object-cover rounded-lg">
                                 <div class="flex-1">
-                                    <div class="font-semibold text-gray-300 group-hover:text-gray-200 transition-colors">Inside Out</div>
+                                    <div
+                                        class="font-semibold text-gray-300 group-hover:text-gray-200 transition-colors">
+                                        Inside Out</div>
                                     <div class="text-sm text-gray-400">Best Movie of all Time</div>
                                     <div class="flex items-center mt-2">
                                         <div class="flex text-gray-400 text-xs">
@@ -707,7 +833,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Style & Vibes Section -->
             <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <div class="slide-up" style="animation-delay: 0.5s;">
@@ -720,29 +846,35 @@
                             <div>
                                 <span class="block mb-2 text-gray-300">Lieblingsfarbe:</span>
                                 <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 rounded-full" style="background: linear-gradient(135deg, #BA3BF9, #8338ec);"></div>
+                                    <div class="w-12 h-12 rounded-full"
+                                        style="background: linear-gradient(135deg, #BA3BF9, #8338ec);"></div>
                                     <span class="mono text-purple-300">#BA3BF9</span>
                                 </div>
                             </div>
                             <div>
                                 <span class="block mb-2 text-gray-300">Lieblings-Streamer:</span>
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-xs">🐸</div>
+                                    <div
+                                        class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-xs">
+                                        🐸</div>
                                     <span class="text-yellow-300 font-semibold">Papaplatte</span>
                                 </div>
                             </div>
                             <div>
                                 <span class="block mb-2 text-gray-300">Aesthetic:</span>
                                 <div class="flex space-x-2">
-                                    <span class="px-3 py-1 bg-blue-600/30 text-blue-300 text-sm rounded-full">Cyber</span>
-                                    <span class="px-3 py-1 bg-gray-600/30 text-gray-300 text-sm rounded-full">Minimal</span>
-                                    <span class="px-3 py-1 bg-purple-600/30 text-purple-300 text-sm rounded-full">Neon</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-600/30 text-blue-300 text-sm rounded-full">Cyber</span>
+                                    <span
+                                        class="px-3 py-1 bg-gray-600/30 text-gray-300 text-sm rounded-full">Minimal</span>
+                                    <span
+                                        class="px-3 py-1 bg-purple-600/30 text-purple-300 text-sm rounded-full">Neon</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="slide-up" style="animation-delay: 0.6s;">
                     <div class="glass p-8 rounded-3xl hover-lift cyber-border">
                         <h3 class="text-2xl font-bold mb-6 flex items-center">
@@ -750,14 +882,15 @@
                             Content Creator Links
                         </h3>
                         <div class="space-y-4">
-                            <a href="https://www.youtube.com/@DevTimmOfTO" class="flex items-center space-x-4 p-4 glass-dark rounded-xl hover-lift group transition-all">
+                            <a href="https://www.youtube.com/@DevTimmOfTO"
+                                class="flex items-center space-x-4 p-4 glass-dark rounded-xl hover-lift group transition-all">
                                 <i class="fa-brands fa-youtube text-2xl text-red-400 group-hover:text-red-300"></i>
                                 <div>
                                     <div class="font-semibold group-hover:text-red-300">YouTube Channel</div>
                                     <div class="text-sm text-gray-400">Videos & Tutorials</div>
                                 </div>
                             </a>
-                            
+
                             <div class="flex items-center space-x-4 p-4 glass-dark rounded-xl">
                                 <i class="fa-solid fa-tv text-2xl text-green-400"></i>
                                 <div>
@@ -768,7 +901,7 @@
                         </div>
                     </div>
                 </div>
-            
+
             </div>
         </div>
     </section>
@@ -781,28 +914,36 @@
                     <span class="gradient-text">Connect</span> <span class="mono neon-glow">with me</span> 🔗
                 </h2>
             </div>
-            
+
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <a href="https://github.com/DevTimmOfTO" class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i class="fa-brands fa-github text-3xl mb-3 text-gray-400 group-hover:text-white transition-colors"></i>
+                <a href="https://github.com/DevTimmOfTO"
+                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
+                    <i
+                        class="fa-brands fa-github text-3xl mb-3 text-gray-400 group-hover:text-white transition-colors"></i>
                     <div class="font-medium">GitHub</div>
                     <div class="text-xs text-gray-400 mono">Code & Repos</div>
                 </a>
-                
-                <a href="https://www.youtube.com/@DevTimmOfTO" class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i class="fa-brands fa-youtube text-3xl mb-3 text-red-400 group-hover:text-red-300 transition-colors"></i>
+
+                <a href="https://www.youtube.com/@DevTimmOfTO"
+                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
+                    <i
+                        class="fa-brands fa-youtube text-3xl mb-3 text-red-400 group-hover:text-red-300 transition-colors"></i>
                     <div class="font-medium">YouTube</div>
                     <div class="text-xs text-gray-400 mono">Videos & Tutorials</div>
                 </a>
-                
-                <a href="https://discord.com/users/629199560002109453" class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i class="fa-brands fa-discord text-3xl mb-3 text-blue-400 group-hover:text-blue-300 transition-colors"></i>
+
+                <a href="https://discord.com/users/629199560002109453"
+                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
+                    <i
+                        class="fa-brands fa-discord text-3xl mb-3 text-blue-400 group-hover:text-blue-300 transition-colors"></i>
                     <div class="font-medium">Discord</div>
                     <div class="text-xs text-gray-400 mono">Gaming & Chat</div>
                 </a>
-                
-                <a href="https://www.twitch.tv/DevTimmOfTO" class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i class="fa-brands fa-twitch text-3xl mb-3 text-purple-400 group-hover:text-purple-300 transition-colors"></i>
+
+                <a href="https://www.twitch.tv/DevTimmOfTO"
+                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
+                    <i
+                        class="fa-brands fa-twitch text-3xl mb-3 text-purple-400 group-hover:text-purple-300 transition-colors"></i>
                     <div class="font-medium">Twitch</div>
                     <div class="text-xs text-gray-400 mono">Live Streams</div>
                 </a>
@@ -815,7 +956,8 @@
         <div class="container mx-auto text-center">
             <div class="glass-dark p-6 rounded-2xl max-w-2xl mx-auto">
                 <p class="mono text-gray-400">
-                    © 2025 Timm Johannes Göring | <span class="text-purple-300">Private Space</span> - Hier kein offizieller Autritt! 😄
+                    © 2025 Timm Johannes Göring | <span class="text-purple-300">Private Space</span> - Hier kein
+                    offizieller Autritt! 😄
                 </p>
                 <p class="text-sm text-gray-500 mt-2">
                     Made with 💜 and way too much maple syrup 🍁
@@ -884,7 +1026,7 @@
             particle.style.left = Math.random() * 100 + '%';
             particle.style.animationDelay = Math.random() * 6 + 's';
             document.body.appendChild(particle);
-            
+
             setTimeout(() => {
                 particle.remove();
             }, 12000);
@@ -913,7 +1055,7 @@
                 'Working on Projects 💻',
                 'Watching Papaplatte 📺'
             ];
-            
+
             let currentIndex = 0;
             setInterval(() => {
                 currentIndex = (currentIndex + 1) % messages.length;
@@ -947,7 +1089,7 @@
             if (konamiCode.length > konamiSequence.length) {
                 konamiCode.shift();
             }
-            
+
             if (konamiCode.join(',') === konamiSequence.join(',')) {
                 // Easter egg activated!
                 document.body.style.filter = 'hue-rotate(180deg)';
@@ -962,7 +1104,7 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
