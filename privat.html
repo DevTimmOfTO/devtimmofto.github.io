@@ -1,1116 +1,679 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Space | DevTimmOfTO</title>
+    <meta name="description" content="Timm's personal space — developer, gamer, student, human.">
+    <title>Timm's Space | DevTimmOfTO</title>
     <link rel="shortcut icon" href="img/profil_pic.png">
     <link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
     <link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
     <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind = { config: { darkMode: 'class' } }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            font-family: 'Inter', sans-serif;
+        * { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        html { scroll-behavior: smooth; }
+
+        /* Dark mode overrides */
+        .dark .dm-bg-page    { background-color: #111827 !important; }
+        .dark .dm-bg-header  { background-color: #0d1117 !important; }
+        .dark .dm-bg-nav     { background-color: #161b22 !important; }
+        .dark .dm-bg-card    { background-color: #1f2937 !important; }
+        .dark .dm-text-main  { color: #e2e8f0 !important; }
+        .dark .dm-text-sub   { color: #94a3b8 !important; }
+        .dark .dm-text-heading { color: #cbd5e1 !important; }
+        .dark .dm-border     { border-color: #374151 !important; }
+
+        /* Profile picture ring */
+        @keyframes spin-slow { to { transform: rotate(360deg); } }
+        .profile-ring {
+            background: conic-gradient(#6366f1, #8b5cf6, #ec4899, #f59e0b, #10b981, #6366f1);
+            animation: spin-slow 10s linear infinite;
         }
 
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
+        /* Skill bars */
+        .skill-bar-fill {
+            height: 6px;
+            border-radius: 9999px;
+            transition: width 1s ease;
         }
 
-        body {
-            background: linear-gradient(135deg, #2064f8 0%, #2064f8 100%);
-            min-height: 100vh;
-        }
+        /* Status dot pulse */
+        @keyframes ping { 75%,100% { transform: scale(2); opacity: 0; } }
+        .status-ping { animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite; }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .glass-dark {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(144, 249, 59, 0.4);
-        }
-
-        .profile-glow {
-            background: conic-gradient(from 0deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #ff006e);
-            animation: rotate 8s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .slide-up {
-            animation: slideUp 0.6s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .grid-pattern {
-            background-image:
-                radial-gradient(circle at 2px 2px, rgba(255, 255, 255, .15) 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #d4f132c5 0%, #f19946 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .music-visualizer {
-            display: flex;
-            align-items: end;
-            gap: 2px;
-            height: 20px;
-        }
-
-        .bar {
-            width: 3px;
-            background: linear-gradient(to top, #ff006e, #8338ec);
-            animation: musicBars 1.5s ease-in-out infinite;
-        }
-
-        .bar:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .bar:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .bar:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        .bar:nth-child(4) {
-            animation-delay: 0.1s;
-        }
-
-        .bar:nth-child(5) {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes musicBars {
-
-            0%,
-            100% {
-                height: 5px;
-            }
-
-            50% {
-                height: 20px;
-            }
-        }
-
-        .pulse-ring {
-            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-        }
-
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(0.8);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(2.4);
-                opacity: 0;
-            }
-        }
-
-        .cyber-border {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cyber-border::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00ff41, transparent);
-            animation: cyber-scan 2s infinite;
-        }
-
-        @keyframes cyber-scan {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
+        /* Fade in on load */
+        @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-up { animation: fade-up 0.6s ease both; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
     </style>
 </head>
 
-<body class="min-h-screen text-white overflow-x-hidden">
-    <!-- Animated Background -->
-    <div class="fixed inset-0 grid-pattern opacity-20"></div>
+<body class="dm-bg-page dm-text-main bg-gray-50 text-gray-800 transition-colors duration-300">
 
-    <!-- Floating Particles -->
-    <div class="fixed inset-0 pointer-events-none">
-        <div class="absolute w-2 h-2 bg-purple-400 rounded-full opacity-60 floating"
-            style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="absolute w-1 h-1 bg-blue-400 rounded-full opacity-40 floating"
-            style="top: 60%; left: 80%; animation-delay: 2s;"></div>
-        <div class="absolute w-3 h-3 bg-pink-400 rounded-full opacity-30 floating"
-            style="top: 80%; left: 20%; animation-delay: 4s;"></div>
-        <div class="absolute w-1 h-1 bg-green-400 rounded-full opacity-50 floating"
-            style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+    <!-- Top bar -->
+    <div class="dm-bg-header bg-gray-800 text-white text-sm py-2 px-4 flex justify-between items-center">
+        <button onclick="toggleDarkMode()" class="flex items-center gap-1 hover:text-gray-300" title="Toggle dark mode">
+            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        <div class="flex space-x-4">
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('fr')">Français</button>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-dark">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-purple-500 rounded-full pulse-ring"></div>
-                        <img src="img/profil_pic.png" alt="DevTimmOfTO"
-                                class="w-8 h-8 rounded-full object-cover">
-                        
-                    </div>
-                    <span class="text-xl font-bold gradient-text mono">DevTimmOfTO</span>
-                    <div class="music-visualizer ml-4">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                </div>
+    <header class="dm-bg-header bg-gray-800 text-white py-4 text-center">
+        <h1 class="text-2xl font-bold">Timm's Space</h1>
+        <p class="text-gray-400 text-sm mt-1 mono" data-i18n="headerSub">developer · gamer · student · human</p>
+    </header>
 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#personal" class="hover:text-purple-300 transition-colors duration-300 relative group">
-                        <span>Personal</span>
-                        <div
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full">
-                        </div>
-                    </a>
-                    <a href="#dev" class="hover:text-green-300 transition-colors duration-300 relative group">
-                        <span>Dev</span>
-                        <div
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full">
-                        </div>
-                    </a>
-                    <a href="#gaming" class="hover:text-pink-300 transition-colors duration-300 relative group">
-                        <span>Gaming</span>
-                        <div
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full">
-                        </div>
-                    </a>
-                    <a href="#entertainment" class="hover:text-blue-300 transition-colors duration-300 relative group">
-                        <span>Entertainment</span>
-                        <div
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full">
-                        </div>
-                    </a>
-                </div>
-
-                <div class="flex space-x-2">
-                    <button onclick="setLanguage('de')"
-                        class="px-3 py-1 rounded-full text-xs glass hover:bg-white/20 transition-all">DE</button>
-                    <button onclick="setLanguage('en')"
-                        class="px-3 py-1 rounded-full text-xs glass hover:bg-white/20 transition-all">EN</button>
-                </div>
-            </div>
-        </div>
+    <nav class="dm-bg-nav bg-gray-700 py-2 flex justify-center flex-wrap gap-1 sticky top-0 z-50">
+        <a href="index.html" class="text-white hover:underline mx-3 px-2 py-1 text-sm">
+            <i class="fa-solid fa-arrow-left mr-1"></i><span data-i18n="navBack">Back to Portfolio</span>
+        </a>
+        <span class="text-gray-500 self-center">|</span>
+        <a href="#about"         class="text-white hover:underline mx-3 px-2 py-1 text-sm" data-i18n="navAbout">About</a>
+        <a href="#dev"           class="text-white hover:underline mx-3 px-2 py-1 text-sm" data-i18n="navDev">Dev</a>
+        <a href="#gaming"        class="text-white hover:underline mx-3 px-2 py-1 text-sm" data-i18n="navGaming">Gaming</a>
+        <a href="#entertainment" class="text-white hover:underline mx-3 px-2 py-1 text-sm" data-i18n="navEntertainment">Entertainment</a>
+        <a href="#connect"       class="text-white hover:underline mx-3 px-2 py-1 text-sm" data-i18n="navConnect">Connect</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-16 px-6">
-        <div class="container mx-auto text-center">
-            <div class="fade-in" style="animation-delay: 0.2s;">
-                <div class="relative inline-block mb-8">
-                    <div class="profile-glow w-32 h-32 rounded-full p-1">
-                        <a href="index.html"><img src="img/profil_pic.png" alt="DevTimmOfTO"
-                                class="w-full h-full rounded-full object-cover"></a>
-                    </div>
+    <div class="container mx-auto px-4 max-w-5xl">
+
+        <!-- ── Hero ───────────────────────────────────────────────────────── -->
+        <section class="py-12 flex flex-col md:flex-row items-center gap-8 fade-up">
+            <!-- Profile pic -->
+            <div class="shrink-0 relative">
+                <div class="profile-ring rounded-full p-1 w-36 h-36">
+                    <img src="img/profil_pic.png" alt="Timm's profile picture"
+                         class="rounded-full w-full h-full object-cover">
                 </div>
-
-                <h1 class="text-6xl md:text-8xl font-bold mb-6 gradient-text">
-                    Hey, ich bin <span class="mono neon-glow">Timm</span>
-                </h1>
-
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-                    19 • Backend Dev • 4⭐townie • Gaming Enthusiast • Oberstufenschüler der trotzdem Zeit zum Coden hat
-                    🚀
+                <!-- Status dot -->
+                <span class="absolute bottom-1 right-1 flex h-4 w-4">
+                    <span class="status-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white dark:border-gray-900"></span>
+                </span>
+            </div>
+            <!-- Text -->
+            <div>
+                <h2 class="dm-text-heading text-3xl font-bold text-gray-800 mb-1">Hey, ich bin Timm 👋</h2>
+                <p class="mono text-indigo-500 text-sm mb-3" id="statusText">Online & ready to code</p>
+                <p class="dm-text-main text-gray-600 leading-relaxed" data-i18n="heroDesc">
+                    19, student, living in Germany. I write backend code, play simulation games, and try to make my French not terrible. This is my personal corner of the internet — less polished than the portfolio, more me.
                 </p>
-
-                <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <div class="glass px-6 py-3 rounded-full flex items-center space-x-2 hover-lift">
-                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                        <span class="mono text-sm">Online & Ready to Code</span>
-                    </div>
-                    <div class="glass px-6 py-3 rounded-full flex items-center space-x-2 hover-lift">
-                        <i class="fa-solid fa-location-dot text-purple-400"></i>
-                        <span class="mono text-sm">Germany</span>
-                    </div>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="dm-bg-card bg-white px-3 py-1 rounded-full text-xs shadow border dm-border border-gray-200 dm-text-main">🇩🇪 Germany</span>
+                    <span class="dm-bg-card bg-white px-3 py-1 rounded-full text-xs shadow border dm-border border-gray-200 dm-text-main">🍁 <span data-i18n="badgeCanada">Canada lover</span></span>
+                    <span class="dm-bg-card bg-white px-3 py-1 rounded-full text-xs shadow border dm-border border-gray-200 dm-text-main">🎓 <span data-i18n="badgeStudent">Oberstufenschüler</span></span>
+                    <span class="dm-bg-card bg-white px-3 py-1 rounded-full text-xs shadow border dm-border border-gray-200 dm-text-main">⭐ 4⭐townie</span>
+                    <span class="dm-bg-card bg-white px-3 py-1 rounded-full text-xs shadow border dm-border border-gray-200 dm-text-main">💜 #BA3BF9</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Personal Section -->
-    <section id="personal" class="py-16 px-6">
-        <div class="container mx-auto">
-            <div class="slide-up" style="animation-delay: 0.1s;">
-                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
-                    <span class="gradient-text">Über</span> <span class="mono neon-glow">mich</span> 🎭
-                </h2>
+        <!-- ── About ──────────────────────────────────────────────────────── -->
+        <section id="about" class="mb-12 fade-up delay-1">
+            <h2 class="dm-text-heading text-2xl font-semibold mb-6 text-gray-700 border-l-4 border-indigo-400 pl-3" data-i18n="sectionAbout">About me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold text-indigo-500 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i> <span data-i18n="cardWhoHeading">Who I am</span>
+                    </h3>
+                    <p class="dm-text-main text-gray-600 text-sm leading-relaxed" data-i18n="cardWhoText">
+                        I'm a 19-year-old student from Germany who codes mostly for fun. My main thing is backend — server architecture, databases, making things actually work behind the scenes. I'm self-taught and have been at it for 7+ years. Outside of code I'm into sim games, movies, and watching too much Papaplatte.
+                    </p>
+                </div>
+
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold text-purple-500 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-bullseye"></i> <span data-i18n="cardGoalsHeading">Goals 2025 / 2026</span>
+                    </h3>
+                    <ul class="dm-text-main text-gray-600 text-sm space-y-2">
+                        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> <span data-i18n="goal1">Finish school (Abi 🎓)</span></li>
+                        <li class="flex items-start gap-2"><span class="text-yellow-500 mt-0.5">→</span> <span data-i18n="goal2">English: reach C1</span></li>
+                        <li class="flex items-start gap-2"><span class="text-yellow-500 mt-0.5">→</span> <span data-i18n="goal3">French: reach B2</span></li>
+                        <li class="flex items-start gap-2"><span class="text-yellow-500 mt-0.5">→</span> <span data-i18n="goal4">Get comfortable with Rust</span></li>
+                        <li class="flex items-start gap-2"><span class="text-yellow-500 mt-0.5">→</span> <span data-i18n="goal5">Actually understand Prolog</span></li>
+                    </ul>
+                </div>
+
             </div>
+        </section>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.2s;">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fa-solid fa-user-astronaut mr-3 text-purple-400"></i>
-                        About Me
+        <!-- ── Dev ────────────────────────────────────────────────────────── -->
+        <section id="dev" class="mb-12">
+            <h2 class="dm-text-heading text-2xl font-semibold mb-6 text-gray-700 border-l-4 border-indigo-400 pl-3" data-i18n="sectionDev">Dev corner</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- Skills -->
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold text-indigo-500 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-code"></i> <span data-i18n="cardSkillsHeading">Skills</span>
                     </h3>
-                    <div class="space-y-4 text-gray-200">
-                        <p>Yo! Ich bin DevTimmOfTO, aber eigentlich einfach <strong
-                                class="text-purple-300">Timm</strong>. 🤙</p>
-                        <p>19 Jahre alt, Oberstufenschüler und lebe noch bei meinen Eltern (aber hey, wer tut das nicht
-                            in dem Alter? 😅)</p>
-                        <p>Ich liebe <span class="text-blue-300">Backend-Development</span>, aber auch einfach chillen
-                            und zocken!</p>
-                        <p><strong class="text-pink-300">Fun Fact:</strong> Ich bin ein 4⭐townie - ich ❤️ 4⭐town</p>
-                    </div>
-                </div>
-
-                <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.3s;">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fa-solid fa-rocket mr-3 text-pink-400"></i>
-                        My Goals in 2025/2026
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span>📖 <strong>Englisch C1</strong> reaching</span>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <div class="flex justify-between mb-1 dm-text-main text-gray-600"><span class="mono">JavaScript / TypeScript</span><span>80%</span></div>
+                            <div class="bg-gray-100 rounded-full"><div class="skill-bar-fill bg-indigo-500" style="width:80%"></div></div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                            <span>🇫🇷 <strong>Französisch B2</strong> reaching</span>
+                        <div>
+                            <div class="flex justify-between mb-1 dm-text-main text-gray-600"><span class="mono">C# / .NET</span><span>70%</span></div>
+                            <div class="bg-gray-100 rounded-full"><div class="skill-bar-fill bg-purple-500" style="width:70%"></div></div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                            <span>💻 <strong>Mehr Coding</strong>, weniger Theorie</span>
+                        <div>
+                            <div class="flex justify-between mb-1 dm-text-main text-gray-600"><span class="mono">SQL / NoSQL</span><span>65%</span></div>
+                            <div class="bg-gray-100 rounded-full"><div class="skill-bar-fill bg-blue-500" style="width:65%"></div></div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
-                            <span>🎓 <strong>Abi</strong> gut überstehen 😅</span>
+                        <div>
+                            <div class="flex justify-between mb-1 dm-text-main text-gray-600"><span class="mono">Git / GitHub</span><span>75%</span></div>
+                            <div class="bg-gray-100 rounded-full"><div class="skill-bar-fill bg-gray-500" style="width:75%"></div></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dev Section -->
-    <section id="dev" class="py-16 px-6">
-        <div class="container mx-auto">
-            <div class="slide-up" style="animation-delay: 0.1s;">
-                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
-                    <span class="gradient-text">Dev</span> <span class="mono neon-glow">Corner</span> 💻
-                </h2>
-            </div>
-
-            <!-- Tech Stack -->
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-                <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.2s;">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fa-solid fa-code mr-3 text-green-400"></i>
-                        Backend Skills
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="flex items-center">
-                                <i class="fa-brands fa-js text-yellow-400 mr-2"></i>
-                                JavaScript/TypeScipt
-                            </span>
-                            <div class="w-20 h-2 bg-gray-700 rounded-full">
-                                <div class="w-4/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
-                            </div>
+                        <div>
+                            <div class="flex justify-between mb-1 dm-text-main text-gray-600"><span class="mono">Rust</span><span>25%</span></div>
+                            <div class="bg-gray-100 rounded-full"><div class="skill-bar-fill bg-orange-500" style="width:25%"></div></div>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <span class="flex items-center">
-                                <i class="fa-brands fa-microsoft text-green-600 mr-2"></i>
-                                C#
-                            </span>
-                            <div class="w-20 h-2 bg-gray-700 rounded-full">
-                                <div class="w-5/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
-                            </div>
+                        <div>
+                            <div class="flex justify-between mb-1 dm-text-main text-gray-600"><span class="mono">C++</span><span>35%</span></div>
+                            <div class="bg-gray-100 rounded-full"><div class="skill-bar-fill bg-blue-700" style="width:35%"></div></div>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <span class="flex items-center">
-                                <i class="fa-solid fa-database text-blue-400 mr-2"></i>
-                                SQL/NoSQL
-                            </span>
-                            <div class="w-20 h-2 bg-gray-700 rounded-full">
-                                <div class="w-3/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="flex items-center">
-                                <i class="fa-brands fa-git-alt text-orange-400 mr-2"></i>
-                                Git/GitHub
-                            </span>
-                            <div class="w-20 h-2 bg-gray-700 rounded-full">
-                                <div class="w-4/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="flex items-center">
-                                <i class="fa-brands fa-rust text-pink-200 mr-2"></i>
-                                Rust
-                            </span>
-                            <div class="w-20 h-2 bg-gray-700 rounded-full">
-                                <div class="w-1/5 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
-                            </div>
+                        <div>
+                            <div class="flex justify-between mb-1 dm-text-main text-gray-600"><span class="mono">Prolog</span><span>10%</span></div>
+                            <div class="bg-gray-100 rounded-full"><div class="skill-bar-fill bg-amber-500" style="width:10%"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.3s;">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fa-solid fa-rocket mr-3 text-purple-400"></i>
-                        Current Projects
+                <!-- Setup -->
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold text-teal-500 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code"></i> <span data-i18n="cardSetupHeading">My setup</span>
                     </h3>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-purple-400 pl-4">
-                            <div class="font-semibold text-purple-300">CivTechXR</div>
-                            <div class="text-sm text-gray-400 mb-2">GTA-RP Server, Backend Development</div>
-                            <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-purple-600/30 text-purple-300 text-xs rounded-full">C#,
-                                    F#</span>
-                                <span class="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded-full">MongoDB,
-                                    AI</span>
-                            </div>
-                        </div>
-
-                        <div class="border-l-4 border-green-400 pl-4">
-                            <div class="font-semibold text-green-300">Lotus Map for Toronto</div>
-                            <div class="text-sm text-gray-400 mb-2">Biggest Map for Lotus-Simulator</div>
-                            <div class="flex space-x-2">
-                                <span
-                                    class="px-2 py-1 bg-green-600/30 text-green-300 text-xs rounded-full">Lotus-Simulator</span>
-                                <span class="px-2 py-1 bg-pink-600/30 text-pink-300 text-xs rounded-full">Rust</span>
-                            </div>
-                        </div>
-
-                        <div class="border-l-4 border-blue-400 pl-4">
-                            <div class="font-semibold text-blue-300">OSM Mapping</div>
-                            <div class="text-sm text-gray-400 mb-2">Small Side Project</div>
-                            <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded-full">JOSM</span>
-                                <span class="px-2 py-1 bg-yellow-600/30 text-yellow-300 text-xs rounded-full">Geographic
-                                    Data</span>
-                            </div>
-                        </div>
+                    <ul class="space-y-2 text-sm dm-text-main text-gray-600">
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-windows text-blue-400 w-4"></i> Linux (Fedora)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-code text-indigo-400 w-4"></i> VS Code</li>
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-github text-gray-500 w-4"></i> GitHub workflow</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-terminal text-green-500 w-4"></i> zsh terminal</li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t dm-border border-gray-100">
+                        <h4 class="text-xs font-semibold uppercase tracking-wide dm-text-sub text-gray-400 mb-2" data-i18n="setupPhilosophyLabel">How I think about code</h4>
+                        <ul class="space-y-1 text-xs dm-text-sub text-gray-500">
+                            <li>→ <span data-i18n="philosophy1">Backend is my comfort zone, frontend is my exercise</span></li>
+                            <li>→ <span data-i18n="philosophy2">Clean architecture over clever tricks</span></li>
+                            <li>→ <span data-i18n="philosophy3">If it doesn't run, it doesn't ship</span></li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.4s;">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fa-solid fa-brain mr-3 text-pink-400"></i>
-                        Learning Journey
+                <!-- Current projects -->
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2">
+                    <h3 class="font-semibold text-green-500 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-project"></i> <span data-i18n="cardProjectsHeading">What I'm working on</span>
                     </h3>
-                    <div class="space-y-4">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-green-400 mono">7+</div>
-                            <div class="text-sm text-gray-400">Years Coding Experience</div>
-                        </div>
-                        <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
-                        <div class="space-y-3">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                <span class="text-sm">Started with HTML & C# </span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                                <span class="text-sm">Backend > Frontend 💪</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                                <span class="text-sm">Self-taught Mindset 🧠</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <div class="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
-                                <span class="text-sm">Learning Rust 📚</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="rounded-lg border dm-border border-gray-100 p-4">
+                            <p class="font-medium text-sm dm-text-main text-gray-700 mb-1">CivTechXR</p>
+                            <p class="text-xs dm-text-sub text-gray-500" data-i18n="projCivTech">GTA 5 RP server — C#, F#, MongoDB, AI. Currently paused (thanks R*), but the code is mine.</p>
+                            <div class="flex flex-wrap gap-1 mt-2">
+                                <span class="mono text-xs bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded">C#</span>
+                                <span class="mono text-xs bg-green-50 text-green-600 px-2 py-0.5 rounded">MongoDB</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dev Tools & Setup -->
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.5s;">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fa-solid fa-tools mr-3 text-orange-400"></i>
-                        Dev Setup
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <i class="fa-brands fa-computer text-2xl text-gray-400"></i>
-                            <div>
-                                <div class="font-semibold">Windows/Linux Setup</div>
-                                <div class="text-sm text-gray-400">Development for Desktop</div>
+                        <div class="rounded-lg border dm-border border-gray-100 p-4">
+                            <p class="font-medium text-sm dm-text-main text-gray-700 mb-1">Toronto Map</p>
+                            <p class="text-xs dm-text-sub text-gray-500" data-i18n="projToronto">Lotus Simulator map of Toronto's transit system. Actively in development — streetcars, buses, real routes.</p>
+                            <div class="flex flex-wrap gap-1 mt-2">
+                                <span class="mono text-xs bg-orange-50 text-orange-600 px-2 py-0.5 rounded">Rust</span>
+                                <span class="mono text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">Lotus</span>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fa-solid fa-code text-2xl text-blue-400"></i>
-                            <div>
-                                <div class="font-semibold">VS Code + Neovim</div>
-                                <div class="text-sm text-gray-400">Best of both worlds</div>
+                        <div class="rounded-lg border dm-border border-gray-100 p-4">
+                            <p class="font-medium text-sm dm-text-main text-gray-700 mb-1">OSM Mapping</p>
+                            <p class="text-xs dm-text-sub text-gray-500" data-i18n="projOSM">Contributing to OpenStreetMap with JOSM. Small but steady — mapping my corner of the world.</p>
+                            <div class="flex flex-wrap gap-1 mt-2">
+                                <span class="mono text-xs bg-green-50 text-green-600 px-2 py-0.5 rounded">JOSM</span>
+                                <span class="mono text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">OSM</span>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fa-brands fa-github text-2xl text-purple-400"></i>
-                            <div>
-                                <div class="font-semibold">GitHub Workflow</div>
-                                <div class="text-sm text-gray-400">Version control master</div>
+                        <div class="rounded-lg border dm-border border-gray-100 p-4">
+                            <p class="font-medium text-sm dm-text-main text-gray-700 mb-1">
+                                <a href="https://devtimmofto.github.io/blog/" target="_blank" rel="noopener noreferrer" class="hover:underline text-indigo-500">Blog ↗</a>
+                            </p>
+                            <p class="text-xs dm-text-sub text-gray-500" data-i18n="projBlog">Writing about dev, transit, and whatever else is on my mind. Published openly — no paywalls.</p>
+                            <div class="flex flex-wrap gap-1 mt-2">
+                                <span class="mono text-xs bg-pink-50 text-pink-600 px-2 py-0.5 rounded">Writing</span>
+                                <span class="mono text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">HTML</span>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fa-solid fa-terminal text-2xl text-green-400"></i>
-                            <div>
-                                <div class="font-semibold">Terminal Lover</div>
-                                <div class="text-sm text-gray-400 mono">zsh + oh-my-zsh</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass p-8 rounded-3xl hover-lift slide-up cyber-border" style="animation-delay: 0.6s;">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fa-solid fa-lightbulb mr-3 text-yellow-400"></i>
-                        Dev Skillset & Mindset
-                    </h3>
-                    <div class="space-y-4 text-gray-200">
-
-                        <div class="border-l-4 border-yellow-400 pl-4">
-                            <div class="font-semibold text-yellow-300">"Clean architecture first"</div>
-                            <div class="text-sm text-gray-400">Writing structured, maintainable code is non-negotiable
-                            </div>
-                        </div>
-
-                        <div class="border-l-4 border-green-400 pl-4">
-                            <div class="font-semibold text-green-300">"Backend logic is my comfort zone"</div>
-                            <div class="text-sm text-gray-400">C#, Python & database design — from APIs to data flow
-                            </div>
-                        </div>
-
-                        <div class="border-l-4 border-purple-400 pl-4">
-                            <div class="font-semibold text-purple-300">"Front-end with intent"</div>
-                            <div class="text-sm text-gray-400">Crafting responsive, accessible UIs that actually feel
-                                good</div>
-                        </div>
-
-                        <div class="border-l-4 border-blue-400 pl-4">
-                            <div class="font-semibold text-blue-300">"Think in systems, build with purpose"</div>
-                            <div class="text-sm text-gray-400">Full-stack mindset — connecting logic, data, and design
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gaming Section -->
-    <section id="gaming" class="py-16 px-6">
-        <div class="container mx-auto">
-            <div class="slide-up" style="animation-delay: 0.1s;">
-                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
-                    <span class="gradient-text">Gaming</span> <span class="mono neon-glow">Zone</span> 🎮
-                </h2>
-            </div>
+        <!-- ── Gaming ─────────────────────────────────────────────────────── -->
+        <section id="gaming" class="mb-12">
+            <h2 class="dm-text-heading text-2xl font-semibold mb-6 text-gray-700 border-l-4 border-green-400 pl-3" data-i18n="sectionGaming">Gaming</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <div class="slide-up" style="animation-delay: 0.2s;">
-                    <div class="glass p-8 rounded-3xl hover-lift cyber-border h-fit">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center">
-                            <i class="fa-brands fa-steam mr-3 text-blue-400"></i>
-                            Lieblingsspiele
+                <!-- Favorite games -->
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold text-green-500 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i> <span data-i18n="cardGamesHeading">Favorite games</span>
+                    </h3>
+                    <div class="space-y-3">
+                        <iframe src="https://store.steampowered.com/widget/1066780/" frameborder="0" width="100%" height="190" class="rounded-lg"></iframe>
+                        <iframe src="https://store.steampowered.com/widget/370350/" frameborder="0" width="100%" height="190" class="rounded-lg"></iframe>
+                        <iframe src="https://store.steampowered.com/widget/289070/" frameborder="0" width="100%" height="190" class="rounded-lg"></iframe>
+                    </div>
+                </div>
+
+                <!-- Gaming stats -->
+                <div class="flex flex-col gap-4">
+                    <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <h3 class="font-semibold text-green-500 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-bar"></i> <span data-i18n="cardGamingStatsHeading">Gaming at a glance</span>
                         </h3>
-                        <div class="space-y-4">
-                            <iframe src="https://store.steampowered.com/widget/370350/" frameborder="0" width="100%"
-                                height="190" class="rounded-lg"></iframe>
-                            <iframe src="https://store.steampowered.com/widget/289070/" frameborder="0" width="100%"
-                                height="190" class="rounded-lg"></iframe>
-                            <iframe src="https://store.steampowered.com/widget/1066780/" frameborder="0" width="100%"
-                                height="190" class="rounded-lg"></iframe>
-                        </div>
+                        <ul class="text-sm dm-text-main text-gray-600 space-y-2">
+                            <li class="flex justify-between"><span data-i18n="statGenre">Favorite genre</span><span class="mono text-xs dm-text-sub text-gray-400">Simulation</span></li>
+                            <li class="flex justify-between"><span data-i18n="statCurrent">Playing now</span><span class="mono text-xs dm-text-sub text-gray-400">Transport Fever 2</span></li>
+                            <li class="flex justify-between"><span data-i18n="statYears">Years gaming</span><span class="mono text-xs dm-text-sub text-gray-400">~10</span></li>
+                        </ul>
                     </div>
-                </div>
 
-                <div class="slide-up" style="animation-delay: 0.3s;">
-                    <div class="glass p-8 rounded-3xl hover-lift cyber-border h-fit mb-8">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center">
-                            <i class="fa-solid fa-gamepad mr-3 text-purple-400"></i>
-                            Gaming Stats
+                    <!-- Twitch -->
+                    <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <h3 class="font-semibold text-purple-500 mb-2 flex items-center gap-2">
+                            <i class="fa-brands fa-twitch"></i> Twitch
                         </h3>
-                        <div class="space-y-6">
-                            <div class="flex justify-between items-center">
-                                <span>Lieblings-Genre</span>
-                                <span class="mono text-purple-300">Simulation/High Detail</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>Hauptspiel aktuell</span>
-                                <span class="mono text-blue-300">Transport Fever 2</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>Gaming seit</span>
-                                <span class="mono text-green-300">~10 Jahren</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <a href="https://www.twitch.tv/DevTimmOfTO"
-                            class="block glass-dark p-6 rounded-2xl hover-lift transition-all duration-300 group">
-                            <div class="flex items-center">
-                                <i class="fa-brands fa-twitch text-2xl text-purple-400 mr-4"></i>
-                                <div>
-                                    <div class="font-semibold group-hover:text-purple-300 transition-colors">Twitch
-                                        Stream</div>
-                                    <div class="text-sm text-gray-400">Manchmal live 📺</div>
-                                </div>
-                            </div>
+                        <p class="text-sm dm-text-sub text-gray-500 mb-3" data-i18n="twitchDesc">I stream occasionally. No fixed schedule, just when the mood hits.</p>
+                        <a href="https://www.twitch.tv/DevTimmOfTO" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 text-sm text-purple-500 hover:underline">
+                            twitch.tv/DevTimmOfTO <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                         </a>
+                    </div>
 
-                        <a href="https://discord.com/users/629199560002109453"
-                            class="block glass-dark p-6 rounded-2xl hover-lift transition-all duration-300 group">
-                            <div class="flex items-center">
-                                <i class="fa-brands fa-discord text-2xl text-blue-400 mr-4"></i>
-                                <div>
-                                    <div class="font-semibold group-hover:text-blue-300 transition-colors">Discord</div>
-                                    <div class="text-sm text-gray-400">Let's zocken! 🎯</div>
-                                </div>
-                            </div>
+                    <!-- Discord -->
+                    <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <h3 class="font-semibold text-indigo-500 mb-2 flex items-center gap-2">
+                            <i class="fa-brands fa-discord"></i> Discord
+                        </h3>
+                        <p class="text-sm dm-text-sub text-gray-500 mb-3" data-i18n="discordDesc">Find me on Discord if you want to talk code, games, or anything in between.</p>
+                        <a href="https://discord.com/users/629199560002109453" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 text-sm text-indigo-500 hover:underline">
+                            <span data-i18n="discordLink">Open Discord profile</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Entertainment Section -->
-    <section id="entertainment" class="py-16 px-6">
-        <div class="container mx-auto">
-            <div class="slide-up" style="animation-delay: 0.1s;">
-                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
-                    <span class="gradient-text">Entertainment</span> <span class="mono neon-glow">Hub</span> 🎵
-                </h2>
             </div>
+        </section>
 
-            <!-- Music Section -->
-            <div class="mb-16 slide-up" style="animation-delay: 0.2s;">
-                <h3 class="text-3xl font-bold mb-8 text-center flex items-center justify-center">
-                    <i class="fa-brands fa-spotify mr-3 text-green-400"></i>
-                    Meine Playlist Vibes
+        <!-- ── Entertainment ──────────────────────────────────────────────── -->
+        <section id="entertainment" class="mb-12">
+            <h2 class="dm-text-heading text-2xl font-semibold mb-6 text-gray-700 border-l-4 border-pink-400 pl-3" data-i18n="sectionEntertainment">Entertainment</h2>
+
+            <!-- Music -->
+            <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow mb-4">
+                <h3 class="font-semibold text-pink-500 mb-4 flex items-center gap-2">
+                    <i class="fa-brands fa-spotify"></i> <span data-i18n="cardMusicHeading">What I've been listening to</span>
                 </h3>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                    <div class="glass p-6 rounded-2xl hover-lift">
-                        <iframe style="border-radius:12px"
-                            src="https://open.spotify.com/embed/track/0W5Yp04z8hWSwZCuNt0vAf?utm_source=generator"
-                            width="100%" height="152" frameBorder="0" allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"></iframe>
-                    </div>
-                    <div class="glass p-6 rounded-2xl hover-lift">
-                        <iframe style="border-radius:12px"
-                            src="https://open.spotify.com/embed/track/0d83zVs3OmdjrhfoAxg1dE?utm_source=generator"
-                            width="100%" height="152" frameBorder="0" allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"></iframe>
-                    </div>
-                    <div class="glass p-6 rounded-2xl hover-lift">
-                        <iframe style="border-radius:12px"
-                            src="https://open.spotify.com/embed/track/5yyqx4brn6Bm9U1Rj9ENnz?utm_source=generator"
-                            width="100%" height="152" frameBorder="0" allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"></iframe>
-                    </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6DCZcSspjsKoFjzjrWoCdn?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7qiZfU4dY1lWllzX7mPBI3?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
             </div>
 
-            <!-- Movies & Series -->
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-                <div class="slide-up" style="animation-delay: 0.3s;">
-                    <div class="glass p-8 rounded-3xl hover-lift cyber-border">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center">
-                            <i class="fa-solid fa-tv mr-3 text-blue-400"></i>
-                            Top Series
-                        </h3>
-                        <div class="space-y-6">
-                            <div
-                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://wallpaperaccess.com/full/1455759.jpg" alt="Brooklyn Nine-Nine"
-                                    class="w-16 h-20 object-cover rounded-lg">
-                                <div class="flex-1">
-                                    <div
-                                        class="font-semibold text-yellow-300 group-hover:text-yellow-200 transition-colors">
-                                        Brooklyn Nine-Nine</div>
-                                    <div class="text-sm text-gray-400">Best Comedy ever! 😂</div>
-                                    <div class="flex items-center mt-2">
-                                        <div class="flex text-yellow-400 text-xs">
-                                            ⭐⭐⭐⭐⭐
-                                        </div>
-                                        <span class="text-xs text-gray-500 ml-2">Perfect 10/10</span>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Series & Movies -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
 
-                            <div
-                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://www.zdf.de/assets/die-anstalt-sendungteaser-100~640x720?cb=1734427743140"
-                                    alt="Avatar: The Last Airbender" class="w-16 h-20 object-cover rounded-lg">
-                                <div class="flex-1">
-                                    <div
-                                        class="font-semibold text-green-300 group-hover:text-green-200 transition-colors">
-                                        Die Anstalt</div>
-                                    <div class="text-sm text-gray-400">Beste Satire am Tag</div>
-                                    <div class="flex items-center mt-2">
-                                        <div class="flex text-green-400 text-xs">
-                                            ⭐⭐⭐⭐⭐
-                                        </div>
-                                        <span class="text-xs text-gray-500 ml-2">Legendary</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://tse2.mm.bing.net/th/id/OIP.W02gd-qSe3VsrcpGvdpujgHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
-                                    alt="The Office" class="w-16 h-20 object-cover rounded-lg">
-                                <div class="flex-1">
-                                    <div
-                                        class="font-semibold text-purple-300 group-hover:text-purple-200 transition-colors">
-                                        The Office (US)</div>
-                                    <div class="text-sm text-gray-400">Comfort show 📺</div>
-                                    <div class="flex items-center mt-2">
-                                        <div class="flex text-purple-400 text-xs">
-                                            ⭐⭐⭐⭐⭐
-                                        </div>
-                                        <span class="text-xs text-gray-500 ml-2">Rewatchable</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slide-up" style="animation-delay: 0.4s;">
-                    <div class="glass p-8 rounded-3xl hover-lift cyber-border">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center">
-                            <i class="fa-solid fa-film mr-3 text-red-400"></i>
-                            Favorite Movies
-                        </h3>
-                        <div class="space-y-6">
-                            <div
-                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://th.bing.com/th/id/R.14fdf8960a9bb38c99237c103660f277?rik=TFPbqghy%2b4goYw&pid=ImgRaw&r=0"
-                                    alt="Turning Red" class="w-16 h-20 object-cover rounded-lg">
-                                <div class="flex-1">
-                                    <div class="font-semibold text-red-300 group-hover:text-red-200 transition-colors">
-                                        Turning Red</div>
-                                    <div class="text-sm text-gray-400">Underrated Pixar gem 🐼</div>
-                                    <div class="flex items-center mt-2">
-                                        <div class="flex text-red-400 text-xs">
-                                            ⭐⭐⭐⭐⭐
-                                        </div>
-                                        <span class="text-xs text-gray-500 ml-2">Emotional</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://lumiere-a.akamaihd.net/v1/images/p_disney_elemental_homeent_v1_2292_0312c1d7.jpeg?region=0,0,540,810"
-                                    alt="Spider-Man: Into the Spider-Verse" class="w-16 h-20 object-cover rounded-lg">
-                                <div class="flex-1">
-                                    <div
-                                        class="font-semibold text-blue-300 group-hover:text-blue-200 transition-colors">
-                                        Elemental</div>
-                                    <div class="text-sm text-gray-400">Best Romantic Movie by Pixar ❤️</div>
-                                    <div class="flex items-center mt-2">
-                                        <div class="flex text-blue-400 text-xs">
-                                            ⭐⭐⭐⭐⭐
-                                        </div>
-                                        <span class="text-xs text-gray-500 ml-2">Romantic</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                class="flex items-center space-x-4 group hover:bg-white/5 p-3 rounded-lg transition-all">
-                                <img src="https://image.tmdb.org/t/p/original/u5Ut5uygWnTRWGRoPVzlLsetiIp.jpg"
-                                    alt="The Dark Knight" class="w-16 h-20 object-cover rounded-lg">
-                                <div class="flex-1">
-                                    <div
-                                        class="font-semibold text-gray-300 group-hover:text-gray-200 transition-colors">
-                                        Inside Out</div>
-                                    <div class="text-sm text-gray-400">Best Movie of all Time</div>
-                                    <div class="flex items-center mt-2">
-                                        <div class="flex text-gray-400 text-xs">
-                                            ⭐⭐⭐⭐⭐
-                                        </div>
-                                        <span class="text-xs text-gray-500 ml-2">Classic</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Style & Vibes Section -->
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <div class="slide-up" style="animation-delay: 0.5s;">
-                    <div class="glass p-8 rounded-3xl hover-lift cyber-border">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center">
-                            <i class="fa-solid fa-palette mr-3 text-pink-400"></i>
-                            Style & Vibes
-                        </h3>
-                        <div class="space-y-6">
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold text-blue-500 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-tv"></i> <span data-i18n="cardSeriesHeading">Top series</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center justify-between">
                             <div>
-                                <span class="block mb-2 text-gray-300">Lieblingsfarbe:</span>
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 rounded-full"
-                                        style="background: linear-gradient(135deg, #BA3BF9, #8338ec);"></div>
-                                    <span class="mono text-purple-300">#BA3BF9</span>
-                                </div>
+                                <p class="font-medium dm-text-main text-gray-700">Brooklyn Nine-Nine</p>
+                                <p class="text-xs dm-text-sub text-gray-400" data-i18n="seriesB99">Comedy · Never gets old</p>
                             </div>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </li>
+                        <li class="flex items-center justify-between">
                             <div>
-                                <span class="block mb-2 text-gray-300">Lieblings-Streamer:</span>
-                                <div class="flex items-center space-x-3">
-                                    <div
-                                        class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-xs">
-                                        🐸</div>
-                                    <span class="text-yellow-300 font-semibold">Papaplatte</span>
-                                </div>
+                                <p class="font-medium dm-text-main text-gray-700">Die Anstalt</p>
+                                <p class="text-xs dm-text-sub text-gray-400" data-i18n="seriesAnstalt">Satire · Actually teaches you things</p>
                             </div>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </li>
+                        <li class="flex items-center justify-between">
                             <div>
-                                <span class="block mb-2 text-gray-300">Aesthetic:</span>
-                                <div class="flex space-x-2">
-                                    <span
-                                        class="px-3 py-1 bg-blue-600/30 text-blue-300 text-sm rounded-full">Cyber</span>
-                                    <span
-                                        class="px-3 py-1 bg-gray-600/30 text-gray-300 text-sm rounded-full">Minimal</span>
-                                    <span
-                                        class="px-3 py-1 bg-purple-600/30 text-purple-300 text-sm rounded-full">Neon</span>
-                                </div>
+                                <p class="font-medium dm-text-main text-gray-700">The Office (US)</p>
+                                <p class="text-xs dm-text-sub text-gray-400" data-i18n="seriesOffice">Comedy · Background noise for coding</p>
                             </div>
-                        </div>
-                    </div>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="slide-up" style="animation-delay: 0.6s;">
-                    <div class="glass p-8 rounded-3xl hover-lift cyber-border">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center">
-                            <i class="fa-solid fa-star mr-3 text-yellow-400"></i>
-                            Content Creator Links
-                        </h3>
-                        <div class="space-y-4">
-                            <a href="https://www.youtube.com/@DevTimmOfTO"
-                                class="flex items-center space-x-4 p-4 glass-dark rounded-xl hover-lift group transition-all">
-                                <i class="fa-brands fa-youtube text-2xl text-red-400 group-hover:text-red-300"></i>
-                                <div>
-                                    <div class="font-semibold group-hover:text-red-300">YouTube Channel</div>
-                                    <div class="text-sm text-gray-400">Videos & Tutorials</div>
-                                </div>
-                            </a>
-
-                            <div class="flex items-center space-x-4 p-4 glass-dark rounded-xl">
-                                <i class="fa-solid fa-tv text-2xl text-green-400"></i>
-                                <div>
-                                    <div class="font-semibold">Papaplatte Fan</div>
-                                    <div class="text-sm text-gray-400">Bester Streamer! 🐸</div>
-                                </div>
+                <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold text-orange-500 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-film"></i> <span data-i18n="cardMoviesHeading">Favorite movies</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium dm-text-main text-gray-700">Turning Red</p>
+                                <p class="text-xs dm-text-sub text-gray-400" data-i18n="movieTurningRed">Pixar · Hits different every rewatch</p>
                             </div>
-                        </div>
-                    </div>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium dm-text-main text-gray-700">Elemental</p>
+                                <p class="text-xs dm-text-sub text-gray-400" data-i18n="movieElemental">Pixar · Underrated, visually stunning</p>
+                            </div>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium dm-text-main text-gray-700">Inside Out</p>
+                                <p class="text-xs dm-text-sub text-gray-400" data-i18n="movieInsideOut">Pixar · A classic</p>
+                            </div>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    <!-- Social Links -->
-    <section class="py-16 px-6">
-        <div class="container mx-auto">
-            <div class="slide-up" style="animation-delay: 0.1s;">
-                <h2 class="text-3xl font-bold mb-12 text-center">
-                    <span class="gradient-text">Connect</span> <span class="mono neon-glow">with me</span> 🔗
-                </h2>
+            <!-- Vibes -->
+            <div class="dm-bg-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                <h3 class="font-semibold text-purple-500 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-palette"></i> <span data-i18n="cardVibesHeading">Misc. things I like</span>
+                </h3>
+                <div class="flex flex-wrap gap-3 text-sm">
+                    <span class="flex items-center gap-2 dm-bg-page bg-gray-50 border dm-border border-gray-100 rounded-lg px-3 py-2 dm-text-main text-gray-600">
+                        <span class="inline-block w-4 h-4 rounded-full" style="background:#BA3BF9"></span>
+                        <span data-i18n="vibeFavColor">Favorite color: purple</span>
+                    </span>
+                    <span class="flex items-center gap-2 dm-bg-page bg-gray-50 border dm-border border-gray-100 rounded-lg px-3 py-2 dm-text-main text-gray-600">
+                        🍁 <span data-i18n="vibeMaple">Maple syrup enthusiast</span>
+                    </span>
+                    <span class="flex items-center gap-2 dm-bg-page bg-gray-50 border dm-border border-gray-100 rounded-lg px-3 py-2 dm-text-main text-gray-600">
+                        ✨ <span data-i18n="vibeAesthetic">Cyber · Minimal · Neon</span>
+                    </span>
+                </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <a href="https://github.com/DevTimmOfTO"
-                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i
-                        class="fa-brands fa-github text-3xl mb-3 text-gray-400 group-hover:text-white transition-colors"></i>
-                    <div class="font-medium">GitHub</div>
-                    <div class="text-xs text-gray-400 mono">Code & Repos</div>
+        </section>
+
+        <!-- ── Connect ────────────────────────────────────────────────────── -->
+        <section id="connect" class="mb-12">
+            <h2 class="dm-text-heading text-2xl font-semibold mb-6 text-gray-700 border-l-4 border-gray-400 pl-3" data-i18n="sectionConnect">Connect</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <a href="https://github.com/DevTimmOfTO" target="_blank" rel="noopener noreferrer"
+                   class="dm-bg-card bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-github text-3xl dm-text-main text-gray-700"></i>
+                    <span class="font-medium text-sm dm-text-main text-gray-700">GitHub</span>
+                    <span class="text-xs dm-text-sub text-gray-400">@DevTimmOfTO</span>
                 </a>
 
-                <a href="https://www.youtube.com/@DevTimmOfTO"
-                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i
-                        class="fa-brands fa-youtube text-3xl mb-3 text-red-400 group-hover:text-red-300 transition-colors"></i>
-                    <div class="font-medium">YouTube</div>
-                    <div class="text-xs text-gray-400 mono">Videos & Tutorials</div>
+                <a href="https://www.youtube.com/@DevTimmOfTO" target="_blank" rel="noopener noreferrer"
+                   class="dm-bg-card bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-youtube text-3xl text-red-500"></i>
+                    <span class="font-medium text-sm dm-text-main text-gray-700">YouTube</span>
+                    <span class="text-xs dm-text-sub text-gray-400">@DevTimmOfTO</span>
                 </a>
 
-                <a href="https://discord.com/users/629199560002109453"
-                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i
-                        class="fa-brands fa-discord text-3xl mb-3 text-blue-400 group-hover:text-blue-300 transition-colors"></i>
-                    <div class="font-medium">Discord</div>
-                    <div class="text-xs text-gray-400 mono">Gaming & Chat</div>
+                <a href="https://discord.com/users/629199560002109453" target="_blank" rel="noopener noreferrer"
+                   class="dm-bg-card bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-discord text-3xl text-indigo-500"></i>
+                    <span class="font-medium text-sm dm-text-main text-gray-700">Discord</span>
+                    <span class="text-xs dm-text-sub text-gray-400" data-i18n="discordHandle">DM me</span>
                 </a>
 
-                <a href="https://www.twitch.tv/DevTimmOfTO"
-                    class="glass-dark p-6 rounded-2xl text-center hover-lift group transition-all duration-300">
-                    <i
-                        class="fa-brands fa-twitch text-3xl mb-3 text-purple-400 group-hover:text-purple-300 transition-colors"></i>
-                    <div class="font-medium">Twitch</div>
-                    <div class="text-xs text-gray-400 mono">Live Streams</div>
+                <a href="https://www.twitch.tv/DevTimmOfTO" target="_blank" rel="noopener noreferrer"
+                   class="dm-bg-card bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-twitch text-3xl text-purple-500"></i>
+                    <span class="font-medium text-sm dm-text-main text-gray-700">Twitch</span>
+                    <span class="text-xs dm-text-sub text-gray-400">@DevTimmOfTO</span>
                 </a>
+
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="py-8 px-6">
-        <div class="container mx-auto text-center">
-            <div class="glass-dark p-6 rounded-2xl max-w-2xl mx-auto">
-                <p class="mono text-gray-400">
-                    © 2025 Timm Johannes Göring | <span class="text-purple-300">Private Space</span> - Hier kein
-                    offizieller Autritt! 😄
-                </p>
-                <p class="text-sm text-gray-500 mt-2">
-                    Made with 💜 and way too much maple syrup 🍁
-                </p>
-            </div>
-        </div>
+    </div><!-- /container -->
+
+    <footer class="dm-bg-header bg-gray-800 text-white text-center py-4 mt-8 text-sm">
+        <p>© 2026 Timm Johannes Göring &nbsp;·&nbsp; <span data-i18n="footerTagline">made with 💜 and way too much maple syrup 🍁</span></p>
     </footer>
 
     <script>
-        // Language switcher
+        // ── Translations ───────────────────────────────────────────────────
         const translations = {
             de: {
-                // German translations would go here
+                headerSub: "developer · gamer · schüler · mensch",
+                navBack: "Zurück zum Portfolio",
+                navAbout: "Über mich",
+                navDev: "Dev",
+                navGaming: "Gaming",
+                navEntertainment: "Entertainment",
+                navConnect: "Kontakt",
+                heroDesc: "20, Schüler, in Deutschland. Ich schreibe Backend-Code, spiele Simulationsspiele, liebe Kanada aus der Ferne und versuche, mein Französisch halbwegs brauchbar zu machen. Das hier ist meine persönliche Ecke im Internet — weniger aufgeräumt als das Portfolio, dafür echter.",
+                badgeCanada: "Kanada-Fan",
+                badgeStudent: "Oberstufenschüler",
+                sectionAbout: "Über mich",
+                cardWhoHeading: "Wer ich bin",
+                cardWhoText: "Ich bin 20, Schüler aus Deutschland und code hauptsächlich aus Spaß. Mein Ding ist Backend — Serverarchitektur, Datenbanken, alles was hinter den Kulissen passiert. Selbst beigebracht, seit 8+ Jahren dabei. Ich liebe Kanada, auch wenn ich noch nie dort war. Neben dem Code interessiere ich mich für Simulationsspiele und Filme.",
+                cardGoalsHeading: "Ziele 2025 / 2026",
+                goal1: "Schule abschließen (Abitur 🎓)",
+                goal2: "Englisch: C1 erreichen",
+                goal3: "Französisch: B2 erreichen",
+                goal4: "Rust sicher lernen",
+                goal5: "Prolog wirklich verstehen",
+                sectionDev: "Dev-Ecke",
+                cardSkillsHeading: "Skills",
+                cardSetupHeading: "Mein Setup",
+                setupPhilosophyLabel: "Wie ich über Code denke",
+                philosophy1: "Backend ist meine Komfortzone, Frontend meine Übung",
+                philosophy2: "Saubere Architektur statt cleverer Tricks",
+                philosophy3: "Wenn es nicht läuft, wird es nicht deployed",
+                cardProjectsHeading: "Woran ich gerade arbeite",
+                projCivTech: "GTA 5 RP-Server — C#, F#, MongoDB, AI. Gerade pausiert (danke R*), aber der Code ist meiner.",
+                projToronto: "Lotus-Simulator-Karte von Torontos Nahverkehr. Aktiv in Entwicklung — Straßenbahnen, Busse, echte Routen.",
+                projOSM: "Beiträge zu OpenStreetMap mit JOSM. Klein aber stetig — meine Ecke der Welt kartieren.",
+                projBlog: "Ich schreibe über Dev, Transit und was mir sonst so durch den Kopf geht. Offen veröffentlicht — keine Paywalls.",
+                sectionGaming: "Gaming",
+                cardGamesHeading: "Lieblingsspiele",
+                cardGamingStatsHeading: "Gaming auf einen Blick",
+                statGenre: "Lieblingsgenre",
+                statCurrent: "Gerade gespielt",
+                statYears: "Jahre Gaming",
+                twitchDesc: "Ich streame gelegentlich. Kein fester Zeitplan, einfach wenn die Laune da ist.",
+                discordDesc: "Findet mich auf Discord, wenn ihr über Code, Games oder sonst was reden wollt.",
+                discordLink: "Discord-Profil öffnen",
+                sectionEntertainment: "Entertainment",
+                cardMusicHeading: "Was ich gerade höre",
+                cardSeriesHeading: "Top-Serien",
+                seriesB99: "Comedy · Wird nicht alt",
+                seriesAnstalt: "Satire · Man lernt wirklich was",
+                seriesOffice: "Comedy · Hintergrundgeräusch beim Coden",
+                cardMoviesHeading: "Lieblingsfilme",
+                movieTurningRed: "Pixar · Trifft bei jedem Schauen anders",
+                movieElemental: "Pixar · Unterschätzt, visuell beeindruckend",
+                movieInsideOut: "Pixar · Ein Klassiker",
+                cardVibesHeading: "Sonstige Vorlieben",
+                vibeFavColor: "Lieblingsfarbe: Lila",
+                vibeMaple: "Ahornsirup-Enthusiast",
+                vibeAesthetic: "Cyber · Minimal · Neon",
+                sectionConnect: "Kontakt",
+                discordHandle: "DM schreiben",
+                footerTagline: "gemacht mit 💜 und viel zu viel Ahornsirup 🍁",
             },
             en: {
-                // English translations would go here  
+                headerSub: "developer · gamer · student · human",
+                navBack: "Back to Portfolio",
+                navAbout: "About",
+                navDev: "Dev",
+                navGaming: "Gaming",
+                navEntertainment: "Entertainment",
+                navConnect: "Connect",
+                heroDesc: "20, student, living in Germany. I write backend code, play simulation games, and love Canada from afar. This is my personal corner of the internet — less polished than the portfolio, more me.",
+                badgeCanada: "Canada lover",
+                badgeStudent: "High school student",
+                sectionAbout: "About me",
+                cardWhoHeading: "Who I am",
+                cardWhoText: "I'm a 20-year-old student from Germany who codes mostly for fun. My main thing is backend — server architecture, databases, making things actually work behind the scenes. I'm self-taught and have been at it for 8+ years. I also love Canada — haven't been yet, but it's on my list. Outside of code I'm into sim games and movies.",
+                cardGoalsHeading: "Goals 2025 / 2026",
+                goal1: "Finish school (Abitur 🎓)",
+                goal2: "English: reach C1",
+                goal3: "French: reach B2",
+                goal4: "Get comfortable with Rust",
+                goal5: "Actually understand Prolog",
+                sectionDev: "Dev corner",
+                cardSkillsHeading: "Skills",
+                cardSetupHeading: "My setup",
+                setupPhilosophyLabel: "How I think about code",
+                philosophy1: "Backend is my comfort zone, frontend is my exercise",
+                philosophy2: "Clean architecture over clever tricks",
+                philosophy3: "If it doesn't run, it doesn't ship",
+                cardProjectsHeading: "What I'm working on",
+                projCivTech: "GTA 5 RP server — C#, F#, MongoDB, AI. Currently paused (thanks R*), but the code is mine.",
+                projToronto: "Lotus Simulator map of Toronto's transit system. Actively in development — streetcars, buses, real routes.",
+                projOSM: "Contributing to OpenStreetMap with JOSM. Small but steady — mapping my corner of the world.",
+                projBlog: "Writing about dev, transit, and whatever else is on my mind. Published openly — no paywalls.",
+                sectionGaming: "Gaming",
+                cardGamesHeading: "Favorite games",
+                cardGamingStatsHeading: "Gaming at a glance",
+                statGenre: "Favorite genre",
+                statCurrent: "Playing now",
+                statYears: "Years gaming",
+                twitchDesc: "I stream occasionally. No fixed schedule, just when the mood hits.",
+                discordDesc: "Find me on Discord if you want to talk code, games, or anything in between.",
+                discordLink: "Open Discord profile",
+                sectionEntertainment: "Entertainment",
+                cardMusicHeading: "What I've been listening to",
+                cardSeriesHeading: "Top series",
+                seriesB99: "Comedy · Never gets old",
+                seriesAnstalt: "Satire · Actually teaches you things",
+                seriesOffice: "Comedy · Background noise for coding",
+                cardMoviesHeading: "Favorite movies",
+                movieTurningRed: "Pixar · Hits different every rewatch",
+                movieElemental: "Pixar · Underrated, visually stunning",
+                movieInsideOut: "Pixar · A classic",
+                cardVibesHeading: "Misc. things I like",
+                vibeFavColor: "Favorite color: purple",
+                vibeMaple: "Maple syrup enthusiast",
+                vibeAesthetic: "Cyber · Minimal · Neon",
+                sectionConnect: "Connect",
+                discordHandle: "DM me",
+                footerTagline: "made with 💜 and way too much maple syrup 🍁",
+            },
+            fr: {
+                headerSub: "développeur · joueur · lycéen · humain",
+                navBack: "Retour au portfolio",
+                navAbout: "À propos",
+                navDev: "Dev",
+                navGaming: "Gaming",
+                navEntertainment: "Divertissement",
+                navConnect: "Contact",
+                heroDesc: "20 ans, lycéen, en Allemagne. J'écris du code backend, je joue à des jeux de simulation et j'adore le Canada de loin. C'est mon coin personnel d'internet — moins soigné que le portfolio, plus moi.",
+                badgeCanada: "Fan du Canada",
+                badgeStudent: "Lycéen",
+                sectionAbout: "À propos de moi",
+                cardWhoHeading: "Qui je suis",
+                cardWhoText: "Je suis un lycéen de 20 ans d'Allemagne qui code principalement pour le plaisir. Mon truc, c'est le backend — architecture serveur, bases de données, tout ce qui se passe en coulisses. Autodidacte depuis 8+ ans. J'adore aussi le Canada — je n'y suis pas encore allé, mais c'est sur ma liste. En dehors du code, j'aime les jeux de simulation et les films.",
+                cardGoalsHeading: "Objectifs 2025 / 2026",
+                goal1: "Terminer le lycée (Abitur 🎓)",
+                goal2: "Anglais : atteindre le C1",
+                goal3: "Français : atteindre le B2",
+                goal4: "Me sentir à l'aise avec Rust",
+                goal5: "Vraiment comprendre Prolog",
+                sectionDev: "Coin dev",
+                cardSkillsHeading: "Compétences",
+                cardSetupHeading: "Mon setup",
+                setupPhilosophyLabel: "Comment je pense au code",
+                philosophy1: "Le backend est ma zone de confort, le frontend mon exercice",
+                philosophy2: "Architecture propre plutôt qu'astuces ingénieuses",
+                philosophy3: "Si ça ne tourne pas, ça ne sort pas",
+                cardProjectsHeading: "Ce sur quoi je travaille",
+                projCivTech: "Serveur RP GTA 5 — C#, F#, MongoDB, IA. Actuellement en pause (merci R*), mais le code est le mien.",
+                projToronto: "Carte Lotus Simulator du réseau de transit de Toronto. En développement actif — tramways, bus, vraies lignes.",
+                projOSM: "Contribution à OpenStreetMap avec JOSM. Petit mais régulier — cartographier mon coin du monde.",
+                projBlog: "J'écris sur le dev, le transit et ce qui me passe par la tête. Publié librement — sans paywall.",
+                sectionGaming: "Gaming",
+                cardGamesHeading: "Jeux préférés",
+                cardGamingStatsHeading: "Gaming en bref",
+                statGenre: "Genre préféré",
+                statCurrent: "En ce moment",
+                statYears: "Années de gaming",
+                twitchDesc: "Je stream de temps en temps. Pas de programme fixe, juste quand l'envie est là.",
+                discordDesc: "Retrouvez-moi sur Discord pour parler code, jeux ou autre chose.",
+                discordLink: "Ouvrir le profil Discord",
+                sectionEntertainment: "Divertissement",
+                cardMusicHeading: "Ce que j'écoute en ce moment",
+                cardSeriesHeading: "Meilleures séries",
+                seriesB99: "Comédie · Ne vieillit jamais",
+                seriesAnstalt: "Satire · On apprend vraiment des choses",
+                seriesOffice: "Comédie · Bruit de fond pour coder",
+                cardMoviesHeading: "Films préférés",
+                movieTurningRed: "Pixar · Touche différemment à chaque visionnage",
+                movieElemental: "Pixar · Sous-estimé, visuellement époustouflant",
+                movieInsideOut: "Pixar · Un classique",
+                cardVibesHeading: "Autres choses que j'aime",
+                vibeFavColor: "Couleur préférée : violet",
+                vibeMaple: "Enthousiaste du sirop d'érable",
+                vibeAesthetic: "Cyber · Minimal · Neon",
+                sectionConnect: "Contact",
+                discordHandle: "Envoyer un message",
+                footerTagline: "fait avec 💜 et beaucoup trop de sirop d'érable 🍁",
             }
-        }
-
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
+        let currentLang = 'en';
 
-        document.querySelectorAll('.slide-up, .fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Random floating particles
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'absolute w-1 h-1 bg-purple-400 rounded-full opacity-30 pointer-events-none floating';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 6 + 's';
-            document.body.appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 12000);
-        }
-
-        // Create particles periodically
-        setInterval(createParticle, 3000);
-
-        // Parallax effect for background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.grid-pattern');
-            if (parallax) {
-                const speed = scrolled * 0.5;
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-
-        // Dynamic typing effect for status
-        const statusElement = document.querySelector('.mono:contains("Online & Ready to Code")');
-        if (statusElement) {
-            const messages = [
-                'Online & Ready to Code',
-                'Currently Gaming 🎮',
-                'Listening to Music 🎵',
-                'Working on Projects 💻',
-                'Watching Papaplatte 📺'
-            ];
-
-            let currentIndex = 0;
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % messages.length;
-                statusElement.textContent = messages[currentIndex];
-            }, 4000);
-        }
-
-        // Add glitch effect to title occasionally
-        const title = document.querySelector('h1');
-        if (title) {
-            setInterval(() => {
-                if (Math.random() < 0.1) { // 10% chance every 5 seconds
-                    title.style.textShadow = '2px 0 #ff0000, -2px 0 #00ffff';
-                    setTimeout(() => {
-                        title.style.textShadow = 'none';
-                    }, 150);
-                }
-            }, 5000);
-        }
-
-        // Easter egg: Konami code
-        let konamiCode = [];
-        const konamiSequence = [
-            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
-            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
-            'KeyB', 'KeyA'
-        ];
-
-        document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.code);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-
-            if (konamiCode.join(',') === konamiSequence.join(',')) {
-                // Easter egg activated!
-                document.body.style.filter = 'hue-rotate(180deg)';
-                setTimeout(() => {
-                    document.body.style.filter = 'none';
-                    alert('🎉 Easter Egg gefunden! Du bist ein echter 4⭐townie! 🌟');
-                }, 2000);
-                konamiCode = [];
-            }
-        });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
             });
         }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            document.getElementById('darkModeIcon').className =
+                document.documentElement.classList.contains('dark')
+                    ? 'fa-solid fa-sun'
+                    : 'fa-solid fa-moon';
+        }
+
+        // Rotating status text
+        const statuses = {
+            de: ["Online & ready to code 💻", "Gerade am Coden 💻", "Gerade am Zocken 🎮", "Musik hören 🎵", "Kanada vermissen 🍁"],
+            en: ["Online & ready to code 💻", "Currently coding 💻", "Currently gaming 🎮", "Listening to music 🎵", "Missing Canada 🍁"],
+            fr: ["En ligne & prêt à coder 💻", "En train de coder 💻", "En train de jouer 🎮", "À l'écoute de musique 🎵", "Canada me manque 🍁"],
+        };
+        let statusIdx = 0;
+        setInterval(() => {
+            statusIdx = (statusIdx + 1) % statuses.de.length;
+            document.getElementById('statusText').textContent = statuses[currentLang][statusIdx];
+        }, 4000);
     </script>
-</body>
 
+</body>
 </html>
