@@ -1,91 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My IT Course Projects</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Josefin Sans', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IT course projects from my Gymnasium years — algorithms, data structures, and software engineering experiments.">
+    <title>IT Course Projects | DevTimmOfTO</title>
+    <link rel="shortcut icon" href="img/profil_pic.png">
+    <link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;1,200&display=swap" rel="stylesheet">
+    <script>
+        tailwind = { config: { darkMode: 'class' } }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        html { scroll-behavior: smooth; }
+
+        /* Dark mode overrides */
+        .dark .dm-bg-page    { background-color: #111827 !important; }
+        .dark .dm-bg-header  { background-color: #0d1117 !important; }
+        .dark .dm-bg-nav     { background-color: #161b22 !important; }
+        .dark .dm-bg-card    { background-color: #1f2937 !important; }
+        .dark .dm-text-main  { color: #e2e8f0 !important; }
+        .dark .dm-text-sub   { color: #94a3b8 !important; }
+        .dark .dm-text-heading { color: #cbd5e1 !important; }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
 
-  <header class="p-6 text-center bg-gray-800 text-white">
-    <h1 class="text-3xl font-bold">My IT Projects</h1>
-    <p class="text-gray-300">Showcasing my school work & experiments</p>
-  </header>
+<body class="dm-bg-page dm-text-main bg-gray-100 font-sans text-gray-800 transition-colors duration-300">
 
-  <main class="p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Project Card -->
+    <!-- Top bar -->
+    <div class="dm-bg-header bg-gray-800 text-white text-sm py-2 px-4 flex justify-between items-center">
+        <button onclick="toggleDarkMode()" class="flex items-center gap-1 hover:text-gray-300" title="Toggle dark mode">
+            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        <div class="flex space-x-4">
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('fr')">Français</button>
+        </div>
+    </div>
 
-<div class="min-h-screen flex items-center justify-center">
+    <header class="dm-bg-header bg-gray-800 text-white py-4 text-center">
+        <h1 class="text-2xl font-bold" data-i18n="pageTitle">IT Course Projects</h1>
+        <p class="text-gray-300 mt-1" data-i18n="pageSubtitle">Projects from my Gymnasium years</p>
+    </header>
 
-</div>
-    <div id="repo-list" class="flex flex-col gap-6 max-w-xl mx-auto"></div>
+    <nav class="dm-bg-nav bg-gray-700 py-2 flex justify-center flex-wrap gap-1 sticky top-0 z-50">
+        <a href="index.html" class="text-white hover:underline mx-4 px-2 py-1">
+            <i class="fa-solid fa-arrow-left mr-1"></i><span data-i18n="navBack">Back to Portfolio</span>
+        </a>
+        <span class="text-gray-500 self-center">|</span>
+        <a href="#cat-delphi" class="text-white hover:underline mx-2 px-2 py-1">Delphi</a>
+        <a href="#cat-filius" class="text-white hover:underline mx-2 px-2 py-1">Filius</a>
+        <a href="#cat-prolog" class="text-white hover:underline mx-2 px-2 py-1">Prolog</a>
+    </nav>
 
-  <script>
-    // Your GitHub repos to display
-    const repos = [
-      { owner: "DevTimmOfTO", repo: "Simple-Hello-World" },
-      { owner: "DevTimmOfTO", repo: "SimpleDivision" },
-      { owner: "DevTimmOfTO", repo: "SimpleCashier" },
-      { owner: "DevTimmOfTO", repo: "KoerperCalc1.0" },
-      { owner: "DevTimmOfTO", repo: "KoerperCalc2.0" },
-      { owner: "DevTimmOfTO", repo: "KoerperCalc3.0" },
-      { owner: "DevTimmOfTO", repo: "SpeedCodingDelphi" },
-      { owner: "DevTimmOfTO", repo: "pq-Formel" },
-      { owner: "DevTimmOfTO", repo: "Notenberechung" },
-      { owner: "DevTimmOfTO", repo: "Altersbestimmung" },
-      { owner: "DevTimmOfTO", repo: "GraphsPlot" },
-      { owner: "DevTimmOfTO", repo: "accountsystem-with-email-and-pwrd" },
-      { owner: "DevTimmOfTO", repo: "Verschluesselung-Delphi" },
-      { owner: "DevTimmOfTO", repo: "Paketprogramm" },
-      { owner: "DevTimmOfTO", repo: "TheWuerfelGame" },
-      { owner: "DevTimmOfTO", repo: "Friendbook" }
-    ];
+    <div class="container mx-auto mt-8 px-4 max-w-5xl">
+        <p class="dm-text-sub text-gray-500 mb-8" data-i18n="sectionDesc">A collection of programming projects built during advanced computer science courses — covering algorithms, data structures, and various languages.</p>
 
-    async function loadRepos() {
-    const container = document.getElementById('repo-list');
+        <div id="categories-container"></div>
+    </div>
 
-    for (const { owner, repo } of repos) {
+    <footer class="dm-bg-header bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2026 Timm Johannes Göring | <a href="index.html" class="hover:underline" data-i18n="footerLink">Professional Portfolio</a></p>
+    </footer>
 
+    <script>
+        const translations = {
+            de: {
+                pageTitle: "Informatik-Projekte",
+                pageSubtitle: "Projekte aus meiner Gymnasialzeit",
+                navBack: "Zurück zum Portfolio",
+                sectionDesc: "Eine Sammlung von Programmierprojekten aus dem Informatikunterricht – Algorithmen, Datenstrukturen und verschiedene Programmiersprachen.",
+                repoLabel: "GitHub Repository",
+                footerLink: "Professionelles Portfolio",
+                catDelphiDesc: "Objektorientierte Projekte in Delphi/Pascal – von einfachen Konsolenanwendungen bis hin zu GUI-Programmen.",
+                catFiliusDesc: "Netzwerksimulationen mit Filius – einem Lernwerkzeug für Computernetzwerke.",
+                catPrologDesc: "Logikprogrammierung in Prolog – deklarative Problemlösung mit Fakten und Regeln.",
+            },
+            en: {
+                pageTitle: "IT Course Projects",
+                pageSubtitle: "Projects from my Gymnasium years",
+                navBack: "Back to Portfolio",
+                sectionDesc: "A collection of programming projects built during advanced computer science courses — covering algorithms, data structures, and various languages.",
+                repoLabel: "GitHub Repository",
+                footerLink: "Professional Portfolio",
+                catDelphiDesc: "Object-oriented projects in Delphi/Pascal — from simple console apps to GUI programs.",
+                catFiliusDesc: "Network simulations using Filius — a learning tool for computer networks.",
+                catPrologDesc: "Logic programming in Prolog — declarative problem solving with facts and rules.",
+            },
+            fr: {
+                pageTitle: "Projets d'informatique",
+                pageSubtitle: "Projets réalisés durant mes années de lycée",
+                navBack: "Retour au portfolio",
+                sectionDesc: "Une collection de projets de programmation réalisés lors de cours d'informatique avancés — algorithmes, structures de données et divers langages.",
+                repoLabel: "Dépôt GitHub",
+                footerLink: "Portfolio professionnel",
+                catDelphiDesc: "Projets orientés objet en Delphi/Pascal — des applications console simples aux programmes avec interface graphique.",
+                catFiliusDesc: "Simulations réseau avec Filius — un outil pédagogique pour les réseaux informatiques.",
+                catPrologDesc: "Programmation logique en Prolog — résolution déclarative de problèmes avec des faits et des règles.",
+            }
+        };
 
-      const card = document.createElement('a');
-      card.href = `https://github.com/${owner}/${repo}`;
-      card.target = "_blank";
-      card.className = "bg-white rounded-lg shadow hover:shadow-lg transition p-6 flex flex-col";
+        // ─── Project data ────────────────────────────────────────────────────────────
+        // To add repos: fill in the repo name string in the relevant category below.
+        // Placeholders marked with TODO can be replaced with the real repo name.
+        const categories = [
+            {
+                id: 'delphi',
+                label: 'Delphi',
+                descKey: 'catDelphiDesc',
+                accent: 'indigo',
+                repos: [
+                    "Simple-Hello-World",
+                    "SimpleDivision",
+                    "SimpleCashier",
+                    "KoerperCalc1.0",
+                    "KoerperCalc2.0",
+                    "KoerperCalc3.0",
+                    "SpeedCodingDelphi",
+                    "pq-Formel",
+                    "Notenberechung",
+                    "Altersbestimmung",
+                    "GraphsPlot",
+                    "accountsystem-with-email-and-pwrd",
+                    "Verschluesselung-Delphi",
+                    "Paketprogramm",
+                    "TheWuerfelGame",
+                    "Friendbook",
+                ]
+            },
+            {
+                id: 'filius',
+                label: 'Filius',
+                descKey: 'catFiliusDesc',
+                accent: 'teal',
+                repos: [
+                    // TODO: replace with your Filius repo name
+                    "filius_gymnasium",
+                ]
+            },
+            {
+                id: 'prolog',
+                label: 'Prolog',
+                descKey: 'catPrologDesc',
+                accent: 'amber',
+                repos: [
+                    // TODO: replace with your Prolog repo name(s)
+                    "?YOUR-PROLOG-REPO-HERE",
+                ]
+            },
+        ];
 
-      card.innerHTML = `
-        <div class="mb-2 text-sm text-gray-500">GitHub</div>
-        <h2 class="text-lg font-semibold text-blue-600 mb-2">${repo}</h2>
-        `
+        const owner = "DevTimmOfTO";
 
-      container.appendChild(card);
-    }
-  }
+        // Accent colour map — Tailwind classes per category colour
+        const accentClasses = {
+            indigo: { title: 'text-indigo-500', border: 'border-indigo-400', badge: 'bg-indigo-100 text-indigo-700' },
+            teal:   { title: 'text-teal-500',   border: 'border-teal-400',   badge: 'bg-teal-100 text-teal-700' },
+            amber:  { title: 'text-amber-500',  border: 'border-amber-400',  badge: 'bg-amber-100 text-amber-700' },
+        };
 
-    loadRepos();
-  </script>
+        // ─── Render ───────────────────────────────────────────────────────────────────
+        let currentLang = 'de';
 
+        function renderAll() {
+            const container = document.getElementById('categories-container');
+            const label = translations[currentLang].repoLabel;
+            container.innerHTML = '';
 
+            for (const cat of categories) {
+                const ac = accentClasses[cat.accent];
+                const desc = translations[currentLang][cat.descKey] || '';
 
-    <!-- Repeat for more -->
-  </main>
+                const section = document.createElement('section');
+                section.id = `cat-${cat.id}`;
+                section.className = 'mb-12';
 
-  <footer class="p-4 text-center text-gray-500 text-sm">
-    &copy; 2025 Timm J. Göring
-  </footer>
+                // Section header
+                const header = document.createElement('div');
+                header.className = `flex items-center gap-3 mb-2 border-l-4 pl-3 ${ac.border}`;
+                header.innerHTML = `<h2 class="dm-text-heading text-2xl font-semibold text-gray-700">${cat.label}</h2>`;
+                section.appendChild(header);
+
+                // Description
+                const descEl = document.createElement('p');
+                descEl.className = 'dm-text-sub text-gray-500 mb-4 text-sm';
+                descEl.textContent = desc;
+                section.appendChild(descEl);
+
+                // Grid
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4';
+
+                for (const repo of cat.repos) {
+                    const card = document.createElement('a');
+                    card.href = `https://github.com/${owner}/${repo}`;
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                    card.className = 'dm-bg-card bg-white rounded-xl shadow-md p-6 flex flex-col gap-2 transition-all duration-200 hover:shadow-xl hover:-translate-y-1';
+                    card.innerHTML = `
+                        <div class="flex items-center gap-2 text-sm dm-text-sub text-gray-400">
+                            <i class="fa-brands fa-github"></i>
+                            <span>${label}</span>
+                        </div>
+                        <h3 class="text-base font-semibold ${ac.title} break-words">${repo}</h3>
+                        <div class="mt-auto pt-2 text-xs dm-text-sub text-gray-400 flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>${owner}</span>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                }
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            }
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            renderAll();
+        }
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            document.getElementById('darkModeIcon').className = html.classList.contains('dark')
+                ? 'fa-solid fa-sun'
+                : 'fa-solid fa-moon';
+        }
+
+        renderAll();
+    </script>
 
 </body>
 </html>
