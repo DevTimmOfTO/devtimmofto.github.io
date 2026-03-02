@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevTimmOfTO – Backend developer portfolio showcasing transit simulations, roleplay servers, and software engineering projects.">
     <title>Portfolio | DevTimmOfTO</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/main.css">
@@ -14,6 +15,9 @@
     <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;1,200&display=swap"
         rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @layer utilities {
@@ -37,6 +41,19 @@
             z-index: -1;
             background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Dark mode overrides */
+        .dark .dm-bg-page       { background-color: #111827 !important; }
+        .dark .dm-bg-header     { background-color: #0d1117 !important; }
+        .dark .dm-bg-nav        { background-color: #161b22 !important; }
+        .dark .dm-bg-card       { background-color: #1f2937 !important; }
+        .dark .dm-text-main     { color: #e2e8f0 !important; }
+        .dark .dm-text-sub      { color: #94a3b8 !important; }
+        .dark .dm-text-heading  { color: #cbd5e1 !important; }
     </style>
     <script src="scripts.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJS5QV5VZT"></script>
@@ -48,245 +65,299 @@
     </script>
 </head>
 
-<body class="bg-gray-100 font-sans text-gray-800">
-    <!-- Language Switcher -->
-    <div class="bg-gray-800 text-white text-sm py-2 px-4 flex justify-end space-x-4">
-        <button onclick="setLanguage('de')">Deutsch</button>
-        <button onclick="setLanguage('en')">English</button>
-        <button onclick="setLanguage('fr')">Français</button>
+<body class="dm-bg-page dm-text-main bg-gray-100 font-sans text-gray-800 transition-colors duration-300">
+    <!-- Top bar: Language Switcher + Dark Mode -->
+    <div class="dm-bg-header bg-gray-800 text-white text-sm py-2 px-4 flex justify-between items-center">
+        <button onclick="toggleDarkMode()" class="flex items-center gap-1 hover:text-gray-300" title="Toggle dark mode">
+            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        <div class="flex space-x-4">
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('fr')">Français</button>
+        </div>
     </div>
-    
-    <header class="bg-gray-800 text-white py-4 text-center">
+
+    <header class="dm-bg-header bg-gray-800 text-white py-4 text-center">
         <h1 class="text-2xl font-bold">DevTimmOfTO</h1>
         <p class="text-lg" data-i18n="portfolioTopStartDesc">Welcome to my professional portfolio</p>
     </header>
 
-    <nav class="bg-gray-700 py-2 flex justify-center">
+    <nav class="dm-bg-nav bg-gray-700 py-2 flex justify-center sticky top-0 z-50">
         <a href="#about" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navAbout">About</a>
+        <a href="#skills" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navSkills">Skills</a>
         <a href="#projects" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navProjects">Projects</a>
         <a href="#contact" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navContact">Contact</a>
+        <a href="https://devtimmofto.github.io/blog/" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navBlog" target="_blank" rel="noopener noreferrer">Blog</a>
     </nav>
 
     <div class="container mx-auto mt-8 px-4">
         <section id="about" class="mb-8">
-            <h2 class="text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingAbout">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="profile-container md:mr-8">
+            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingAbout">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="profile-container md:mr-8 shrink-0">
                     <div class="profile-circle"></div>
                     <a href="privat.html"><img src="img/profil_pic.png" alt="DevTimmOfTO's profile picture"
                         title="The profile picture of DevTimmOfTO" class="rounded-full w-32 h-32 m-1 "></a>
                 </div>
-                <p class="text-lg" data-i18n="textAboutMe">
-                    Hello! I'm DevTimmOfTO, a passionate backend developer specializing in creating robust and scalable software solutions. <br>I focus on developing applications that solve real-world problems and add value to users' lives. <br>Feel free to explore my work and projects!
-                </p>
+                <div>
+                    <p class="text-lg dm-text-main" data-i18n="textAboutMe">
+                        Hello! I'm DevTimmOfTO, a passionate backend developer specializing in creating robust and scalable software solutions. <br>I focus on developing applications that solve real-world problems and add value to users' lives. <br>Feel free to explore my work and projects!
+                    </p>
+                    <!-- Replace the href with the actual path to your CV file -->
+                    <a href="#" class="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors" data-i18n="btnDownloadCV">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-8">
+            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingSkills">Skills</h2>
+            <div class="flex flex-wrap gap-3">
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-js mr-1 text-yellow-400"></i>JavaScript</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-html5 mr-1 text-orange-500"></i>HTML / CSS</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-database mr-1 text-blue-500"></i>SQL</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-python mr-1 text-blue-400"></i>Python</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-code mr-1 text-purple-500"></i>Lua</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-git-alt mr-1 text-red-500"></i>Git</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-node-js mr-1 text-green-500"></i>Node.js</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-server mr-1 text-gray-500"></i>Backend Development</span>
+                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-cubes mr-1 text-teal-500"></i>3D Modeling</span>
             </div>
         </section>
 
         <section id="projects" class="mb-8">
-            <h2 class="text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingProjects">Projects</h2>
-            <p class="mb-4" data-i18n="descProjects">Here are some of my recent projects:</p>
+            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingProjects">Projects</h2>
+            <p class="mb-4 dm-text-main" data-i18n="descProjects">Here are some of my recent projects:</p>
 
-            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4">
+            <!-- GTA 5 RolePlay -->
+            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
                 <div class="md:flex">
                     <div class="md:shrink-0">
                         <img src="img/IMG_0430.png" alt="Tech-Roleplay"
                             class="h-48 w-full object-cover md:h-full md:w-48">
                     </div>
                     <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                            data-i18n="projectsTitleTechRoleplay">GTA 5 RolePlay Server
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                                data-i18n="projectsTitleTechRoleplay">GTA 5 RolePlay Server
+                            </div>
+                            <span class="px-2 py-0.5 text-xs rounded-full bg-red-100 text-red-700 font-medium">Paused</span>
                         </div>
                         <a href="CivTechXR.html"
-                            class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
                             data-i18n="projectsDescTechRoleplay">
-                            A realistic multiplayer roleplay server for GTA 5 with custom features
+                            A realistic multiplayer roleplay server for GTA 5 — currently paused due to Rockstar's policy changes
                         </a>
-                        <p class="mt-2 text-gray-600">Backend development, server architecture, database management</p>
+                        <p class="mt-2 text-gray-600 dm-text-sub">Backend development, server architecture, database management</p>
                     </div>
                 </div>
             </div>
 
-            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4">
+            <!-- Toronto Map -->
+            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
                 <div class="md:flex">
                     <div class="md:shrink-0">
                         <img src="img/lotus-toronto-icon.png" alt="Lotus Icon for the Toronto Map"
                             class="h-48 w-full object-cover md:h-full md:w-48">
                     </div>
                     <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                            data-i18n="projectsTitleTorrontoLotus">Toronto Map for Lotus Simulator
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                                data-i18n="projectsTitleTorrontoLotus">Toronto Map for Lotus Simulator
+                            </div>
+                            <span class="px-2 py-0.5 text-xs rounded-full bg-blue-100 text-blue-700 font-medium">In Development</span>
                         </div>
-                        <a href="lotus_greater_toronto_area.html" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                        <a href="lotus_greater_toronto_area.html" class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
                             data-i18n="projectsDescTorrontoLotus">
-                            Detailed Toronto transit simulation with streetcars and buses
+                            Detailed Toronto transit simulation with streetcars and buses — actively under development
                         </a>
-                        <p class="mt-2 text-gray-600">3D modeling, simulation programming, real-time systems</p>
+                        <p class="mt-2 text-gray-600 dm-text-sub">3D modeling, simulation programming, real-time systems</p>
                     </div>
                 </div>
             </div>
 
-            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4">
+            <!-- Healthcare -->
+            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
                 <div class="md:flex">
                     <div class="md:shrink-0">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Healthcare"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Healthcare Info</title>
-                            <rect width="100%" height="100%" fill="#4f46e5"></rect>
-                            <text x="50%" y="50%" fill="#ffffff" dy=".3em">Healthcare</text>
-                        </svg>
+                        <div class="h-48 w-full md:h-full md:w-48 bg-indigo-700 flex flex-col items-center justify-center gap-2">
+                            <i class="fa-solid fa-heart-pulse text-white text-5xl"></i>
+                            <span class="text-white text-sm font-semibold tracking-wide">Healthcare</span>
+                        </div>
                     </div>
                     <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                            data-i18n="projectsTitleDiabetes">Healthcare Information System (WIP)
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                                data-i18n="projectsTitleDiabetes">Healthcare Information System
+                            </div>
+                            <span class="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 font-medium">Finished</span>
                         </div>
                         <a href="https://DevTimmOfTO.github.io/website-seminarfach/"
-                            class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
                             data-i18n="projectsDescDiabetes">
-                            Educational web platform for diabetes management in schools
+                            Informational web platform helping school students understand and manage diabetes
                         </a>
-                        <p class="mt-2 text-gray-600">Web development, information architecture, responsive design</p>
+                        <p class="mt-2 text-gray-600 dm-text-sub">Web development, information architecture, responsive design</p>
                     </div>
                 </div>
             </div>
 
-            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4">
+            <!-- S-Bahn Berlin -->
+            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
                 <div class="md:flex">
                     <div class="md:shrink-0">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="100%"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Transit Simulation"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>S-Berlin</title>
-                            <rect width="100%" height="100%" fill="#059669"></rect>
-                            <text x="50%" y="50%" fill="#ffffff" dy=".3em">S-Bahn Berlin</text>
-                        </svg>
+                        <div class="h-48 w-full md:h-full md:w-48 bg-emerald-700 flex flex-col items-center justify-center gap-2">
+                            <i class="fa-solid fa-train text-white text-5xl"></i>
+                            <span class="text-white text-sm font-semibold tracking-wide">S-Bahn Berlin</span>
+                        </div>
                     </div>
                     <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                            data-i18n="projectsTitleSBahnBerlinSWS2">S-Bahn Berlin for Subway Sim 2
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                                data-i18n="projectsTitleSBahnBerlinSWS2">S-Bahn Berlin for Subway Sim 2
+                            </div>
+                            <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-600 font-medium">Concept</span>
                         </div>
                         <a href="s-bahn-berlin-subwaysim2.html"
-                            class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
                             data-i18n="projectsDescSBahnBerlinSWS2">
-                            Realistic Berlin S-Bahn system implementation for transit simulation
+                            Concept for a realistic Berlin S-Bahn system in Subway Sim 2 — not yet in active development, but open
                         </a>
-                        <p class="mt-2 text-gray-600">Game development, system modeling, user experience design</p>
+                        <p class="mt-2 text-gray-600 dm-text-sub">Game development, system modeling, user experience design</p>
                     </div>
                 </div>
             </div>
 
-            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4">
+            <!-- CS Projects -->
+            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
                 <div class="md:flex">
                     <div class="md:shrink-0">
-                        <svg class="w-full h-48 bg-gray-200" xmlns="http://www.w3.org/2000/svg" role="img"
-                            aria-label="Educational Projects" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Educational</title>
-                            <rect width="100%" height="100%" fill="#7c3aed"></rect>
-                            <text x="50%" y="50%" fill="#ffffff" dy=".3em">Education</text>
-                        </svg>
+                        <div class="h-48 w-full md:h-full md:w-48 bg-violet-700 flex flex-col items-center justify-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-white text-5xl"></i>
+                            <span class="text-white text-sm font-semibold tracking-wide">Education</span>
+                        </div>
                     </div>
                     <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                            data-i18n="projectsTitleITCourseGrammarSchoolProjects">Computer Science Projects</div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                                data-i18n="projectsTitleITCourseGrammarSchoolProjects">Computer Science Projects</div>
+                            <span class="px-2 py-0.5 text-xs rounded-full bg-gray-100 text-gray-600 font-medium">Archived</span>
+                        </div>
                         <a href="it-course-projects.html"
-                            class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
                             data-i18n="projectsDescITCourseGrammarSchoolProjects">
                             Various programming projects developed during advanced computer science courses
                         </a>
-                        <p class="mt-2 text-gray-600">Algorithm development, data structures, software engineering</p>
+                        <p class="mt-2 text-gray-600 dm-text-sub">Projects from my Gymnasium years — algorithm development, data structures, software engineering</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="socials" class="mb-8">
-            <h2 class="text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingSocialMedia">Professional Links</h2>
+            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingSocialMedia">Professional Links</h2>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://github.com/DevTimmOfTO" title="GitHub" class="text-black hover:text-gray-500"><i
+                <a href="https://github.com/DevTimmOfTO" title="GitHub" class="text-black dm-text-main hover:text-gray-500"><i
                         class="fa-brands fa-github fa-2xl"></i></a>
                 <a href="https://www.linkedin.com/in/timm-johannes-g%C3%B6ring-476aa0245/" title="LinkedIn"
                     class="text-blue-500 hover:text-blue-300"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
                 <a href="mailto:DevTimmOfTO.dev@gmail.com" title="E-Mail" class="text-green-500 hover:text-green-300"><i
                         class="fa-regular fa-envelope fa-2xl"></i></a>
+                <a href="https://devtimmofto.github.io/blog/" title="Blog" class="text-orange-500 hover:text-orange-300" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-solid fa-rss fa-2xl"></i></a>
             </div>
         </section>
 
         <section id="contact" class="mb-8">
-            <h2 class="text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingContactMe">Contact Me</h2>
-            <p class="text-lg">If you'd like to get in touch for professional opportunities or collaboration, feel free to email me at <a
+            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingContactMe">Contact Me</h2>
+            <p class="text-lg dm-text-main">If you'd like to get in touch for professional opportunities or collaboration, feel free to email me at <a
                     href="mailto:DevTimmOfTO.dev@gmail.com"
                     class="text-indigo-500 hover:underline">DevTimmOfTO.dev@gmail.com</a> or connect with me on LinkedIn.</p>
         </section>
     </div>
 
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 Timm Johannes Göring | Professional Portfolio</p>
+    <footer class="dm-bg-header bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2026 Timm Johannes Göring | Professional Portfolio</p>
     </footer>
     <script>
         const translations = {
             de: {
                 portfolioTopStartDesc: "Willkommen zu meinem professionellen Portfolio",
                 navAbout: "Über mich",
+                navSkills: "Fähigkeiten",
                 navProjects: "Projekte",
                 navContact: "Kontakt",
+                navBlog: "Blog",
                 headingAbout: "Über mich",
                 textAboutMe: "Hallo! Ich bin DevTimmOfTO, ein leidenschaftlicher Backend-Entwickler, spezialisiert auf robuste und skalierbare Softwarelösungen. <br>Ich konzentriere mich auf die Entwicklung von Anwendungen, die reale Probleme lösen und den Nutzern einen Mehrwert bieten. <br>Schauen Sie sich gerne meine Arbeit und Projekte an!",
+                btnDownloadCV: "CV herunterladen",
+                headingSkills: "Fähigkeiten",
                 headingProjects: "Projekte",
                 descProjects: "Hier sind einige meiner aktuellen Projekte:",
                 projectsTitleTechRoleplay: "GTA 5 RolePlay-Server",
-                projectsDescTechRoleplay: "Ein realistischer Multiplayer-Roleplay-Server für GTA 5 mit benutzerdefinierten Features",
+                projectsDescTechRoleplay: "Ein realistischer Multiplayer-Roleplay-Server für GTA 5 – derzeit pausiert aufgrund der Richtlinienänderungen von Rockstar",
                 projectsTitleTorrontoLotus: "Toronto Map für Lotus Simulator",
-                projectsDescTorrontoLotus: "Detaillierte Toronto-Verkehrssimulation mit Straßenbahnen und Bussen",
-                projectsTitleDiabetes: "Gesundheitsinformationssystem (WIP)",
-                projectsDescDiabetes: "Bildungswebplattform für Diabetes-Management in Schulen",
+                projectsDescTorrontoLotus: "Detaillierte Toronto-Verkehrssimulation mit Straßenbahnen und Bussen – aktiv in Entwicklung",
+                projectsTitleDiabetes: "Gesundheitsinformationssystem",
+                projectsDescDiabetes: "Informationswebplattform, die Schülerinnen und Schüler über Diabetes aufklärt",
                 projectsTitleSBahnBerlinSWS2: "S-Bahn Berlin für Subway Sim 2",
-                projectsDescSBahnBerlinSWS2: "Realistische Berliner S-Bahn-System-Implementierung für Verkehrssimulation",
+                projectsDescSBahnBerlinSWS2: "Konzept für ein realistisches Berliner S-Bahn-System in Subway Sim 2 – noch nicht in aktiver Entwicklung, aber offen",
                 projectsTitleITCourseGrammarSchoolProjects: "Informatik-Projekte",
-                projectsDescITCourseGrammarSchoolProjects: "Verschiedene Programmierprojekte aus fortgeschrittenen Informatikkursen",
+                projectsDescITCourseGrammarSchoolProjects: "Programmierprojekte aus meiner Gymnasialzeit – Algorithmen, Datenstrukturen, Softwareentwicklung",
                 headingSocialMedia: "Professionelle Links",
                 headingContactMe: "Kontaktieren Sie mich",
             },
             en: {
                 portfolioTopStartDesc: "Welcome to my professional portfolio",
                 navAbout: "About",
+                navSkills: "Skills",
                 navProjects: "Projects",
                 navContact: "Contact",
+                navBlog: "Blog",
                 headingAbout: "About Me",
                 textAboutMe: "Hello! I'm DevTimmOfTO, a passionate backend developer specializing in creating robust and scalable software solutions. <br>I focus on developing applications that solve real-world problems and add value to users' lives. <br>Feel free to explore my work and projects!",
+                btnDownloadCV: "Download CV",
+                headingSkills: "Skills",
                 headingProjects: "Projects",
                 descProjects: "Here are some of my recent projects:",
                 projectsTitleTechRoleplay: "GTA 5 RolePlay Server",
-                projectsDescTechRoleplay: "A realistic multiplayer roleplay server for GTA 5 with custom features",
+                projectsDescTechRoleplay: "A realistic multiplayer roleplay server for GTA 5 — currently paused due to Rockstar's policy changes",
                 projectsTitleTorrontoLotus: "Toronto Map for Lotus Simulator",
-                projectsDescTorrontoLotus: "Detailed Toronto transit simulation with streetcars and buses",
-                projectsTitleDiabetes: "Healthcare Information System (WIP)",
-                projectsDescDiabetes: "Educational web platform for diabetes management in schools",
+                projectsDescTorrontoLotus: "Detailed Toronto transit simulation with streetcars and buses — actively under development",
+                projectsTitleDiabetes: "Healthcare Information System",
+                projectsDescDiabetes: "Informational web platform helping school students understand and manage diabetes",
                 projectsTitleSBahnBerlinSWS2: "S-Bahn Berlin for Subway Sim 2",
-                projectsDescSBahnBerlinSWS2: "Realistic Berlin S-Bahn system implementation for transit simulation",
+                projectsDescSBahnBerlinSWS2: "Concept for a realistic Berlin S-Bahn system in Subway Sim 2 — not yet in active development, but open",
                 projectsTitleITCourseGrammarSchoolProjects: "Computer Science Projects",
-                projectsDescITCourseGrammarSchoolProjects: "Various programming projects developed during advanced computer science courses",
+                projectsDescITCourseGrammarSchoolProjects: "Projects from my Gymnasium years — algorithm development, data structures, software engineering",
                 headingSocialMedia: "Professional Links",
                 headingContactMe: "Contact Me",
             },
             fr: {
                 portfolioTopStartDesc: "Bienvenue dans mon portfolio professionnel",
                 navAbout: "À propos de moi",
+                navSkills: "Compétences",
                 navProjects: "Projets",
                 navContact: "Contact",
+                navBlog: "Blog",
                 headingAbout: "À propos de moi",
                 textAboutMe: "Bonjour ! Je suis DevTimmOfTO, un développeur backend passionné, spécialisé dans la création de solutions logicielles robustes et évolutives. <br>Je me concentre sur le développement d'applications qui résolvent des problèmes réels et apportent de la valeur aux utilisateurs. <br>N'hésitez pas à explorer mon travail et mes projets !",
+                btnDownloadCV: "Télécharger CV",
+                headingSkills: "Compétences",
                 headingProjects: "Projets",
                 descProjects: "Voici quelques-uns de mes projets récents :",
                 projectsTitleTechRoleplay: "Serveur GTA 5 RolePlay",
-                projectsDescTechRoleplay: "Un serveur de jeu de rôle multijoueur réaliste pour GTA 5 avec des fonctionnalités personnalisées",
+                projectsDescTechRoleplay: "Un serveur de jeu de rôle multijoueur réaliste pour GTA 5 — actuellement en pause en raison des changements de politique de Rockstar",
                 projectsTitleTorrontoLotus: "Carte de Toronto pour Lotus Simulator",
-                projectsDescTorrontoLotus: "Simulation détaillée du transport de Toronto avec tramways et bus",
-                projectsTitleDiabetes: "Système d'information de santé (WIP)",
-                projectsDescDiabetes: "Plateforme web éducative pour la gestion du diabète dans les écoles",
+                projectsDescTorrontoLotus: "Simulation détaillée du transport de Toronto avec tramways et bus — en développement actif",
+                projectsTitleDiabetes: "Système d'information de santé",
+                projectsDescDiabetes: "Plateforme web informant les élèves sur le diabète et sa gestion en milieu scolaire",
                 projectsTitleSBahnBerlinSWS2: "S-Bahn Berlin pour Subway Sim 2",
-                projectsDescSBahnBerlinSWS2: "Implémentation réaliste du système S-Bahn de Berlin pour la simulation de transport",
+                projectsDescSBahnBerlinSWS2: "Concept pour un système S-Bahn de Berlin réaliste dans Subway Sim 2 — pas encore en développement actif, mais ouvert",
                 projectsTitleITCourseGrammarSchoolProjects: "Projets d'informatique",
-                projectsDescITCourseGrammarSchoolProjects: "Divers projets de programmation développés lors de cours d'informatique avancés",
+                projectsDescITCourseGrammarSchoolProjects: "Projets réalisés durant mes années de lycée — algorithmes, structures de données, génie logiciel",
                 headingSocialMedia: "Liens professionnels",
                 headingContactMe: "Contactez-moi",
             }
@@ -295,8 +366,19 @@
         function setLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                el.textContent = translations[lang][key] || key;
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
             });
+        }
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            const icon = document.getElementById('darkModeIcon');
+            icon.className = html.classList.contains('dark')
+                ? 'fa-solid fa-sun'
+                : 'fa-solid fa-moon';
         }
     </script>
 </body>
