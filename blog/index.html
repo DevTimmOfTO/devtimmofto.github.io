@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevTimmOfTO Blog — thoughts on backend development, transit simulations, and software engineering.">
+    <title>Blog | DevTimmOfTO</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/profil_pic.png">
+    <link rel="alternate" type="application/rss+xml" title="DevTimmOfTO Blog" href="feed.xml">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="../fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="../fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="../fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;1,200&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Dark mode overrides */
+        .dark .dm-bg-page       { background-color: #111827 !important; }
+        .dark .dm-bg-header     { background-color: #0d1117 !important; }
+        .dark .dm-bg-nav        { background-color: #161b22 !important; }
+        .dark .dm-bg-card       { background-color: #1f2937 !important; }
+        .dark .dm-text-main     { color: #e2e8f0 !important; }
+        .dark .dm-text-sub      { color: #94a3b8 !important; }
+        .dark .dm-text-heading  { color: #cbd5e1 !important; }
+    </style>
+</head>
+
+<body class="dm-bg-page dm-text-main bg-gray-100 font-sans text-gray-800 transition-colors duration-300">
+
+    <!-- Top bar: Dark Mode toggle -->
+    <div class="dm-bg-header bg-gray-800 text-white text-sm py-2 px-4 flex justify-between items-center">
+        <button onclick="toggleDarkMode()" class="flex items-center gap-1 hover:text-gray-300" title="Toggle dark mode">
+            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        <a href="feed.xml" class="flex items-center gap-1 hover:text-orange-400 text-orange-300 transition-colors" title="RSS Feed">
+            <i class="fa-solid fa-rss"></i> RSS
+        </a>
+    </div>
+
+    <header class="dm-bg-header bg-gray-800 text-white py-4 text-center">
+        <h1 class="text-2xl font-bold">DevTimmOfTO</h1>
+        <p class="text-lg">Blog</p>
+    </header>
+
+    <nav class="dm-bg-nav bg-gray-700 py-2 flex justify-center sticky top-0 z-50">
+        <a href="../index.html" class="text-white hover:underline mx-4 px-2 py-1">
+            <i class="fa-solid fa-arrow-left mr-1"></i>Portfolio
+        </a>
+        <a href="index.html" class="text-white hover:underline mx-4 px-2 py-1">All Posts</a>
+        <a href="feed.xml" class="text-white hover:underline mx-4 px-2 py-1">
+            <i class="fa-solid fa-rss mr-1 text-orange-400"></i>RSS
+        </a>
+    </nav>
+
+    <div class="container mx-auto mt-8 px-4 max-w-3xl">
+        <section class="mb-8">
+            <h2 class="dm-text-heading text-3xl font-semibold mb-2 text-gray-700">All Posts</h2>
+            <p class="dm-text-sub text-gray-500 mb-6">Thoughts on backend development, transit simulations, and software engineering.</p>
+
+            <!-- =====================================================================
+                 BLOG POST LIST
+                 To add a new post: copy one of the article blocks below and update
+                 the href, date, category, title, and description.
+                 ===================================================================== -->
+
+            <!-- Post: GTAT project overview -->
+            <article class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
+                <div class="md:flex">
+                    <div class="md:shrink-0">
+                        <div class="h-48 w-full md:h-full md:w-48 bg-blue-700 flex flex-col items-center justify-center gap-2 p-4">
+                            <i class="fa-solid fa-tram text-white text-4xl"></i>
+                            <time datetime="2026-03-11" class="text-white text-xs font-semibold tracking-wide text-center">March 11, 2026</time>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-1">Real Map &amp; Vehicle Project</div>
+                        <a href="posts/example-post.html" class="block mt-1 text-lg leading-tight font-medium dm-text-main text-black hover:underline">
+                            Greater Toronto Area Transit (GTAT) — Project Overview
+                        </a>
+                        <p class="mt-2 text-gray-600 dm-text-sub text-sm">
+                            A large-scale, high-fidelity recreation of the TTC and GTA transit networks in Lotus Simulator — routes 509 &amp; 510 in early development, full multi-agency roadmap planned.
+                        </p>
+                        <a href="posts/example-post.html" class="inline-block mt-4 text-indigo-500 hover:underline text-sm font-medium">
+                            Read more <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Add more posts above this comment -->
+
+        </section>
+    </div>
+
+    <footer class="dm-bg-header bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2026 Timm Johannes Göring | <a href="../index.html" class="text-indigo-400 hover:underline">Portfolio</a></p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            const icon = document.getElementById('darkModeIcon');
+            icon.className = html.classList.contains('dark')
+                ? 'fa-solid fa-sun'
+                : 'fa-solid fa-moon';
+        }
+    </script>
+</body>
+
+</html>

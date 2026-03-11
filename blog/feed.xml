@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <channel>
+
+    <title>DevTimmOfTO Blog</title>
+    <link>https://devtimmofto.github.io/blog/</link>
+    <description>Thoughts on backend development, transit simulations, and software engineering by DevTimmOfTO.</description>
+    <language>en</language>
+    <copyright>© 2026 Timm Johannes Göring</copyright>
+    <managingEditor>DevTimmOfTO.dev@gmail.com (DevTimmOfTO)</managingEditor>
+    <webMaster>DevTimmOfTO.dev@gmail.com (DevTimmOfTO)</webMaster>
+    <lastBuildDate>Wed, 11 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://devtimmofto.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <!-- =========================================================================
+         To add a new post: copy the <item> block below, paste it above this
+         comment, and fill in the fields.  Keep the most recent post at the top.
+         ========================================================================= -->
+
+    <item>
+      <title>Greater Toronto Area Transit (GTAT) — Project Overview</title>
+      <link>https://devtimmofto.github.io/blog/posts/example-post.html</link>
+      <guid isPermaLink="true">https://devtimmofto.github.io/blog/posts/example-post.html</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <dc:creator>DevTimmOfTO</dc:creator>
+      <category>Simulation</category>
+      <category>3D Modeling</category>
+      <category>TTC</category>
+      <category>Transit</category>
+      <description><![CDATA[
+        A large-scale, high-fidelity recreation of the TTC and Greater Toronto Area transit networks
+        in Lotus Simulator. Currently in early development (Foundation Stage), focusing on routes 509
+        (Harbourfront) and 510 (Spadina) with authentic TTC broad-gauge track geometry, custom-modelled
+        stations, and a Flexity Outlook vehicle in progress. Long-term roadmap covers the full TTC
+        streetcar and subway network plus regional partners (MiWay, Brampton Transit, GO Transit, UP Express).
+        Seeking contributors: 3D modelling (Blender), scripting, sound design, and textures.
+      ]]></description>
+    </item>
+
+  </channel>
+
+</rss>

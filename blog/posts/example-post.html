@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official overview of the Greater Toronto Area Transit (GTAT) project — a large-scale, high-fidelity recreation of the TTC and GTA transit networks in Lotus Simulator.">
+    <title>Greater Toronto Area Transit (GTAT) — Project Overview | DevTimmOfTO Blog</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="shortcut icon" href="../../img/profil_pic.png">
+    <link rel="alternate" type="application/rss+xml" title="DevTimmOfTO Blog" href="../feed.xml">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="../../fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="../../fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="../../fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;1,200&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Dark mode overrides */
+        .dark .dm-bg-page       { background-color: #111827 !important; }
+        .dark .dm-bg-header     { background-color: #0d1117 !important; }
+        .dark .dm-bg-nav        { background-color: #161b22 !important; }
+        .dark .dm-bg-card       { background-color: #1f2937 !important; }
+        .dark .dm-text-main     { color: #e2e8f0 !important; }
+        .dark .dm-text-sub      { color: #94a3b8 !important; }
+        .dark .dm-text-heading  { color: #cbd5e1 !important; }
+
+        /* Prose styles for post body */
+        .post-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .post-body h3 { font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .post-body p  { margin-bottom: 1rem; line-height: 1.75; }
+        .post-body ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .post-body ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .post-body li { margin-bottom: 0.25rem; }
+        .post-body a  { color: #6366f1; text-decoration: underline; }
+        .post-body pre { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; font-size: 0.875rem; font-family: monospace; }
+        .post-body code { background: #f1f5f9; color: #1e293b; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.875rem; font-family: monospace; }
+        .dark .post-body code { background: #334155; color: #e2e8f0; }
+        .post-body blockquote { border-left: 4px solid #6366f1; padding-left: 1rem; color: #64748b; font-style: italic; margin-bottom: 1rem; }
+    </style>
+</head>
+
+<body class="dm-bg-page dm-text-main bg-gray-100 font-sans text-gray-800 transition-colors duration-300">
+
+    <!-- Top bar: Dark Mode toggle -->
+    <div class="dm-bg-header bg-gray-800 text-white text-sm py-2 px-4 flex justify-between items-center">
+        <button onclick="toggleDarkMode()" class="flex items-center gap-1 hover:text-gray-300" title="Toggle dark mode">
+            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        <a href="../feed.xml" class="flex items-center gap-1 hover:text-orange-400 text-orange-300 transition-colors" title="RSS Feed">
+            <i class="fa-solid fa-rss"></i> RSS
+        </a>
+    </div>
+
+    <header class="dm-bg-header bg-gray-800 text-white py-4 text-center">
+        <h1 class="text-2xl font-bold">DevTimmOfTO</h1>
+        <p class="text-lg">Blog</p>
+    </header>
+
+    <nav class="dm-bg-nav bg-gray-700 py-2 flex justify-center sticky top-0 z-50">
+        <a href="../../index.html" class="text-white hover:underline mx-4 px-2 py-1">
+            <i class="fa-solid fa-arrow-left mr-1"></i>Portfolio
+        </a>
+        <a href="../index.html" class="text-white hover:underline mx-4 px-2 py-1">All Posts</a>
+        <a href="../feed.xml" class="text-white hover:underline mx-4 px-2 py-1">
+            <i class="fa-solid fa-rss mr-1 text-orange-400"></i>RSS
+        </a>
+    </nav>
+
+    <div class="container mx-auto mt-8 px-4 max-w-3xl">
+
+        <!-- Back link -->
+        <a href="../index.html" class="inline-flex items-center gap-1 text-indigo-500 hover:underline text-sm mb-6">
+            <i class="fa-solid fa-arrow-left"></i> All Posts
+        </a>
+
+        <!-- Post header -->
+        <header class="mb-8">
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-2">Real Map &amp; Vehicle Project</div>
+            <h1 class="dm-text-heading text-3xl font-bold text-gray-800 mb-3">
+                Greater Toronto Area Transit (GTAT) — Project Overview
+            </h1>
+            <div class="flex flex-wrap items-center gap-4 dm-text-sub text-gray-500 text-sm mb-4">
+                <time datetime="2026-03-11" class="flex items-center gap-1">
+                    <i class="fa-regular fa-calendar"></i> March 11, 2026
+                </time>
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-user"></i> DevTimmOfTO
+                </span>
+                <span class="flex items-center gap-1">
+                    <i class="fa-regular fa-clock"></i> 4 min read
+                </span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 text-xs rounded-full bg-blue-100 text-blue-700 font-medium">Early Development</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-700 font-medium">3D Modeling</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-700 font-medium">Simulation</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-700 font-medium">TTC</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 font-medium">Seeking Contributors</span>
+            </div>
+        </header>
+
+        <hr class="border-gray-200 dark:border-gray-700 mb-8">
+
+        <!-- ============================================================
+             ENGLISH VERSION
+             ============================================================ -->
+        <article class="post-body dm-text-main text-gray-800">
+
+            <!-- Project meta box -->
+            <div class="dm-bg-card bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-8 text-sm">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 dm-text-sub text-gray-600">
+                    <div><span class="font-semibold dm-text-main text-gray-800">Type:</span> Real Map &amp; Vehicle Project</div>
+                    <div><span class="font-semibold dm-text-main text-gray-800">Status:</span> Early Development (Foundation Stage)</div>
+                    <div><span class="font-semibold dm-text-main text-gray-800">Developer:</span> Timm (DevTimmOfTO)</div>
+                    <div><span class="font-semibold dm-text-main text-gray-800">Seeking Help:</span> 3D Modelling (Blender), Scripting, Sound Design &amp; Textures</div>
+                </div>
+            </div>
+
+            <h2 class="dm-text-heading text-gray-700">🏙️ The Vision</h2>
+
+            <p>
+                The Greater Toronto Area Transit project is a large-scale, high-fidelity recreation of the transit networks
+                across Toronto and the GTA for <a href="https://lotus-simulator.de/" target="_blank" rel="noopener noreferrer">Lotus Simulator</a>.
+                Our focus is on <strong>100% authenticity</strong>, preserving the unique character of Ontario's public
+                transportation — from the hum of the Flexity motors to the specific "ding-dong" of the door chimes.
+            </p>
+
+            <h2 class="dm-text-heading text-gray-700">Phase 1: The Downtown Core</h2>
+
+            <p>
+                We are currently concentrating on the TTC Streetcar network, specifically:
+            </p>
+            <ul>
+                <li>Route 509 – Harbourfront</li>
+                <li>Route 510 – Spadina</li>
+            </ul>
+
+            <h3 class="dm-text-heading text-gray-700">Technical Specifications</h3>
+            <ul>
+                <li><strong>Track Geometry:</strong> Built to the unique TTC broad-gauge (1495 mm).</li>
+                <li><strong>Data Driven:</strong> Developed using real TTC references, topographic data, and accurate stop spacing.</li>
+                <li><strong>Assets:</strong> Custom-modelled stations (Union, Queens Quay, Exhibition Loop) featuring realistic TTC-style signage and modular shelters.</li>
+            </ul>
+
+            <h2 class="dm-text-heading text-gray-700">⚙️ Vehicle Development &amp; Infrastructure</h2>
+            <ul>
+                <li>
+                    <strong>TTC Flexity Outlook:</strong> Currently being modelled in Blender with a focus on accurate
+                    interior layouts and door configurations.
+                </li>
+                <li>
+                    <strong>Future Fleet:</strong> Plans include the Nova LFS, Orion VII, and heavy rail such as the
+                    Toronto Rocket (TR) and T1 subway trains.
+                </li>
+                <li>
+                    <strong>PIS System:</strong> A custom Passenger Information System is in testing to replicate the
+                    real-world dynamic text and announcement patterns used by the TTC.
+                </li>
+            </ul>
+
+            <h2 class="dm-text-heading text-gray-700">🚀 Long-Term Roadmap (The "Big Picture")</h2>
+
+            <p>The goal is a unified, multi-agency GTA map including:</p>
+            <ul>
+                <li><strong>TTC:</strong> Full streetcar network (501–512), Buses, and Subways.</li>
+                <li><strong>Regional Partners:</strong> MiWay, Brampton Transit (Züm), YRT/Viva, Oakville, Burlington, and DRT.</li>
+                <li><strong>The Spine:</strong> Full integration with GO Transit corridors and the UP Express.</li>
+            </ul>
+
+            <h2 class="dm-text-heading text-gray-700">💬 Collaboration &amp; Community</h2>
+
+            <p>This is a passion project built for the community. If you have:</p>
+            <ul>
+                <li>TTC/GO Sound recordings (motors, compressors, announcements)</li>
+                <li>Reference photos of specific intersections or infrastructure</li>
+                <li>CAD data or technical drawings for rails/stops</li>
+            </ul>
+
+            <blockquote>
+                Please reach out! Let's build a version of Toronto that feels like home.
+            </blockquote>
+
+            <p>
+                Contact me at <a href="mailto:DevTimmOfTO.dev@gmail.com">DevTimmOfTO.dev@gmail.com</a> or check the
+                <a href="https://lotus-simulator.de/gallery/index.php?image/3719/" target="_blank" rel="noopener noreferrer">project gallery on lotus-simulator.de</a>.
+            </p>
+
+            <h2 class="dm-text-heading text-gray-700">⚠️ Notes</h2>
+            <ul>
+                <li>This is a non-commercial, fan-made project.</li>
+                <li>All rights, logos, and trademarks belong to the respective agencies (TTC, Metrolinx, GO Transit, etc.).</li>
+                <li>This add-on is made purely for simulation, education, and community enjoyment.</li>
+            </ul>
+
+        </article>
+
+        <!-- French divider -->
+        <hr class="border-gray-200 dark:border-gray-700 my-10">
+
+        <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl" title="Français">🇫🇷</span>
+            <h2 class="dm-text-heading text-2xl font-bold text-gray-700">Transport du Grand Toronto (GTAT)</h2>
+        </div>
+
+        <!-- ============================================================
+             FRENCH VERSION
+             ============================================================ -->
+        <article class="post-body dm-text-main text-gray-800" lang="fr">
+
+            <!-- Project meta box (FR) -->
+            <div class="dm-bg-card bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-8 text-sm">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 dm-text-sub text-gray-600">
+                    <div><span class="font-semibold dm-text-main text-gray-800">Type :</span> Carte réelle et projet de véhicules</div>
+                    <div><span class="font-semibold dm-text-main text-gray-800">Statut :</span> Phase initiale de développement</div>
+                    <div><span class="font-semibold dm-text-main text-gray-800">Développeur :</span> Timm (DevTimmOfTO)</div>
+                    <div><span class="font-semibold dm-text-main text-gray-800">Appel à collaboration :</span> Modélisation 3D (Blender), scripting, design sonore et textures</div>
+                </div>
+            </div>
+
+            <h2 class="dm-text-heading text-gray-700">🏙️ La Vision</h2>
+
+            <p>
+                Le projet Greater Toronto Area Transit est une recréation réaliste et à grande échelle du réseau de transport
+                en commun de Toronto et de sa région (le Grand Toronto) pour
+                <a href="https://lotus-simulator.de/" target="_blank" rel="noopener noreferrer">Lotus Simulator</a>.
+                Notre priorité est l'authenticité, le réalisme et la préservation du caractère unique du système de
+                transport public de l'Ontario.
+            </p>
+
+            <h2 class="dm-text-heading text-gray-700">Phase 1 : Le Cœur du Centre-Ville</h2>
+
+            <p>Nous nous concentrons actuellement sur le réseau de tramways de la TTC (streetcars), plus précisément :</p>
+            <ul>
+                <li>Ligne 509 – Harbourfront</li>
+                <li>Ligne 510 – Spadina</li>
+            </ul>
+
+            <h3 class="dm-text-heading text-gray-700">Spécifications techniques</h3>
+            <ul>
+                <li><strong>Géométrie des voies :</strong> Respect de l'écartement large unique de la TTC (1495 mm).</li>
+                <li><strong>Données réelles :</strong> Développement basé sur les références de la TTC et des données topographiques réelles.</li>
+                <li><strong>Modélisation :</strong> Bâtiments et stations (Union Station, Queens Quay, Exhibition Loop) modélisés sous Blender avec une architecture fidèle à la réalité.</li>
+            </ul>
+
+            <h2 class="dm-text-heading text-gray-700">⚙️ Développement des Véhicules et Infrastructures</h2>
+            <ul>
+                <li>
+                    <strong>TTC Flexity Outlook :</strong> Modèle en cours de création sous Blender avec un aménagement
+                    intérieur et une configuration des portes conformes aux spécifications de la TTC.
+                </li>
+                <li>
+                    <strong>Flotte future :</strong> Prévue pour inclure des autobus (Nova LFS / Orion VII) et des métros
+                    (Toronto Rocket, T1).
+                </li>
+                <li>
+                    <strong>Système d'information :</strong> Un prototype de système d'information aux voyageurs (PIS) est
+                    en test pour reproduire les annonces sonores et visuelles officielles.
+                </li>
+            </ul>
+
+            <h2 class="dm-text-heading text-gray-700">🚀 Plan de Développement Futur</h2>
+
+            <p>L'objectif à long terme est de créer une simulation complète du transport dans le Grand Toronto, intégrant plusieurs agences :</p>
+            <ul>
+                <li><strong>TTC</strong> – Tramways, autobus et métro</li>
+                <li><strong>MiWay, Brampton Transit, YRT</strong> (Vaughan &amp; Markham)</li>
+                <li><strong>Oakville &amp; Burlington Transit, Durham Region Transit (DRT)</strong></li>
+                <li><strong>GO Transit et UP Express</strong> (liaisons ferroviaires régionales)</li>
+            </ul>
+
+            <h2 class="dm-text-heading text-gray-700">💬 Collaboration et Communauté</h2>
+
+            <p>
+                Les commentaires, conseils et aides sont les bienvenus ! Nous recherchons des modélisateurs, des programmeurs
+                ou toute personne familière avec l'infrastructure de l'Ontario. Si vous possédez des enregistrements sonores,
+                des photos de référence ou des données techniques, n'hésitez pas à nous contacter.
+            </p>
+
+            <blockquote>
+                Construisons ensemble une version de Toronto qui ressemble à la maison.
+            </blockquote>
+
+            <p>
+                Contactez-moi à <a href="mailto:DevTimmOfTO.dev@gmail.com">DevTimmOfTO.dev@gmail.com</a> ou consultez la
+                <a href="https://lotus-simulator.de/gallery/index.php?image/3719/" target="_blank" rel="noopener noreferrer">galerie du projet sur lotus-simulator.de</a>.
+            </p>
+
+            <h2 class="dm-text-heading text-gray-700">⚠️ Remarques</h2>
+            <ul>
+                <li>Ce projet est une initiative bénévole et non commerciale, créée par des passionnés.</li>
+                <li>Tous les droits, logos et marques de commerce appartiennent à leurs agences respectives (TTC, Metrolinx, GO Transit, etc.).</li>
+                <li>Cette extension est conçue exclusivement à des fins de simulation, d'éducation et pour le plaisir de la communauté.</li>
+                <li>L'optimisation des performances sera une priorité absolue à mesure que la carte prendra de l'expansion.</li>
+            </ul>
+
+        </article>
+
+        <hr class="border-gray-200 dark:border-gray-700 mt-8 mb-6">
+
+        <div class="flex justify-between items-center text-sm text-indigo-500 mb-12">
+            <a href="../index.html" class="hover:underline">
+                <i class="fa-solid fa-arrow-left mr-1"></i> All Posts
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="dm-bg-header bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2026 Timm Johannes Göring | <a href="../../index.html" class="text-indigo-400 hover:underline">Portfolio</a></p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            const icon = document.getElementById('darkModeIcon');
+            icon.className = html.classList.contains('dark')
+                ? 'fa-solid fa-sun'
+                : 'fa-solid fa-moon';
+        }
+    </script>
+</body>
+
+</html>

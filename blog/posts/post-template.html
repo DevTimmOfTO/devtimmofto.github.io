@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- =========================================================================
+     POST TEMPLATE — HOW TO USE
+     =========================================================================
+     1. Copy this file and rename it:  posts/my-post-slug.html
+     2. Search for every <!-- EDIT: ... --> comment and fill in your content.
+     3. Add a matching <article> card in blog/index.html and an <item> in feed.xml.
+     ========================================================================= -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- EDIT: Update the description for SEO / social sharing -->
+    <meta name="description" content="A post by DevTimmOfTO.">
+
+    <!-- EDIT: Update the page title — format: "Post Title | DevTimmOfTO Blog" -->
+    <title>Post Title | DevTimmOfTO Blog</title>
+
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="shortcut icon" href="../../img/profil_pic.png">
+    <link rel="alternate" type="application/rss+xml" title="DevTimmOfTO Blog" href="../feed.xml">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="../../fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="../../fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="../../fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;1,200&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Dark mode overrides */
+        .dark .dm-bg-page       { background-color: #111827 !important; }
+        .dark .dm-bg-header     { background-color: #0d1117 !important; }
+        .dark .dm-bg-nav        { background-color: #161b22 !important; }
+        .dark .dm-bg-card       { background-color: #1f2937 !important; }
+        .dark .dm-text-main     { color: #e2e8f0 !important; }
+        .dark .dm-text-sub      { color: #94a3b8 !important; }
+        .dark .dm-text-heading  { color: #cbd5e1 !important; }
+
+        /* Prose styles for post body */
+        .post-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .post-body h3 { font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .post-body p  { margin-bottom: 1rem; line-height: 1.75; }
+        .post-body ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .post-body ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .post-body li { margin-bottom: 0.25rem; }
+        .post-body a  { color: #6366f1; text-decoration: underline; }
+        .post-body pre { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; font-size: 0.875rem; font-family: monospace; }
+        .post-body code { background: #f1f5f9; color: #1e293b; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.875rem; font-family: monospace; }
+        .dark .post-body code { background: #334155; color: #e2e8f0; }
+        .post-body blockquote { border-left: 4px solid #6366f1; padding-left: 1rem; color: #64748b; font-style: italic; margin-bottom: 1rem; }
+    </style>
+</head>
+
+<body class="dm-bg-page dm-text-main bg-gray-100 font-sans text-gray-800 transition-colors duration-300">
+
+    <!-- Top bar: Dark Mode toggle -->
+    <div class="dm-bg-header bg-gray-800 text-white text-sm py-2 px-4 flex justify-between items-center">
+        <button onclick="toggleDarkMode()" class="flex items-center gap-1 hover:text-gray-300" title="Toggle dark mode">
+            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        <a href="../feed.xml" class="flex items-center gap-1 hover:text-orange-400 text-orange-300 transition-colors" title="RSS Feed">
+            <i class="fa-solid fa-rss"></i> RSS
+        </a>
+    </div>
+
+    <header class="dm-bg-header bg-gray-800 text-white py-4 text-center">
+        <h1 class="text-2xl font-bold">DevTimmOfTO</h1>
+        <p class="text-lg">Blog</p>
+    </header>
+
+    <nav class="dm-bg-nav bg-gray-700 py-2 flex justify-center sticky top-0 z-50">
+        <a href="../../index.html" class="text-white hover:underline mx-4 px-2 py-1">
+            <i class="fa-solid fa-arrow-left mr-1"></i>Portfolio
+        </a>
+        <a href="../index.html" class="text-white hover:underline mx-4 px-2 py-1">All Posts</a>
+        <a href="../feed.xml" class="text-white hover:underline mx-4 px-2 py-1">
+            <i class="fa-solid fa-rss mr-1 text-orange-400"></i>RSS
+        </a>
+    </nav>
+
+    <div class="container mx-auto mt-8 px-4 max-w-3xl">
+
+        <!-- Back link -->
+        <a href="../index.html" class="inline-flex items-center gap-1 text-indigo-500 hover:underline text-sm mb-6">
+            <i class="fa-solid fa-arrow-left"></i> All Posts
+        </a>
+
+        <!-- =====================================================================
+             POST HEADER — edit the title, date, category, and tags below
+             ===================================================================== -->
+        <header class="mb-8">
+
+            <!-- EDIT: Category label (e.g. "Backend Dev", "Simulation", "Tools") -->
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-2">Category</div>
+
+            <!-- EDIT: Post title -->
+            <h1 class="dm-text-heading text-3xl font-bold text-gray-800 mb-3">Post Title Goes Here</h1>
+
+            <div class="flex flex-wrap items-center gap-4 dm-text-sub text-gray-500 text-sm mb-4">
+                <!-- EDIT: Publication date — update both datetime attribute (YYYY-MM-DD) and the visible text -->
+                <time datetime="YYYY-MM-DD" class="flex items-center gap-1">
+                    <i class="fa-regular fa-calendar"></i> Month DD, YYYY
+                </time>
+
+                <!-- EDIT: Author (remove this element if not needed) -->
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-user"></i> DevTimmOfTO
+                </span>
+
+                <!-- EDIT: Reading time estimate -->
+                <span class="flex items-center gap-1">
+                    <i class="fa-regular fa-clock"></i> X min read
+                </span>
+            </div>
+
+            <!-- EDIT: Tags — add or remove <span> elements as needed -->
+            <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-700 font-medium">Tag One</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-indigo-100 text-indigo-700 font-medium">Tag Two</span>
+            </div>
+
+        </header>
+
+        <!-- Divider -->
+        <hr class="border-gray-200 dark:border-gray-700 mb-8">
+
+        <!-- =====================================================================
+             POST BODY — replace the placeholder elements with your content.
+             Supported elements: <p>, <h2>, <h3>, <ul>/<ol>/<li>, <a>,
+                                 <pre><code>...</code></pre>, <blockquote>, <hr>
+             ===================================================================== -->
+        <article class="post-body dm-text-main text-gray-800">
+
+            <!-- EDIT: Opening paragraph / introduction -->
+            <p>Your introduction goes here. Give readers a clear idea of what this post covers and why it matters.</p>
+
+            <!-- EDIT: First section heading -->
+            <h2 class="dm-text-heading text-gray-700">First Section Heading</h2>
+
+            <!-- EDIT: Section body -->
+            <p>Write your first section content here.</p>
+
+            <!-- Example: bullet list -->
+            <ul>
+                <li>First point</li>
+                <li>Second point</li>
+                <li>Third point</li>
+            </ul>
+
+            <!-- EDIT: Second section heading -->
+            <h2 class="dm-text-heading text-gray-700">Second Section Heading</h2>
+
+            <p>Write your second section content here.</p>
+
+            <!-- Example: inline code and code block -->
+            <p>Use <code>inline code</code> for short snippets.</p>
+
+            <pre><code>// Example code block
+function example() {
+    return "Hello, blog!";
+}</code></pre>
+
+            <!-- Example: blockquote -->
+            <blockquote>A key insight or quote from the post.</blockquote>
+
+            <!-- EDIT: Closing paragraph / call to action -->
+            <p>Wrap up the post and optionally invite readers to reach out or check related work.</p>
+
+        </article>
+        <!-- END POST BODY -->
+
+        <!-- Divider -->
+        <hr class="border-gray-200 dark:border-gray-700 mt-8 mb-6">
+
+        <!-- Footer nav: back to blog -->
+        <div class="flex justify-between items-center text-sm text-indigo-500 mb-12">
+            <a href="../index.html" class="hover:underline">
+                <i class="fa-solid fa-arrow-left mr-1"></i> All Posts
+            </a>
+            <!-- EDIT: If there is a "next" post, link to it here; otherwise remove this element -->
+            <!-- <a href="next-post.html" class="hover:underline">Next Post <i class="fa-solid fa-arrow-right ml-1"></i></a> -->
+        </div>
+
+    </div>
+
+    <footer class="dm-bg-header bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2026 Timm Johannes Göring | <a href="../../index.html" class="text-indigo-400 hover:underline">Portfolio</a></p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            const icon = document.getElementById('darkModeIcon');
+            icon.className = html.classList.contains('dark')
+                ? 'fa-solid fa-sun'
+                : 'fa-solid fa-moon';
+        }
+    </script>
+</body>
+
+</html>
