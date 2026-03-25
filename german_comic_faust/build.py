@@ -194,7 +194,12 @@ def process_svg(filepath, scene_idx):
     # ── 2. Mark speech-bubble section ───────────────────────────────
     # Find the FIRST "SPEECH BUBBLE" comment and mark elements that follow
     bubble_re = re.compile(r'<!--[^-]*(?:speech\s+bubble|SPEECH\s*BUBBLE|Mephisto speech|Faust speech|Wagner speech|God\'s speech|scene label)[^-]*-->', re.IGNORECASE)
-    m = bubble_re.search(raw)
+    # Use the LAST match — speech bubbles live at the end of the SVG;
+    # earlier label comments (e.g. "Mephisto shadow speech bubble") must not
+    # trigger the section too soon and swallow character body elements.
+    m = None
+    for m in bubble_re.finditer(raw):
+        pass  # keep iterating to get the last match
     if m:
         before = raw[:m.start()]
         after  = raw[m.start():]
@@ -509,8 +514,15 @@ function initSvgElements(svgEl) {
     } catch(e) {
       el.dataset.y = 0;
     }
-    el.style.opacity  = '0';
-    el.style.transform = 'translateY(-18px)';
+    el.style.opacity = '0';
+    // Don't override SVG transform attribute with CSS transform — it would
+    // discard the element's existing positional transform.
+    if (!el.hasAttribute('transform')) {
+      el.dataset.noTransform = '0';
+      el.style.transform = 'translateY(-18px)';
+    } else {
+      el.dataset.noTransform = '1';
+    }
     el.style.transition = 'none';
   });
 }
@@ -542,9 +554,14 @@ function animateSvgElements(svgEl) {
     const y     = parseFloat(el.dataset.y) || 0;
     const delay = ((y - minY) / spread) * TOTAL_MS;
     setTimeout(() => {
-      el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-      el.style.opacity    = '1';
-      el.style.transform  = 'translateY(0)';
+      if (el.dataset.noTransform === '1') {
+        el.style.transition = 'opacity 0.45s ease';
+        el.style.opacity    = '1';
+      } else {
+        el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+        el.style.opacity    = '1';
+        el.style.transform  = 'translateY(0)';
+      }
     }, delay);
   });
 
@@ -552,9 +569,14 @@ function animateSvgElements(svgEl) {
   bubbles.forEach((el, i) => {
     const delay = TOTAL_MS + 100 + i * 80;
     setTimeout(() => {
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      el.style.opacity    = '1';
-      el.style.transform  = 'translateY(0)';
+      if (el.dataset.noTransform === '1') {
+        el.style.transition = 'opacity 0.5s ease';
+        el.style.opacity    = '1';
+      } else {
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        el.style.opacity    = '1';
+        el.style.transform  = 'translateY(0)';
+      }
     }, delay);
   });
 }
