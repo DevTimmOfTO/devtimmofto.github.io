@@ -20,7 +20,7 @@ SCENES = [
         'dot':    'rgba(212,175,55,0.18)',
     },
     {
-        'file':   'faust_nacht_erdgeist.svg',
+        'file':   'faust_nacht_erdgeist_v5.svg',
         'title':  'Nacht – Erdgeist',
         'roman':  'II',
         'quote':  '»Wer ruft mich?«',
@@ -120,9 +120,39 @@ SCENES = [
         'dot':    'rgba(112,176,48,0.18)',
     },
     {
-        'file':   'faust_kerker.svg',
-        'title':  'Kerker',
+        'file':   'faust_wald_und_hoehle.svg',
+        'title':  'Wald und Höhle',
         'roman':  'XII',
+        'quote':  '»Erhabner Geist, du gabst mir, gabst mir alles!«',
+        'speaker':'Faust',
+        'bg':     '#060C08',
+        'accent': '#4A8040',
+        'dot':    'rgba(74,128,64,0.18)',
+    },
+    {
+        'file':   'faust_gretchenfrage.svg',
+        'title':  'Gretchenfrage',
+        'roman':  'XIII',
+        'quote':  '»Wie hast du\'s mit der Religion?«',
+        'speaker':'Gretchen',
+        'bg':     '#160A12',
+        'accent': '#C06080',
+        'dot':    'rgba(192,96,128,0.18)',
+    },
+    {
+        'file':   'faust_walpurgisnacht_brocken.svg',
+        'title':  'Walpurgisnacht',
+        'roman':  'XIV',
+        'quote':  '»Die Welt geht unter!«',
+        'speaker':'Mephisto',
+        'bg':     '#0A0414',
+        'accent': '#8820C0',
+        'dot':    'rgba(136,32,192,0.18)',
+    },
+    {
+        'file':   'faust_kerker_v2.svg',
+        'title':  'Kerker',
+        'roman':  'XV',
         'quote':  '»Heinrich! Mir graut\'s vor dir.«',
         'speaker':'Gretchen',
         'bg':     '#060810',
@@ -177,7 +207,8 @@ def process_svg(filepath, scene_idx):
         raw = before + after
 
     # ── 3. Strip outer <svg …> … </svg> wrapper ─────────────────────
-    inner = re.sub(r'^<svg[^>]*>\s*', '', raw).strip()
+    # Use [\s\S]*? to handle files with XML declaration before <svg>
+    inner = re.sub(r'^[\s\S]*?<svg[^>]*>\s*', '', raw).strip()
     inner = re.sub(r'\s*</svg>\s*$', '', inner).strip()
 
     return inner, viewbox
