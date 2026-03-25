@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAUST – Pop Art Comic</title>
-  <meta name="description" content="Goethe's Faust I as a scrollable Pop Art comic – 12 scenes.">
+  <meta name="description" content="Goethe's Faust I as a scrollable Pop Art comic – 15 scenes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bangers&display=swap" rel="stylesheet">
@@ -249,13 +249,174 @@ body {
   transition: width 0.08s linear;
 }
 
+/* ── TOC button ── */
+#toc-btn {
+  position: fixed;
+  top: 16px; left: 16px;
+  z-index: 960;
+  width: 40px; height: 40px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.72);
+  color: rgba(255,255,255,0.65);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  gap: 0;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  backdrop-filter: blur(6px);
+  padding: 0;
+}
+#toc-btn:hover, #toc-btn.open {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  background: rgba(0,0,0,0.92);
+}
+
+/* ── TOC overlay ── */
+#toc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  background: rgba(5,3,10,0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px 24px 48px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+#toc-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+#toc-overlay h2 {
+  font-size: 10px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(212,175,55,0.55);
+  margin-bottom: 36px;
+  text-align: center;
+}
+#toc-close {
+  position: absolute;
+  top: 16px; right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+#toc-close:hover { color: #D4AF37; }
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 920px;
+}
+.toc-card {
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 14px 12px 12px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: block;
+  background-image: radial-gradient(circle, var(--card-accent) 1px, transparent 1px);
+  background-size: 12px 12px;
+  background-position: 0 0;
+}
+.toc-card:hover {
+  border-color: var(--card-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.7);
+}
+.toc-card-roman {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 26px;
+  color: var(--card-accent);
+  opacity: 0.35;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.toc-card-title {
+  font-size: 9.5px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  font-weight: bold;
+  line-height: 1.45;
+}
+.toc-card-quote {
+  font-size: 8.5px;
+  font-style: italic;
+  color: rgba(255,255,255,0.3);
+  margin-top: 7px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Prev / Next scene buttons ── */
+#page-nav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#page-nav.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.page-nav-btn {
+  background: rgba(0,0,0,0.75);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(6px);
+  font-family: Georgia, serif;
+}
+.page-nav-btn:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  background: rgba(0,0,0,0.92);
+}
+.page-nav-btn:disabled {
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
+}
+
 /* ── Mobile ── */
 @media (max-width: 600px) {
-  #scene-nav { right: 8px; }
-  .nav-dot { width: 22px; height: 22px; font-size: 8px; }
+  #scene-nav { display: none; }
   .scene-label { font-size: 12px; padding: 6px 14px; }
   .cover-scroll-hint { font-size: 9px; }
   .scene-wrapper { height: calc(100vh + 600px); }
+  .toc-grid { grid-template-columns: repeat(2, 1fr); }
+  #page-nav { bottom: 16px; gap: 8px; }
+  .page-nav-btn { font-size: 10px; padding: 8px 14px; }
 }
 </style>
 </head>
@@ -263,6 +424,40 @@ body {
 
   <div id="progress-bar"></div>
 
+  <!-- TOC toggle button -->
+  <button id="toc-btn" aria-label="Inhaltsverzeichnis öffnen" title="Inhaltsverzeichnis (T)">
+    <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+      <rect x="0" y="0"  width="18" height="2" rx="1" fill="currentColor"/>
+      <rect x="0" y="6"  width="12" height="2" rx="1" fill="currentColor"/>
+      <rect x="0" y="12" width="15" height="2" rx="1" fill="currentColor"/>
+    </svg>
+  </button>
+
+  <!-- TOC overlay -->
+  <div id="toc-overlay" role="dialog" aria-modal="true" aria-label="Inhaltsverzeichnis">
+  <button id="toc-close" aria-label="Schließen">✕</button>
+  <h2>Inhaltsverzeichnis</h2>
+  <div class="toc-grid">
+    <div class="toc-card" data-target="cover" style="background-color:#08060E; --card-accent:#D4AF37"><div class="toc-card-roman">◆</div><div class="toc-card-title">Deckblatt</div></div>
+    <div class="toc-card" data-target="scene-1" style="background-color:#0C0A1C; --card-accent:#D4AF37"><div class="toc-card-roman">I</div><div class="toc-card-title">Prolog im Himmel</div><div class="toc-card-quote">»Die Wette gilt!«</div></div>
+    <div class="toc-card" data-target="scene-2" style="background-color:#160A28; --card-accent:#9B30D0"><div class="toc-card-roman">II</div><div class="toc-card-title">Nacht – Erdgeist</div><div class="toc-card-quote">»Wer ruft mich?«</div></div>
+    <div class="toc-card" data-target="scene-3" style="background-color:#060614; --card-accent:#4488CC"><div class="toc-card-roman">III</div><div class="toc-card-title">Nacht – Suizidgedanke</div><div class="toc-card-quote">»Laß mich den Rest hinuntertrinken!«</div></div>
+    <div class="toc-card" data-target="scene-4" style="background-color:#081208; --card-accent:#5AA020"><div class="toc-card-roman">IV</div><div class="toc-card-title">Osterspaziergang</div><div class="toc-card-quote">»Hier bin ich Mensch, hier darf ich's sein!«</div></div>
+    <div class="toc-card" data-target="scene-5" style="background-color:#180505; --card-accent:#CC2200"><div class="toc-card-roman">V</div><div class="toc-card-title">Der Pakt</div><div class="toc-card-quote">»Werd ich zum Augenblicke sagen: Verweile doch!«</div></div>
+    <div class="toc-card" data-target="scene-6" style="background-color:#120900; --card-accent:#C89010"><div class="toc-card-roman">VI</div><div class="toc-card-title">Auerbachs Keller</div><div class="toc-card-quote">»Ich bin der Geist, der stets verneint!«</div></div>
+    <div class="toc-card" data-target="scene-7" style="background-color:#040C06; --card-accent:#28A030"><div class="toc-card-roman">VII</div><div class="toc-card-title">Hexenküche</div><div class="toc-card-quote">»Was seh ich? Welch ein himmlisch Bild!«</div></div>
+    <div class="toc-card" data-target="scene-8" style="background-color:#100818; --card-accent:#E05828"><div class="toc-card-roman">VIII</div><div class="toc-card-title">Straße – Erste Begegnung</div><div class="toc-card-quote">»Mein schönes Fräulein, darf ich wagen…«</div></div>
+    <div class="toc-card" data-target="scene-9" style="background-color:#120A00; --card-accent:#D4901A"><div class="toc-card-roman">IX</div><div class="toc-card-title">Abend</div><div class="toc-card-quote">»Wie atmet rings Gefühl der Stille!«</div></div>
+    <div class="toc-card" data-target="scene-10" style="background-color:#160A12; --card-accent:#C06080"><div class="toc-card-roman">X</div><div class="toc-card-title">Gretchenfrage</div><div class="toc-card-quote">»Wie hast du's mit der Religion?«</div></div>
+    <div class="toc-card" data-target="scene-11" style="background-color:#060E06; --card-accent:#70B030"><div class="toc-card-roman">XI</div><div class="toc-card-title">Garten</div><div class="toc-card-quote">»Er liebt mich … liebt mich nicht …«</div></div>
+    <div class="toc-card" data-target="scene-12" style="background-color:#060C08; --card-accent:#4A8040"><div class="toc-card-roman">XII</div><div class="toc-card-title">Wald und Höhle</div><div class="toc-card-quote">»Erhabner Geist, du gabst mir, gabst mir alles!«</div></div>
+    <div class="toc-card" data-target="scene-13" style="background-color:#160A12; --card-accent:#C06080"><div class="toc-card-roman">XIII</div><div class="toc-card-title">Gretchenfrage</div><div class="toc-card-quote">»Wie hast du's mit der Religion?«</div></div>
+    <div class="toc-card" data-target="scene-14" style="background-color:#0A0414; --card-accent:#8820C0"><div class="toc-card-roman">XIV</div><div class="toc-card-title">Walpurgisnacht</div><div class="toc-card-quote">»Die Welt geht unter!«</div></div>
+    <div class="toc-card" data-target="scene-15" style="background-color:#060810; --card-accent:#3355AA"><div class="toc-card-roman">XV</div><div class="toc-card-title">Kerker</div><div class="toc-card-quote">»Heinrich! Mir graut's vor dir.«</div></div>
+  </div>
+</div>
+
+  <!-- Side nav (desktop) -->
   <nav id="scene-nav" aria-label="Szenennavigation">
     <a href="#cover" class="nav-dot active" data-scene="cover" title="Deckblatt"><span class="nav-tooltip">Deckblatt</span>◆</a>
     <a href="#scene-1" class="nav-dot" data-scene="1"><span class="nav-tooltip">Prolog im Himmel</span>I</a>
@@ -281,6 +476,12 @@ body {
     <a href="#scene-14" class="nav-dot" data-scene="14"><span class="nav-tooltip">Walpurgisnacht</span>XIV</a>
     <a href="#scene-15" class="nav-dot" data-scene="15"><span class="nav-tooltip">Kerker</span>XV</a>
   </nav>
+
+  <!-- Prev / Next buttons -->
+  <div id="page-nav" role="navigation" aria-label="Szenensteuerung">
+    <button class="page-nav-btn" id="nav-prev" aria-label="Vorherige Szene">← Zurück</button>
+    <button class="page-nav-btn" id="nav-next" aria-label="Nächste Szene">Weiter →</button>
+  </div>
 
 
   <section id="cover" class="panel" style="--dot-color:rgba(212,175,55,0.12)">
@@ -22922,6 +23123,92 @@ window.addEventListener('resize', () => {
 }, { passive: true });
 
 updateScroll();
+
+// ── Scene ID list (cover + all scenes) ───────────────────────────
+const SCENE_IDS = [
+  'cover',
+  ...Array.from(document.querySelectorAll('.scene-wrapper[data-scene]')).map(w => w.id)
+];
+
+function getActiveIdx() {
+  const wrappers = document.querySelectorAll('.scene-wrapper');
+  for (let i = wrappers.length - 1; i >= 0; i--) {
+    if (wrappers[i].getBoundingClientRect().top <= 1) return i + 1;
+  }
+  return 0;
+}
+
+function scrollToIdx(idx) {
+  idx = Math.max(0, Math.min(idx, SCENE_IDS.length - 1));
+  const el = document.getElementById(SCENE_IDS[idx]);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── Prev / Next buttons ───────────────────────────────────────────
+const pageNav  = document.getElementById('page-nav');
+const prevBtn  = document.getElementById('nav-prev');
+const nextBtn  = document.getElementById('nav-next');
+
+function updatePageNav() {
+  const idx = getActiveIdx();
+  // Show nav once past the cover
+  pageNav.classList.toggle('visible', idx > 0 || window.scrollY > window.innerHeight * 0.4);
+  if (prevBtn) prevBtn.disabled = (idx === 0);
+  if (nextBtn) nextBtn.disabled = (idx === SCENE_IDS.length - 1);
+}
+
+prevBtn?.addEventListener('click', () => scrollToIdx(getActiveIdx() - 1));
+nextBtn?.addEventListener('click', () => scrollToIdx(getActiveIdx() + 1));
+
+// piggyback on existing RAF loop
+const _origUpdate = updateScroll;
+window._scrollUpdateHook = updatePageNav;
+
+// ── TOC ───────────────────────────────────────────────────────────
+const tocOverlay = document.getElementById('toc-overlay');
+const tocBtn     = document.getElementById('toc-btn');
+const tocClose   = document.getElementById('toc-close');
+
+function openToc()  { tocOverlay.classList.add('open');    tocBtn.classList.add('open'); }
+function closeToc() { tocOverlay.classList.remove('open'); tocBtn.classList.remove('open'); }
+function toggleToc(){ tocOverlay.classList.contains('open') ? closeToc() : openToc(); }
+
+tocBtn?.addEventListener('click', toggleToc);
+tocClose?.addEventListener('click', closeToc);
+tocOverlay?.addEventListener('click', e => { if (e.target === tocOverlay) closeToc(); });
+
+document.querySelectorAll('.toc-card').forEach(card => {
+  card.addEventListener('click', () => {
+    closeToc();
+    const el = document.getElementById(card.dataset.target);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// ── Keyboard navigation ───────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  if (e.key === 'Escape') { closeToc(); return; }
+  if (e.key === 't' || e.key === 'T') {
+    if (!tocOverlay.classList.contains('open')) { openToc(); return; }
+  }
+  if (tocOverlay.classList.contains('open')) return;
+
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    e.preventDefault(); scrollToIdx(getActiveIdx() + 1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault(); scrollToIdx(getActiveIdx() - 1);
+  } else if (e.key === 'Home') {
+    e.preventDefault(); scrollToIdx(0);
+  } else if (e.key === 'End') {
+    e.preventDefault(); scrollToIdx(SCENE_IDS.length - 1);
+  }
+});
+
+// Hook page-nav update into scroll
+window.addEventListener('scroll', updatePageNav, { passive: true });
+updatePageNav();
 </script>
 </body>
 </html>
