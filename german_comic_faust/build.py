@@ -226,9 +226,7 @@ def process_svg(filepath, scene_idx):
 CSS = r"""
 /* ── Reset & base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
 body {
   background: #0A0A14;
   color: #f0e8d0;
@@ -236,17 +234,17 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Progress bar ── */
+/* ── Global progress bar ── */
 #progress-bar {
   position: fixed;
   top: 0; left: 0;
-  height: 4px;
+  height: 3px;
   width: 0%;
   background: linear-gradient(90deg, #D4AF37, #CC2200, #D4AF37);
   background-size: 200% 100%;
   animation: pb-shimmer 3s linear infinite;
   z-index: 9999;
-  transition: width 0.12s linear;
+  transition: width 0.1s linear;
   pointer-events: none;
 }
 @keyframes pb-shimmer {
@@ -254,7 +252,7 @@ body {
   100% { background-position: -100% 0; }
 }
 
-/* ── Scene nav ── */
+/* ── Side nav dots ── */
 #scene-nav {
   position: fixed;
   right: 18px;
@@ -265,13 +263,11 @@ body {
   flex-direction: column;
   gap: 8px;
 }
-
 .nav-dot {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 28px; height: 28px;
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.25);
   background: rgba(0,0,0,0.6);
@@ -284,8 +280,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
 }
-.nav-dot:hover,
-.nav-dot.active {
+.nav-dot:hover, .nav-dot.active {
   border-color: var(--nav-accent, #D4AF37);
   color: var(--nav-accent, #D4AF37);
   background: rgba(0,0,0,0.85);
@@ -293,8 +288,7 @@ body {
 }
 .nav-dot .nav-tooltip {
   position: absolute;
-  right: 38px;
-  top: 50%;
+  right: 38px; top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.9);
   border: 1px solid rgba(255,255,255,0.2);
@@ -309,10 +303,11 @@ body {
 }
 .nav-dot:hover .nav-tooltip { opacity: 1; }
 
-/* ── Panels (shared) ── */
-.panel {
+/* ── Cover ── */
+#cover {
+  background: #08060E;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -330,24 +325,17 @@ body {
   z-index: 1;
 }
 
-/* ── COVER ── */
-#cover {
-  background: #08060E;
-  padding: 0;
-}
 .cover-inner {
   position: relative;
   z-index: 2;
   width: min(500px, 88vw);
-  max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   animation: coverFadeUp 1.4s cubic-bezier(0.22,1,0.36,1) forwards;
 }
 .cover-inner svg {
-  width: 100%;
-  height: auto;
+  width: 100%; height: auto;
   max-height: 88vh;
   display: block;
   filter: drop-shadow(0 0 50px rgba(212,175,55,0.4)) drop-shadow(0 0 120px rgba(100,50,200,0.25));
@@ -358,8 +346,7 @@ body {
 }
 .cover-scroll-hint {
   position: absolute;
-  bottom: 28px;
-  left: 50%;
+  bottom: 28px; left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
@@ -378,12 +365,23 @@ body {
   50%       { transform: translateX(-50%) translateY(8px); }
 }
 
-/* ── Scene panels ── */
-.scene-panel {
-  padding: 40px 20px 100px;
-  gap: 0;
+/* ── Scene wrapper: gives scroll space for the build animation ── */
+.scene-wrapper {
+  position: relative;
+  height: calc(100vh + 900px);
+}
+.scene-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+/* ── SVG panel frame ── */
 .svg-frame {
   position: relative;
   z-index: 3;
@@ -395,22 +393,16 @@ body {
     6px 6px 0 #000,
     12px 12px 0 rgba(0,0,0,0.5),
     0 0 60px rgba(0,0,0,0.8),
-    0 0 80px rgba(0,0,0,0.6),
     inset 0 0 0 2px rgba(0,0,0,0.3);
   background: #fff;
   overflow: hidden;
 }
-.svg-frame svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+.svg-frame svg { width: 100%; height: auto; display: block; }
 
-/* ── Scene label bar ── */
+/* ── Scene info overlays ── */
 .scene-label {
   position: absolute;
-  bottom: 32px;
-  left: 50%;
+  bottom: 32px; left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
@@ -421,7 +413,10 @@ body {
   padding: 8px 22px 8px 16px;
   white-space: nowrap;
   box-shadow: 3px 3px 0 rgba(0,0,0,0.6), 0 0 20px rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
+.scene-label.visible { opacity: 1; }
 .scene-roman {
   font-family: Georgia, serif;
   font-style: italic;
@@ -440,8 +435,7 @@ body {
 }
 .scene-quote-bar {
   position: absolute;
-  bottom: 82px;
-  left: 50%;
+  bottom: 82px; left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   max-width: min(580px, 88vw);
@@ -449,35 +443,25 @@ body {
   font-size: 12.5px;
   font-style: italic;
   color: var(--accent);
-  opacity: 0.65;
+  opacity: 0;
   letter-spacing: 0.5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: opacity 0.7s ease 0.15s;
 }
+.scene-quote-bar.visible { opacity: 0.65; }
 
-/* ── Panel entry animation (slide-up) ── */
-.scene-panel .svg-frame,
-.scene-panel .scene-label,
-.scene-panel .scene-quote-bar {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.scene-panel.entered .svg-frame {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.05s;
-}
-.scene-panel.entered .scene-quote-bar {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-.scene-panel.entered .scene-label {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.35s;
+/* ── Thin build-progress stripe at bottom of sticky panel ── */
+.build-bar {
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent);
+  opacity: 0.55;
+  z-index: 20;
+  transition: width 0.08s linear;
 }
 
 /* ── Mobile ── */
@@ -486,140 +470,157 @@ body {
   .nav-dot { width: 22px; height: 22px; font-size: 8px; }
   .scene-label { font-size: 12px; padding: 6px 14px; }
   .cover-scroll-hint { font-size: 9px; }
+  .scene-wrapper { height: calc(100vh + 600px); }
 }
 """
 
 JS = r"""
-// ── Progress bar ──────────────────────────────────────────────────
+// ── Constants ─────────────────────────────────────────────────────
+const BUILD_SCROLL = 900; // px of scroll to reveal a full scene
+const STAGGER_MS   = 18;  // ms between successive element reveals
+const MAX_STAGGER  = 8;   // cap stagger depth to avoid long queues
+
+// ── Global progress bar ───────────────────────────────────────────
 const progressBar = document.getElementById('progress-bar');
 
-function updateProgress() {
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
-  progressBar.style.width = pct + '%';
-}
-window.addEventListener('scroll', updateProgress, { passive: true });
-updateProgress();
+// ── Per-scene init ────────────────────────────────────────────────
+function initScene(wrapper) {
+  if (wrapper._inited) return;
+  wrapper._inited   = true;
+  wrapper._revealed = -1;
 
-// ── SVG element init: get Y coords, then hide for animation ───────
-function initSvgElements(svgEl) {
-  const children = Array.from(svgEl.children).filter(
+  const svg = wrapper.querySelector('.svg-frame svg');
+  if (!svg) { wrapper._elements = []; return; }
+
+  const children = Array.from(svg.children).filter(
     el => el.tagName.toLowerCase() !== 'defs'
   );
 
+  // Measure Y centre via getBBox
   children.forEach(el => {
     try {
       const bb = el.getBBox();
-      el.dataset.y = bb.y + bb.height * 0.5; // centre-y
+      el._cy = bb.y + bb.height * 0.5;
     } catch(e) {
-      el.dataset.y = 0;
+      el._cy = 0;
     }
-    el.style.opacity = '0';
-    // Don't override SVG transform attribute with CSS transform — it would
-    // discard the element's existing positional transform.
-    if (!el.hasAttribute('transform')) {
-      el.dataset.noTransform = '0';
-      el.style.transform = 'translateY(-18px)';
-    } else {
-      el.dataset.noTransform = '1';
-    }
+    // Hide initially
+    el.style.opacity    = '0';
     el.style.transition = 'none';
+    if (!el.hasAttribute('transform')) {
+      el.style.transform = 'translateY(10px)';
+    }
   });
-}
 
-document.querySelectorAll('.svg-frame svg').forEach(svg => initSvgElements(svg));
-
-// ── Animate SVG elements in Y-order, bubbles last ─────────────────
-function animateSvgElements(svgEl) {
-  const children = Array.from(svgEl.children).filter(
-    el => el.tagName.toLowerCase() !== 'defs'
-  );
-
+  // Order: non-bubbles sorted top→bottom, then bubbles
   const nonBubbles = children.filter(el => !el.dataset.bubble);
   const bubbles    = children.filter(el =>  el.dataset.bubble);
-
-  const ys  = nonBubbles.map(el => parseFloat(el.dataset.y) || 0);
-  const minY = Math.min(...ys, 0);
-  const maxY = Math.max(...ys, 1);
-  const spread = maxY - minY || 1;
-
-  // Sort non-bubbles by Y
-  const sorted = nonBubbles.slice().sort(
-    (a, b) => (parseFloat(a.dataset.y)||0) - (parseFloat(b.dataset.y)||0)
-  );
-
-  const TOTAL_MS = 900; // spread of stagger
-
-  sorted.forEach(el => {
-    const y     = parseFloat(el.dataset.y) || 0;
-    const delay = ((y - minY) / spread) * TOTAL_MS;
-    setTimeout(() => {
-      if (el.dataset.noTransform === '1') {
-        el.style.transition = 'opacity 0.45s ease';
-        el.style.opacity    = '1';
-      } else {
-        el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-        el.style.opacity    = '1';
-        el.style.transform  = 'translateY(0)';
-      }
-    }, delay);
-  });
-
-  // Bubbles always last
-  bubbles.forEach((el, i) => {
-    const delay = TOTAL_MS + 100 + i * 80;
-    setTimeout(() => {
-      if (el.dataset.noTransform === '1') {
-        el.style.transition = 'opacity 0.5s ease';
-        el.style.opacity    = '1';
-      } else {
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        el.style.opacity    = '1';
-        el.style.transform  = 'translateY(0)';
-      }
-    }, delay);
-  });
+  nonBubbles.sort((a, b) => (a._cy || 0) - (b._cy || 0));
+  wrapper._elements = [...nonBubbles, ...bubbles];
 }
 
-// ── Intersection observer for panels ─────────────────────────────
-const navDots = document.querySelectorAll('.nav-dot[data-scene]');
+// ── Reveal a single element ───────────────────────────────────────
+function revealEl(el) {
+  if (el.hasAttribute('transform')) {
+    el.style.transition = 'opacity 0.38s ease';
+  } else {
+    el.style.transition = 'opacity 0.38s ease, transform 0.38s ease';
+    el.style.transform  = 'translateY(0)';
+  }
+  el.style.opacity = '1';
+}
 
-const panelObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    const panel = entry.target;
-    const sceneId = panel.dataset.scene;
+// ── Main scroll driver ────────────────────────────────────────────
+function updateScroll() {
+  const scrollY = window.scrollY;
+  const vh      = window.innerHeight;
+  const docH    = document.documentElement.scrollHeight;
 
-    if (entry.isIntersecting) {
-      // Trigger frame slide-in
-      if (!panel.dataset.entered) {
-        panel.dataset.entered = '1';
-        panel.classList.add('entered');
-        // Trigger SVG element animation after frame settles
-        const svg = panel.querySelector('.svg-frame svg');
-        if (svg) {
-          setTimeout(() => animateSvgElements(svg), 300);
+  // Global progress bar
+  progressBar.style.width =
+    (docH > vh ? (scrollY / (docH - vh)) * 100 : 0) + '%';
+
+  let activeScene = null;
+
+  // Cover: active while still on screen
+  const coverEl = document.getElementById('cover');
+  if (coverEl) {
+    const cr = coverEl.getBoundingClientRect();
+    if (cr.bottom >= vh * 0.4) activeScene = 'cover';
+  }
+
+  document.querySelectorAll('.scene-wrapper').forEach(wrapper => {
+    initScene(wrapper);
+    const elements = wrapper._elements;
+    if (!elements.length) return;
+
+    const rect = wrapper.getBoundingClientRect();
+    // Skip far-offscreen wrappers
+    if (rect.bottom < -vh || rect.top > vh * 2.5) return;
+
+    // scrolledPast = how many px the wrapper top has moved above viewport top
+    const scrolledPast = Math.max(0, -rect.top);
+    const progress     = Math.min(1, scrolledPast / BUILD_SCROLL);
+    const targetIdx    = Math.round(progress * elements.length) - 1;
+
+    // Reveal newly reached elements with a small stagger
+    if (targetIdx > wrapper._revealed) {
+      const start = wrapper._revealed + 1;
+      for (let i = start; i <= targetIdx; i++) {
+        const lag = Math.min(i - start, MAX_STAGGER) * STAGGER_MS;
+        const el  = elements[i];
+        if (lag === 0) {
+          revealEl(el);
+        } else {
+          setTimeout(() => revealEl(el), lag);
         }
       }
-      // Highlight nav dot
-      navDots.forEach(d => d.classList.remove('active'));
-      const dot = document.querySelector(`.nav-dot[data-scene="${sceneId}"]`);
-      if (dot) dot.classList.add('active');
+      wrapper._revealed = targetIdx;
+    }
+
+    // Build-progress stripe
+    const buildBar = wrapper.querySelector('.build-bar');
+    if (buildBar) buildBar.style.width = (progress * 100) + '%';
+
+    // Show label + quote once scene is ~80 % built
+    if (progress >= 0.80) {
+      wrapper.querySelector('.scene-label')?.classList.add('visible');
+      wrapper.querySelector('.scene-quote-bar')?.classList.add('visible');
+    }
+
+    // Active nav: sticky panel covers viewport center
+    if (rect.top <= 0 && rect.bottom >= vh * 0.5) {
+      activeScene = wrapper.dataset.scene;
     }
   });
-}, { threshold: 0.15 });
 
-document.querySelectorAll('.scene-panel').forEach(p => panelObserver.observe(p));
-
-// Cover observer for nav
-const coverObserver = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting) {
-    navDots.forEach(d => d.classList.remove('active'));
-    const dot = document.querySelector('.nav-dot[data-scene="cover"]');
-    if (dot) dot.classList.add('active');
+  // Sync nav dots
+  if (activeScene !== null) {
+    document.querySelectorAll('.nav-dot[data-scene]').forEach(d => {
+      d.classList.toggle('active', d.dataset.scene === activeScene);
+    });
   }
-}, { threshold: 0.3 });
-const cover = document.getElementById('cover');
-if (cover) coverObserver.observe(cover);
+}
+
+// RAF-throttled scroll listener
+let _ticking = false;
+function onScroll() {
+  if (!_ticking) {
+    _ticking = true;
+    requestAnimationFrame(() => { updateScroll(); _ticking = false; });
+  }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', () => {
+  // Re-init all scenes on resize
+  document.querySelectorAll('.scene-wrapper').forEach(w => {
+    w._inited   = false;
+    w._revealed = -1;
+  });
+  updateScroll();
+}, { passive: true });
+
+updateScroll();
 """
 
 
@@ -662,22 +663,25 @@ def build_scene(idx, scene):
     acc = scene['accent']
     dot = scene['dot']
     return f'''
-  <section id="scene-{idx+1}" class="panel scene-panel"
-           data-scene="{idx+1}"
-           style="background-color:{bg}; --accent:{acc}; --dot-color:{dot}">
-    <div class="halftone"></div>
-    <div class="svg-frame">
-      <svg viewBox="{vb}" xmlns="http://www.w3.org/2000/svg"
-           aria-label="{scene['title']}">
-        {inner}
-      </svg>
+  <div id="scene-{idx+1}" class="scene-wrapper" data-scene="{idx+1}"
+       style="background-color:{bg}">
+    <div class="scene-sticky"
+         style="background-color:{bg}; --accent:{acc}; --dot-color:{dot}">
+      <div class="halftone"></div>
+      <div class="svg-frame">
+        <svg viewBox="{vb}" xmlns="http://www.w3.org/2000/svg"
+             aria-label="{scene['title']}">
+          {inner}
+        </svg>
+      </div>
+      <div class="scene-quote-bar">{scene['quote']} — {scene['speaker']}</div>
+      <div class="scene-label">
+        <span class="scene-roman">{scene['roman']}</span>
+        <span class="scene-title-text">{scene['title']}</span>
+      </div>
+      <div class="build-bar"></div>
     </div>
-    <div class="scene-quote-bar">{scene['quote']} — {scene['speaker']}</div>
-    <div class="scene-label">
-      <span class="scene-roman">{scene['roman']}</span>
-      <span class="scene-title-text">{scene['title']}</span>
-    </div>
-  </section>'''
+  </div>'''
 
 
 def build_html():
