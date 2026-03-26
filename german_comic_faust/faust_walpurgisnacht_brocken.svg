@@ -19,15 +19,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.4672727"
-     inkscape:cx="436.1834"
-     inkscape:cy="192.53408"
+     inkscape:zoom="2.0176471"
+     inkscape:cx="340.24781"
+     inkscape:cy="192.55102"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg120" />
+     inkscape:current-layer="svg120"
+     inkscape:export-bgcolor="#ffffff00" />
   <defs
      id="defs11">
     <marker
@@ -815,11 +816,11 @@
      style="fill:rgb(80, 19, 19);stroke:rgb(44, 44, 42);color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="path71" />
   <path
-     d="M148 420 Q125 440 118 465 Q138 458 168 468 Z"
+     d="m 154.93877,425.94752 q -23,20 -30,45 20,-7 50,3 z"
      fill="#501313"
      stroke="#2C2C2A"
      stroke-width="1.5"
-     style="fill:rgb(80, 19, 19);stroke:rgb(44, 44, 42);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#501313;stroke:#2c2c2a;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
      id="path72" />
   <!-- Body leaning forward, pulling -->
   <rect

@@ -19,9 +19,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.4672727"
-     inkscape:cx="173.79182"
-     inkscape:cy="349.28748"
+     inkscape:zoom="1.0375185"
+     inkscape:cx="89.636958"
+     inkscape:cy="182.64735"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
@@ -391,12 +391,12 @@
   </g>
   <!-- Garden path -->
   <path
-     d="M0 430 Q170 410 340 420 Q510 430 680 415"
+     d="m 0.24095956,430.24096 q 170.00000044,-20 340.00000044,-10 170,10 340,-5"
      fill="none"
      stroke="#2C2218"
      stroke-width="22"
      opacity="0.5"
-     style="fill:none;stroke:rgb(44, 34, 24);color:rgb(0, 0, 0);stroke-width:22px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:0.5;fill:none;stroke:#2c2218;stroke-width:22px;stroke-linecap:butt;stroke-linejoin:miter"
      id="path36" />
   <!-- Garden bench (stone) -->
   <rect
@@ -411,26 +411,26 @@
      style="fill:rgb(68, 68, 65);stroke:rgb(44, 44, 42);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="rect36" />
   <rect
-     x="132"
-     y="386"
+     x="127.74039"
+     y="386.68155"
      width="14"
      height="30"
      rx="3"
      fill="#444441"
      stroke="#2C2C2A"
      stroke-width="1.5"
-     style="fill:rgb(68, 68, 65);stroke:rgb(44, 44, 42);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#2c2c2a;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
      id="rect37" />
   <rect
-     x="224"
-     y="386"
+     x="219.7404"
+     y="386.68155"
      width="14"
      height="30"
      rx="3"
      fill="#444441"
      stroke="#2C2C2A"
      stroke-width="1.5"
-     style="fill:rgb(68, 68, 65);stroke:rgb(44, 44, 42);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#2c2c2a;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
      id="rect38" />
   <!-- Flowers beside bench -->
   <g
@@ -562,15 +562,15 @@
   <!-- ======= GRETCHEN (left, sitting on bench, direct earnest gaze at Faust) ======= -->
   <!-- Dress sitting position -->
   <ellipse
-     cx="185"
-     cy="400"
+     cx="180.7404"
+     cy="400.68155"
      rx="40"
      ry="22"
      fill="#185FA5"
      stroke="#2C2C2A"
      stroke-width="1.5"
      opacity="0.7"
-     style="fill:rgb(24, 95, 165);stroke:rgb(44, 44, 42);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:0.7;fill:#185fa5;stroke:#2c2c2a;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
      id="ellipse47" />
   <path
      d="M155 390 Q160 355 165 330 Q170 312 180 304 Q190 312 196 330 Q202 350 204 375 L204 390 Z"

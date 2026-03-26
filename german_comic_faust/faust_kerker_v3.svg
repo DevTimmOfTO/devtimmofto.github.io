@@ -1,0 +1,1603 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100%"
+   viewBox="0 0 680 550"
+   version="1.1"
+   aria-label="Kerker — Szene XIV"
+   id="svg137"
+   sodipodi:docname="faust_kerker_v3.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview137"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.9418182"
+     inkscape:cx="186.27936"
+     inkscape:cy="123.22312"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg137" />
+  <defs
+     id="defs5">
+    <!-- Background gradient: #08060E top → #0D1A2A bottom -->
+    <linearGradient
+       id="bgGrad"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
+      <stop
+         offset="0%"
+         stop-color="#08060E"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#0D1A2A"
+         id="stop2" />
+    </linearGradient>
+    <!-- Mephisto torch glow (right) -->
+    <radialGradient
+       id="torchRight"
+       cx="76%"
+       cy="50%"
+       r="30%">
+      <stop
+         offset="0%"
+         stop-color="#8B1F1F"
+         stop-opacity="0.15"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#8B1F1F"
+         stop-opacity="0"
+         id="stop4" />
+    </radialGradient>
+    <!-- Central split bubble clip -->
+    <clipPath
+       id="splitLeft">
+      <rect
+         x="174"
+         y="83"
+         width="164"
+         height="50"
+         id="rect4" />
+    </clipPath>
+    <clipPath
+       id="splitRight">
+      <rect
+         x="338"
+         y="83"
+         width="164"
+         height="50"
+         id="rect5" />
+    </clipPath>
+  </defs>
+  <!-- ═══════════════════════════════════════════════════════════════
+       PANEL SHADOW (drawn first, behind everything)
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect
+     x="12"
+     y="12"
+     width="664"
+     height="524"
+     rx="8"
+     fill="#000000"
+     opacity="0.65"
+     id="rect6" />
+  <!-- ═══════════════════════════════════════════════════════════════
+       BACKGROUND
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect
+     x="8"
+     y="8"
+     width="664"
+     height="524"
+     rx="8"
+     fill="url(#bgGrad)"
+     id="rect7" />
+  <!-- Mephisto red glow on right side -->
+  <rect
+     x="8"
+     y="8"
+     width="664"
+     height="524"
+     rx="8"
+     fill="url(#torchRight)"
+     id="rect8" />
+  <!-- ═══════════════════════════════════════════════════════════════
+       FULL-HEIGHT BACKGROUND PRISON BARS (semi-transparent, entire wall)
+       Behind all characters — steel blue, low opacity
+       ═══════════════════════════════════════════════════════════════ -->
+  <g
+     fill="#1B3050"
+     stroke="#2A4870"
+     stroke-width="0.8"
+     opacity="0.28"
+     id="g18">
+    <rect
+       x="24"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect9" />
+    <rect
+       x="96"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect10" />
+    <rect
+       x="168"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect11" />
+    <rect
+       x="240"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect12" />
+    <rect
+       x="312"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect13" />
+    <rect
+       x="384"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect14" />
+    <rect
+       x="456"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect15" />
+    <rect
+       x="528"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect16" />
+    <rect
+       x="600"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect17" />
+    <rect
+       x="649"
+       y="0"
+       width="7"
+       height="452"
+       rx="2"
+       id="rect18" />
+  </g>
+  <!-- ═══════════════════════════════════════════════════════════════
+       GRETCHEN'S CORNER — Stone wall lines (2-3 vertical, behind her)
+       Slightly darker/different from background bars, implies rough stone
+       ═══════════════════════════════════════════════════════════════ -->
+  <g
+     stroke="#14202E"
+     stroke-width="2.5"
+     opacity="0.65"
+     id="g20">
+    <line
+       x1="42"
+       y1="0"
+       x2="42"
+       y2="452"
+       id="line18" />
+    <line
+       x1="120"
+       y1="0"
+       x2="120"
+       y2="452"
+       id="line19" />
+    <line
+       x1="185"
+       y1="0"
+       x2="185"
+       y2="452"
+       id="line20" />
+  </g>
+  <!-- Mortar horizontal lines (left wall) -->
+  <g
+     stroke="#111C28"
+     stroke-width="1.5"
+     opacity="0.5"
+     id="g23">
+    <line
+       x1="0"
+       y1="110"
+       x2="210"
+       y2="110"
+       id="line21" />
+    <line
+       x1="0"
+       y1="220"
+       x2="210"
+       y2="220"
+       id="line22" />
+    <line
+       x1="0"
+       y1="330"
+       x2="210"
+       y2="330"
+       id="line23" />
+  </g>
+  <!-- ═══════════════════════════════════════════════════════════════
+       STONE FLOOR — single horizontal line + dark floor strip
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect
+     x="0"
+     y="452"
+     width="680"
+     height="98"
+     fill="#050709"
+     id="rect23" />
+  <line
+     x1="0"
+     y1="452"
+     x2="680"
+     y2="452"
+     stroke="#2A3A4A"
+     stroke-width="3"
+     id="line24" />
+  <!-- Floor stone joints -->
+  <g
+     stroke="#0C1520"
+     stroke-width="1.5"
+     opacity="0.55"
+     id="g30">
+    <line
+       x1="0"
+       y1="472"
+       x2="680"
+       y2="472"
+       id="line25" />
+    <line
+       x1="0"
+       y1="492"
+       x2="680"
+       y2="492"
+       id="line26" />
+    <line
+       x1="0"
+       y1="512"
+       x2="680"
+       y2="512"
+       id="line27" />
+    <line
+       x1="170"
+       y1="452"
+       x2="170"
+       y2="550"
+       id="line28" />
+    <line
+       x1="340"
+       y1="452"
+       x2="340"
+       y2="550"
+       id="line29" />
+    <line
+       x1="510"
+       y1="452"
+       x2="510"
+       y2="550"
+       id="line30" />
+  </g>
+  <!-- Stone wall: Gretchen straw on floor -->
+  <g
+     stroke="#3B2A0A"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     opacity="0.55"
+     id="g34">
+    <line
+       x1="30"
+       y1="458"
+       x2="95"
+       y2="454"
+       id="line31" />
+    <line
+       x1="38"
+       y1="465"
+       x2="118"
+       y2="461"
+       id="line32" />
+    <line
+       x1="18"
+       y1="470"
+       x2="82"
+       y2="467"
+       id="line33" />
+    <line
+       x1="48"
+       y1="474"
+       x2="132"
+       y2="470"
+       id="line34" />
+  </g>
+  <!-- ═══════════════════════════════════════════════════════════════
+       CELL DOOR BARS — right third, full height, solid iron
+       Mephisto stands at/behind these; bars overlay him slightly
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- Door frame shadow -->
+  <rect
+     x="463"
+     y="0"
+     width="4"
+     height="452"
+     fill="#000000"
+     opacity="0.4"
+     id="rect34" />
+  <!-- Solid iron bars — drawn BEFORE Mephisto so he appears behind them -->
+  <g
+     fill="#16181C"
+     stroke="#242830"
+     stroke-width="1.2"
+     id="g42">
+    <rect
+       x="466"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect35" />
+    <rect
+       x="494"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect36" />
+    <rect
+       x="522"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect37" />
+    <rect
+       x="550"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect38" />
+    <rect
+       x="578"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect39" />
+    <rect
+       x="606"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect40" />
+    <rect
+       x="634"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect41" />
+    <rect
+       x="660"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect42" />
+  </g>
+  <!-- Cross bars (horizontal) on cell door -->
+  <g
+     fill="#16181C"
+     stroke="#242830"
+     stroke-width="1"
+     id="g45">
+    <rect
+       x="462"
+       y="148"
+       width="218"
+       height="9"
+       rx="2"
+       id="rect43" />
+    <rect
+       x="462"
+       y="298"
+       width="218"
+       height="9"
+       rx="2"
+       id="rect44" />
+    <rect
+       x="462"
+       y="0"
+       width="8"
+       height="452"
+       rx="2"
+       id="rect45" />
+  </g>
+  <!-- Iron bolt on door frame -->
+  <circle
+     cx="469"
+     cy="224"
+     r="6"
+     fill="#444441"
+     stroke="#2C2C2A"
+     stroke-width="1.2"
+     id="circle45" />
+  <circle
+     cx="469"
+     cy="224"
+     r="3"
+     fill="#1A1A18"
+     id="circle46" />
+  <!-- ═══════════════════════════════════════════════════════════════
+       CHAINS — Gretchen's wrist chain to wall
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- Wall bolt -->
+  <rect
+     x="18"
+     y="310"
+     width="18"
+     height="10"
+     rx="3"
+     fill="#686860"
+     stroke="#2C2C2A"
+     stroke-width="1.2"
+     id="rect46" />
+  <!-- Chain links (diagonal, wall → Gretchen's left wrist at ~x=62, y=396) -->
+  <path
+     d="M27 320 Q31 332 27 344 Q33 338 39 344 Q35 332 39 320 Q33 326 27 320"
+     fill="none"
+     stroke="#444441"
+     stroke-width="2.2"
+     id="path46" />
+  <path
+     d="M39 344 Q43 356 39 368 Q45 362 51 368 Q47 356 51 344 Q45 350 39 344"
+     fill="none"
+     stroke="#444441"
+     stroke-width="2.2"
+     id="path47" />
+  <path
+     d="M51 368 Q55 380 51 392 Q57 386 63 392 Q59 380 63 368 Q57 374 51 368"
+     fill="none"
+     stroke="#444441"
+     stroke-width="2.2"
+     id="path48" />
+  <!-- Ankle shackle -->
+  <ellipse
+     cx="88"
+     cy="445"
+     rx="9"
+     ry="5"
+     fill="none"
+     stroke="#444441"
+     stroke-width="2.2"
+     id="ellipse48" />
+  <line
+     x1="79"
+     y1="445"
+     x2="64"
+     y2="392"
+     stroke="#444441"
+     stroke-width="2"
+     stroke-linecap="round"
+     id="line48" />
+  <!-- ═══════════════════════════════════════════════════════════════
+       GRETCHEN — Left, standing, broken/dissociated
+       Head hanging forward, shoulders slumped, arms limp at sides
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- Dress/robe — blue, hanging straight (not blown or dynamic — limp like her spirit) -->
+  <path
+     d="M62 452 Q60 414 58 374 Q56 342 62 316            Q66 298 80 290 Q95 284 95 284            Q110 290 118 316 Q124 342 122 374            Q120 414 118 452 Z"
+     fill="#0C2A50"
+     stroke="#185FA5"
+     stroke-width="2"
+     id="path49" />
+  <!-- Dress folds — subtle vertical -->
+  <path
+     d="M68 430 Q88 426 114 430"
+     fill="none"
+     stroke="#185FA5"
+     stroke-width="1"
+     stroke-linecap="round"
+     opacity="0.45"
+     id="path50" />
+  <path
+     d="M66 380 Q88 376 116 380"
+     fill="none"
+     stroke="#185FA5"
+     stroke-width="1"
+     stroke-linecap="round"
+     opacity="0.35"
+     id="path51" />
+  <path
+     d="M64 336 Q88 332 118 336"
+     fill="none"
+     stroke="#185FA5"
+     stroke-width="1"
+     stroke-linecap="round"
+     opacity="0.3"
+     id="path52" />
+  <!-- Dirty apron — grey-brown, stained -->
+  <rect
+     x="78"
+     y="330"
+     width="24"
+     height="86"
+     rx="3"
+     fill="#3B3020"
+     stroke="#444441"
+     stroke-width="1.2"
+     opacity="0.72"
+     id="rect52" />
+  <!-- LEFT arm — limp, hanging at side, close to body -->
+  <path
+     d="M66 308 Q62 348 60 396"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="3"
+     stroke-linecap="round"
+     id="path53" />
+  <ellipse
+     cx="59"
+     cy="399"
+     rx="7"
+     ry="5"
+     fill="#C89830"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     id="ellipse53" />
+  <!-- RIGHT arm — limp, hanging at side, barely raised -->
+  <path
+     d="M118 308 Q122 350 120 398"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="3"
+     stroke-linecap="round"
+     id="path54" />
+  <ellipse
+     cx="120"
+     cy="401"
+     rx="7"
+     ry="5"
+     fill="#C89830"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     id="ellipse54" />
+  <!-- Hair — undone, hanging FORWARD (emphasises head-down posture) -->
+  <!-- Crown / top of hair -->
+  <path
+     d="M66 250 Q58 234 62 218 Q68 232 72 222 Q76 212 82 222            Q84 210 90 220 Q92 210 98 220 Q100 232 106 222 Q110 234 106 250"
+     fill="#C8A020"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     id="path55" />
+  <!-- Forward-falling strands (head tilted, hair falls across face) -->
+  <path
+     d="M72 254 Q66 274 68 296 Q70 312 66 330"
+     fill="none"
+     stroke="#C8A020"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     id="path56" />
+  <path
+     d="M80 258 Q76 278 78 298 Q80 316 76 338"
+     fill="none"
+     stroke="#C8A020"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="path57" />
+  <path
+     d="M90 260 Q88 280 90 300 Q92 320 88 342"
+     fill="none"
+     stroke="#C8A020"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     id="path58" />
+  <path
+     d="M100 256 Q104 274 102 294 Q100 310 104 330"
+     fill="none"
+     stroke="#C8A020"
+     stroke-width="2"
+     stroke-linecap="round"
+     opacity="0.8"
+     id="path59" />
+  <!-- Side strand falling lower -->
+  <path
+     d="M64 262 Q54 282 56 302 Q58 318 54 340"
+     fill="none"
+     stroke="#C8A020"
+     stroke-width="2"
+     stroke-linecap="round"
+     opacity="0.65"
+     id="path60" />
+  <!-- Gretchen head — chin down, tilted forward (dissociated) -->
+  <!-- The head is drawn with the visual center slightly lower/forward of body axis -->
+  <circle
+     cx="90"
+     cy="252"
+     r="24"
+     fill="#C89830"
+     stroke="#2C2C2A"
+     stroke-width="2.5"
+     id="circle60" />
+  <!-- Eyes: CLOSED or downcast (dissociated — not seeing) -->
+  <!-- Left eye: closed, downcast line -->
+  <path
+     d="M79 249 Q84 247 89 249"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="2.8"
+     stroke-linecap="round"
+     id="path61" />
+  <!-- Right eye: closed -->
+  <path
+     d="M91 249 Q96 247 101 249"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="2.8"
+     stroke-linecap="round"
+     id="path62" />
+  <!-- Dark circles under eyes (hollow/exhausted) -->
+  <ellipse
+     cx="84"
+     cy="252"
+     rx="5.5"
+     ry="3"
+     fill="#2C2C2A"
+     opacity="0.32"
+     id="ellipse62" />
+  <ellipse
+     cx="96"
+     cy="252"
+     rx="5.5"
+     ry="3"
+     fill="#2C2C2A"
+     opacity="0.32"
+     id="ellipse63" />
+  <!-- Sunken cheeks -->
+  <path
+     d="M73 255 Q79 260 78 255"
+     fill="none"
+     stroke="#9B7020"
+     stroke-width="1"
+     opacity="0.5"
+     id="path63" />
+  <path
+     d="M107 255 Q101 260 102 255"
+     fill="none"
+     stroke="#9B7020"
+     stroke-width="1"
+     opacity="0.5"
+     id="path64" />
+  <!-- Mouth: slightly open, slack (not screaming — hollow) -->
+  <path
+     d="M83 265 Q90 268 97 265"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     id="path65" />
+  <!-- Dried tear streaks -->
+  <path
+     d="M80 253 Q77 264 79 276"
+     fill="none"
+     stroke="#85B7EB"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     opacity="0.7"
+     id="path66" />
+  <path
+     d="M98 253 Q100 264 98 276"
+     fill="none"
+     stroke="#85B7EB"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     opacity="0.5"
+     id="path67" />
+  <!-- GRETCHEN label -->
+  <rect
+     x="36"
+     y="456"
+     width="108"
+     height="22"
+     rx="4"
+     fill="#0C447C"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="rect67" />
+  <text
+     x="90"
+     y="472"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="10"
+     font-weight="700"
+     fill="white"
+     id="text67">GRETCHEN</text>
+  <!-- ═══════════════════════════════════════════════════════════════
+       YOUNG FAUST — Centre, leaning urgently toward Gretchen (left)
+       One arm outstretched reaching, wide eyes, desperate panic
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- Body — dark outfit, leaning left (upper body shifted ~15px left) -->
+  <path
+     d="M296 452 Q292 416 290 378 Q288 348 294 322            Q300 304 314 296 Q328 302 334 320            Q340 346 338 376 Q336 414 332 452 Z"
+     fill="#2C2A3A"
+     stroke="#2C2C2A"
+     stroke-width="2.5"
+     id="path68" />
+  <!-- Coat/cloak detail lines -->
+  <line
+     x1="300"
+     y1="330"
+     x2="295"
+     y2="430"
+     stroke="#1a1828"
+     stroke-width="1.5"
+     opacity="0.7"
+     id="line68" />
+  <line
+     x1="320"
+     y1="326"
+     x2="325"
+     y2="428"
+     stroke="#1a1828"
+     stroke-width="1.5"
+     opacity="0.7"
+     id="line69" />
+  <!-- Waist belt hint -->
+  <path
+     d="M292 368 Q314 364 336 368"
+     fill="none"
+     stroke="#1a1828"
+     stroke-width="1.5"
+     opacity="0.5"
+     id="path69" />
+  <!-- LEFT arm — urgently outstretched toward Gretchen, elbow bent forward -->
+  <path
+     d="M292 334 Q256 316 218 308 Q196 303 176 300"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="4.5"
+     stroke-linecap="round"
+     id="path70" />
+  <!-- Reaching hand -->
+  <ellipse
+     cx="172"
+     cy="299"
+     rx="11"
+     ry="9"
+     fill="#EF9F27"
+     stroke="#2C2C2A"
+     stroke-width="2.2"
+     id="ellipse70" />
+  <!-- Fingers reaching, splayed with urgency -->
+  <path
+     d="M165 293 Q160 285 162 278"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     id="path71" />
+  <path
+     d="M171 291 Q167 282 170 274"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     id="path72" />
+  <path
+     d="M178 292 Q175 283 179 276"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     id="path73" />
+  <path
+     d="M183 295 Q182 286 187 281"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     id="path74" />
+  <!-- RIGHT arm — raised (panic gesture, calling) -->
+  <path
+     d="M334 336 Q356 320 374 315"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="3.5"
+     stroke-linecap="round"
+     id="path75" />
+  <ellipse
+     cx="378"
+     cy="313"
+     rx="9"
+     ry="7"
+     fill="#EF9F27"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="ellipse75" />
+  <!-- Dark hair — tousled, urgent -->
+  <path
+     d="M294 270 Q296 250 314 246 Q332 250 334 270"
+     fill="#4A3B28"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="path76" />
+  <path
+     d="M294 270 Q290 258 292 250 Q298 256 300 267"
+     fill="#4A3B28"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     id="path77" />
+  <path
+     d="M334 270 Q338 258 336 250 Q330 256 328 267"
+     fill="#4A3B28"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     id="path78" />
+  <!-- Hair dishevelled strands -->
+  <path
+     d="M294 275 Q290 283 292 292"
+     fill="none"
+     stroke="#4A3B28"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     id="path79" />
+  <path
+     d="M334 275 Q338 283 336 292"
+     fill="none"
+     stroke="#4A3B28"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     id="path80" />
+  <!-- Faust head — wide eyes, raised brows (desperate panic), leaning slightly left -->
+  <circle
+     cx="314"
+     cy="270"
+     r="27"
+     fill="#EF9F27"
+     stroke="#2C2C2A"
+     stroke-width="2.5"
+     id="circle80" />
+  <!-- Wide panic eyes (larger than normal) -->
+  <ellipse
+     cx="303"
+     cy="268"
+     rx="8"
+     ry="7.5"
+     fill="white"
+     stroke="#2C2C2A"
+     stroke-width="2.2"
+     id="ellipse80" />
+  <ellipse
+     cx="325"
+     cy="268"
+     rx="8"
+     ry="7.5"
+     fill="white"
+     stroke="#2C2C2A"
+     stroke-width="2.2"
+     id="ellipse81" />
+  <!-- Pupils — looking left (toward Gretchen) -->
+  <circle
+     cx="300"
+     cy="269"
+     r="4.5"
+     fill="#2C2C2A"
+     id="circle81" />
+  <circle
+     cx="322"
+     cy="269"
+     r="4.5"
+     fill="#2C2C2A"
+     id="circle82" />
+  <!-- White glint -->
+  <circle
+     cx="299"
+     cy="267"
+     r="1.8"
+     fill="white"
+     id="circle83" />
+  <circle
+     cx="321"
+     cy="267"
+     r="1.8"
+     fill="white"
+     id="circle84" />
+  <!-- Raised brows — desperation/panic -->
+  <path
+     d="M295 256 Q303 250 310 255"
+     fill="none"
+     stroke="#4A3B28"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="path84" />
+  <path
+     d="M318 255 Q325 250 333 256"
+     fill="none"
+     stroke="#4A3B28"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="path85" />
+  <!-- Centre brow crease (furrowed) -->
+  <path
+     d="M310 257 Q314 253 318 257"
+     fill="none"
+     stroke="#4A3B28"
+     stroke-width="2.2"
+     stroke-linecap="round"
+     id="path86" />
+  <!-- Forehead vein of stress -->
+  <path
+     d="M311 258 Q309 252 311 248"
+     fill="none"
+     stroke="#4A3B28"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     opacity="0.6"
+     id="path87" />
+  <!-- Mouth — open, crying out -->
+  <ellipse
+     cx="314"
+     cy="285"
+     rx="7.5"
+     ry="6"
+     fill="#2C2C2A"
+     id="ellipse87" />
+  <rect
+     x="308"
+     y="280"
+     width="12"
+     height="7"
+     rx="2"
+     fill="#791F1F"
+     id="rect87" />
+  <!-- Tears streaming -->
+  <path
+     d="M298 274 Q296 284 298 296"
+     fill="none"
+     stroke="#85B7EB"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     opacity="0.7"
+     id="path88" />
+  <path
+     d="M301 276 Q299 286 301 297"
+     fill="none"
+     stroke="#85B7EB"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     opacity="0.4"
+     id="path89" />
+  <!-- FAUST (jung) label -->
+  <rect
+     x="264"
+     y="456"
+     width="100"
+     height="22"
+     rx="4"
+     fill="#185FA5"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="rect89" />
+  <text
+     x="314"
+     y="472"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="9"
+     font-weight="700"
+     fill="white"
+     id="text89">FAUST (jung)</text>
+  <!-- ═══════════════════════════════════════════════════════════════
+       MEPHISTO — Right third, AT the cell door bars
+       Arms crossed / one hand gripping the bar — commanding, urgent
+       He appears slightly behind the bars (bars drawn before him above,
+       then his body drawn, then the front bars overlay him)
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- Body — dark crimson, upright (authoritative stance) -->
+  <path
+     d="M520 452 Q516 418 514 382 Q512 352 518 326            Q524 308 536 302 Q548 308 554 326            Q560 352 558 382 Q556 418 552 452 Z"
+     fill="#501313"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="path90" />
+  <!-- Cape billowing left (urgency) -->
+  <path
+     d="M514 398 Q504 424 506 448 Q520 440 536 448 Q552 440 566 448 Q568 424 558 398 Z"
+     fill="#501313"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     id="path91" />
+  <!-- Body torso — red -->
+  <rect
+     x="518"
+     y="276"
+     width="36"
+     height="44"
+     rx="6"
+     fill="#791F1F"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     id="rect91" />
+  <!-- LEFT arm crossing chest (arms crossed gesture) -->
+  <path
+     d="M518 328 Q530 322 542 324 Q556 326 568 322"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="3.5"
+     stroke-linecap="round"
+     id="path92" />
+  <!-- RIGHT arm — ONE hand on the bar (gripping bar at x=550, reaching through) -->
+  <path
+     d="M554 330 Q564 318 570 310"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="3.5"
+     stroke-linecap="round"
+     id="path93" />
+  <!-- Hand on bar -->
+  <ellipse
+     cx="573"
+     cy="307"
+     rx="9"
+     ry="7"
+     fill="#E24B4A"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="ellipse93" />
+  <!-- Finger wrapping bar -->
+  <path
+     d="M568 302 Q572 298 576 302"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     id="path94" />
+  <path
+     d="M568 308 Q572 304 576 308"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     id="path95" />
+  <path
+     d="M568 314 Q572 310 576 314"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     id="path96" />
+  <!-- Head -->
+  <circle
+     cx="536"
+     cy="254"
+     r="22"
+     fill="#E24B4A"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="circle96" />
+  <!-- Hat — tall, black -->
+  <rect
+     x="518"
+     y="228"
+     width="36"
+     height="24"
+     rx="2"
+     fill="#2C2C2A"
+     id="rect96" />
+  <rect
+     x="512"
+     y="250"
+     width="48"
+     height="5"
+     rx="2"
+     fill="#2C2C2A"
+     id="rect97" />
+  <!-- Horns -->
+  <path
+     d="M522 248 L517 234 L526 247"
+     fill="#791F1F"
+     stroke="#2C2C2A"
+     stroke-width="1.2"
+     stroke-linejoin="round"
+     id="path97" />
+  <path
+     d="M550 248 L555 234 L546 247"
+     fill="#791F1F"
+     stroke="#2C2C2A"
+     stroke-width="1.2"
+     stroke-linejoin="round"
+     id="path98" />
+  <!-- Eyes — stern, commanding, urgent (not playful here) -->
+  <ellipse
+     cx="528"
+     cy="254"
+     rx="4.5"
+     ry="4"
+     fill="#2C2C2A"
+     id="ellipse98" />
+  <ellipse
+     cx="544"
+     cy="254"
+     rx="4.5"
+     ry="4"
+     fill="#2C2C2A"
+     id="ellipse99" />
+  <circle
+     cx="529"
+     cy="253"
+     r="1.5"
+     fill="#FAC775"
+     id="circle99" />
+  <circle
+     cx="545"
+     cy="253"
+     r="1.5"
+     fill="#FAC775"
+     id="circle100" />
+  <!-- Eyebrows — commanding V-shape -->
+  <path
+     d="M522 247 Q528 242 533 245"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="2.2"
+     stroke-linecap="round"
+     id="path100" />
+  <path
+     d="M539 245 Q544 242 550 247"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="2.2"
+     stroke-linecap="round"
+     id="path101" />
+  <!-- Mouth — calling out urgently (open) -->
+  <ellipse
+     cx="536"
+     cy="266"
+     rx="6.5"
+     ry="5.5"
+     fill="#2C2C2A"
+     id="ellipse101" />
+  <rect
+     x="530"
+     y="262"
+     width="12"
+     height="6"
+     rx="2"
+     fill="#701010"
+     id="rect101" />
+  <!-- Thin goatee -->
+  <path
+     d="M532 272 Q536 280 540 272"
+     fill="none"
+     stroke="#2C2C2A"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     id="path102" />
+  <!-- MEPHISTO label -->
+  <rect
+     x="482"
+     y="456"
+     width="108"
+     height="22"
+     rx="4"
+     fill="#791F1F"
+     stroke="#2C2C2A"
+     stroke-width="2"
+     id="rect102" />
+  <text
+     x="536"
+     y="472"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="9"
+     font-weight="700"
+     fill="white"
+     id="text102">MEPHISTO</text>
+  <!-- ═══════════════════════════════════════════════════════════════
+       FRONT DOOR BARS — overlaying Mephisto's right side (bars in front of him)
+       This creates the effect of him standing at/behind the bars
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- Only overlay the bars that are in front of Mephisto's body -->
+  <g
+     fill="#16181C"
+     stroke="#242830"
+     stroke-width="1"
+     opacity="0.85"
+     id="g104">
+    <rect
+       x="550"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect103" />
+    <rect
+       x="578"
+       y="0"
+       width="10"
+       height="452"
+       rx="3"
+       id="rect104" />
+  </g>
+  <!-- ═══════════════════════════════════════════════════════════════
+       HALFTONE DOT OVERLAY — cold blue, low opacity
+       ═══════════════════════════════════════════════════════════════ -->
+  <g
+     opacity="0.17"
+     fill="#0C447C"
+     id="g125">
+    <circle
+       cx="40"
+       cy="40"
+       r="3"
+       id="circle104" />
+    <circle
+       cx="80"
+       cy="40"
+       r="3"
+       id="circle105" />
+    <circle
+       cx="600"
+       cy="40"
+       r="3"
+       id="circle106" />
+    <circle
+       cx="640"
+       cy="40"
+       r="3"
+       id="circle107" />
+    <circle
+       cx="40"
+       cy="80"
+       r="3"
+       id="circle108" />
+    <circle
+       cx="640"
+       cy="80"
+       r="3"
+       id="circle109" />
+    <circle
+       cx="40"
+       cy="480"
+       r="3"
+       id="circle110" />
+    <circle
+       cx="80"
+       cy="480"
+       r="3"
+       id="circle111" />
+    <circle
+       cx="600"
+       cy="480"
+       r="3"
+       id="circle112" />
+    <circle
+       cx="640"
+       cy="480"
+       r="3"
+       id="circle113" />
+    <circle
+       cx="40"
+       cy="440"
+       r="2.5"
+       id="circle114" />
+    <circle
+       cx="640"
+       cy="440"
+       r="2.5"
+       id="circle115" />
+    <circle
+       cx="40"
+       cy="400"
+       r="2.5"
+       id="circle116" />
+    <circle
+       cx="640"
+       cy="400"
+       r="2.5"
+       id="circle117" />
+    <circle
+       cx="40"
+       cy="360"
+       r="2.5"
+       id="circle118" />
+    <circle
+       cx="640"
+       cy="360"
+       r="2.5"
+       id="circle119" />
+    <circle
+       cx="160"
+       cy="40"
+       r="2.5"
+       id="circle120" />
+    <circle
+       cx="520"
+       cy="40"
+       r="2.5"
+       id="circle121" />
+    <circle
+       cx="160"
+       cy="504"
+       r="2.5"
+       id="circle122" />
+    <circle
+       cx="520"
+       cy="504"
+       r="2.5"
+       id="circle123" />
+    <circle
+       cx="340"
+       cy="40"
+       r="2.5"
+       id="circle124" />
+    <circle
+       cx="340"
+       cy="504"
+       r="2.5"
+       id="circle125" />
+  </g>
+  <g
+     id="g137"
+     transform="matrix(0.83249203,0,0,2.520606,74.124038,-120.21617)">
+    <polygon
+       points="86,78 56,76 36,100 "
+       fill="#042c53"
+       stroke="#85b7eb"
+       stroke-width="2"
+       stroke-linejoin="round"
+       id="polygon125" />
+    <polygon
+       points="86,78 56,76 36,100 "
+       fill="#042c53"
+       id="polygon126" />
+  </g>
+  <!-- ═══════════════════════════════════════════════════════════════
+       SPEECH BUBBLE 1 — GRETCHEN (blue, top-left)
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect
+     x="14"
+     y="18"
+     width="228"
+     height="58"
+     rx="13"
+     fill="#042C53"
+     stroke="#85B7EB"
+     stroke-width="3"
+     id="rect125" />
+  <!-- Tail → Gretchen (bottom-right of bubble toward x=90, y=228) -->
+  <text
+     x="128"
+     y="42"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="11.5"
+     font-weight="700"
+     fill="#E6F1FB"
+     font-style="italic"
+     id="text126">„Heinrich! Mir graut's</text>
+  <text
+     x="128"
+     y="62"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="11.5"
+     font-weight="700"
+     fill="#B5D4F4"
+     font-style="italic"
+     id="text127">vor dir!&quot;</text>
+  <!-- ═══════════════════════════════════════════════════════════════
+       SPEECH BUBBLE 2 — CENTRAL DOMINANT (two-tone split, centre-top)
+       "Sie ist gerichtet!" | "Gerettet!" — thematic climax
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- Bold outer box — 4px black outline, visually dominant -->
+  <!-- Left half: deep blue -->
+  <rect
+     x="178"
+     y="83"
+     width="162"
+     height="52"
+     rx="10"
+     fill="#042C53"
+     stroke="none"
+     id="rect127" />
+  <!-- Right half: dark amber/gold -->
+  <rect
+     x="340"
+     y="83"
+     width="162"
+     height="52"
+     rx="10"
+     fill="#241400"
+     stroke="none"
+     id="rect128" />
+  <!-- Round the outer corners properly: full outer box outline -->
+  <rect
+     x="178"
+     y="83"
+     width="324"
+     height="52"
+     rx="10"
+     fill="none"
+     stroke="#000000"
+     stroke-width="4.5"
+     id="rect129" />
+  <!-- Divider -->
+  <line
+     x1="340"
+     y1="87"
+     x2="340"
+     y2="131"
+     stroke="#000000"
+     stroke-width="3"
+     id="line129" />
+  <!-- Left text: "„Sie ist gerichtet!"" — in steel blue/white -->
+  <text
+     x="259"
+     y="105"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="11"
+     font-weight="700"
+     fill="#E6F1FB"
+     font-style="italic"
+     id="text129">„Sie ist</text>
+  <text
+     x="259"
+     y="124"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="11"
+     font-weight="700"
+     fill="#85B7EB"
+     font-style="italic"
+     id="text130">gerichtet!&quot;</text>
+  <!-- Right text: "„Gerettet!"" — in gold, larger -->
+  <text
+     x="421"
+     y="106"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="14"
+     font-weight="700"
+     fill="#FAC775"
+     id="text131">„Gerettet!&quot;</text>
+  <!-- Bubble tail pointing down-left toward Faust's scene -->
+  <polygon
+     points="308,135 292,162 334,136"
+     fill="#042C53"
+     stroke="#000000"
+     stroke-width="2.5"
+     stroke-linejoin="round"
+     id="polygon131" />
+  <polygon
+     points="308,135 292,162 334,136"
+     fill="#042C53"
+     id="polygon132" />
+  <!-- ═══════════════════════════════════════════════════════════════
+       SPEECH BUBBLE 3 — MEPHISTO (red, bottom-right)
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect
+     x="428"
+     y="362"
+     width="240"
+     height="68"
+     rx="13"
+     fill="#2A0505"
+     stroke="#CC2200"
+     stroke-width="3"
+     id="rect132" />
+  <!-- Tail toward Mephisto head -->
+  <polygon
+     points="540,362 528,338 564,362"
+     fill="#2A0505"
+     stroke="#CC2200"
+     stroke-width="2"
+     stroke-linejoin="round"
+     id="polygon133" />
+  <polygon
+     points="540,362 528,338 564,362"
+     fill="#2A0505"
+     id="polygon134" />
+  <text
+     x="548"
+     y="386"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="10.5"
+     font-weight="700"
+     fill="#FF8888"
+     font-style="italic"
+     id="text134">„Auf! oder ihr seid verloren!</text>
+  <text
+     x="548"
+     y="408"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="10.5"
+     font-weight="700"
+     fill="#CC6666"
+     font-style="italic"
+     id="text135">Zaudert nicht!&quot;</text>
+  <!-- ═══════════════════════════════════════════════════════════════
+       PANEL BORDER — 5px solid black (shadow drawn at top of file)
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect
+     x="8"
+     y="8"
+     width="664"
+     height="524"
+     rx="8"
+     fill="none"
+     stroke="#000000"
+     stroke-width="5"
+     id="rect135" />
+  <!-- Inner border faint line -->
+  <rect
+     x="18"
+     y="18"
+     width="644"
+     height="504"
+     rx="6"
+     fill="none"
+     stroke="#1B3050"
+     stroke-width="1"
+     opacity="0.35"
+     id="rect136" />
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCENE TITLE BAR — — KERKER —
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect
+     x="0"
+     y="522"
+     width="680"
+     height="28"
+     fill="#000000"
+     opacity="0.75"
+     id="rect137" />
+  <text
+     x="340"
+     y="541"
+     text-anchor="middle"
+     font-family="'Georgia', serif"
+     font-size="13"
+     font-weight="700"
+     fill="#B5D4F4"
+     letter-spacing="5"
+     id="text137">— KERKER —</text>
+</svg>
