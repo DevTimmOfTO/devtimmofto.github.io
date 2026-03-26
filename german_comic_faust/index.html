@@ -20308,7 +20308,7 @@ body {
                 fill="#E6F1FB" font-style="italic">„Heinrich! Mir graut's</text>
           <text x="128" y="62" text-anchor="middle"
                 font-family="'Georgia', serif" font-size="11.5" font-weight="700"
-                fill="#B5D4F4" font-style="italic">vor dir!"</text>
+                fill="#B5D4F4" font-style="italic">vor dir."</text>
 
           <!-- ═══════════════════════════════════════════════════════════════
                SPEECH BUBBLE 2 — CENTRAL DOMINANT (two-tone split, centre-top)
@@ -20602,11 +20602,39 @@ document.querySelectorAll('.toc-card').forEach(card => {
   });
 });
 
+// ── Lightbox ─────────────────────────────────────────────────────
+const lightbox      = document.getElementById('lightbox');
+const lightboxInner = document.getElementById('lightbox-inner');
+const lightboxClose = document.getElementById('lightbox-close');
+
+function openLightbox(svgEl) {
+  const clone = svgEl.cloneNode(true);
+  // Remove any existing cloned svg
+  lightboxInner.querySelectorAll('svg').forEach(s => s.remove());
+  lightboxInner.appendChild(clone);
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.svg-frame').forEach(frame => {
+  frame.addEventListener('click', () => {
+    const svg = frame.querySelector('svg');
+    if (svg) openLightbox(svg);
+  });
+});
+
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+lightboxClose.addEventListener('click', closeLightbox);
+
 // ── Keyboard navigation ───────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-  if (e.key === 'Escape') { closeToc(); return; }
+  if (e.key === 'Escape') { closeToc(); closeLightbox(); return; }
   if (e.key === 't' || e.key === 'T') {
     if (!tocOverlay.classList.contains('open')) { openToc(); return; }
   }
