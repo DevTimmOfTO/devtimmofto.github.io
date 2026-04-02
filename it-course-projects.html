@@ -75,7 +75,7 @@
                 pageSubtitle: "Projekte aus meiner Gymnasialzeit",
                 navBack: "Zurück zum Portfolio",
                 sectionDesc: "Eine Sammlung von Programmierprojekten aus dem Informatikunterricht – Algorithmen, Datenstrukturen und verschiedene Programmiersprachen.",
-                repoLabel: "GitHub Repository",
+                repoLabel: "Repository",
                 footerLink: "Professionelles Portfolio",
                 catDelphiDesc: "Objektorientierte Projekte in Delphi/Pascal – von einfachen Konsolenanwendungen bis hin zu GUI-Programmen.",
                 catFiliusDesc: "Netzwerksimulationen mit Filius – einem Lernwerkzeug für Computernetzwerke.",
@@ -86,7 +86,7 @@
                 pageSubtitle: "Projects from my Gymnasium years",
                 navBack: "Back to Portfolio",
                 sectionDesc: "A collection of programming projects built during advanced computer science courses — covering algorithms, data structures, and various languages.",
-                repoLabel: "GitHub Repository",
+                repoLabel: "Repository",
                 footerLink: "Professional Portfolio",
                 catDelphiDesc: "Object-oriented projects in Delphi/Pascal — from simple console apps to GUI programs.",
                 catFiliusDesc: "Network simulations using Filius — a learning tool for computer networks.",
@@ -97,7 +97,7 @@
                 pageSubtitle: "Projets réalisés durant mes années de lycée",
                 navBack: "Retour au portfolio",
                 sectionDesc: "Une collection de projets de programmation réalisés lors de cours d'informatique avancés — algorithmes, structures de données et divers langages.",
-                repoLabel: "Dépôt GitHub",
+                repoLabel: "Dépôt",
                 footerLink: "Portfolio professionnel",
                 catDelphiDesc: "Projets orientés objet en Delphi/Pascal — des applications console simples aux programmes avec interface graphique.",
                 catFiliusDesc: "Simulations réseau avec Filius — un outil pédagogique pour les réseaux informatiques.",
@@ -197,20 +197,25 @@
                 grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4';
 
                 for (const repo of cat.repos) {
-                    const card = document.createElement('a');
-                    card.href = `https://github.com/${owner}/${repo}`;
-                    card.target = '_blank';
-                    card.rel = 'noopener noreferrer';
-                    card.className = 'dm-bg-card bg-white rounded-xl shadow-md p-6 flex flex-col gap-2 transition-all duration-200 hover:shadow-xl hover:-translate-y-1';
+                    const card = document.createElement('div');
+                    card.className = 'dm-bg-card bg-white rounded-xl shadow-md p-6 flex flex-col gap-2';
                     card.innerHTML = `
                         <div class="flex items-center gap-2 text-sm dm-text-sub text-gray-400">
-                            <i class="fa-brands fa-github"></i>
+                            <i class="fa-solid fa-code-branch"></i>
                             <span>${label}</span>
                         </div>
                         <h3 class="text-base font-semibold ${ac.title} break-words">${repo}</h3>
-                        <div class="mt-auto pt-2 text-xs dm-text-sub text-gray-400 flex items-center gap-1">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            <span>${owner}</span>
+                        <div class="mt-auto pt-3 flex items-center gap-3">
+                            <a href="https://github.com/${owner}/${repo}" target="_blank" rel="noopener noreferrer"
+                               class="flex items-center gap-1.5 text-xs dm-text-sub text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://gitlab.com/${owner}/${repo}" target="_blank" rel="noopener noreferrer"
+                               class="flex items-center gap-1.5 text-xs dm-text-sub text-gray-500 hover:text-orange-500 transition-colors">
+                                <i class="fa-brands fa-gitlab text-base"></i>
+                                <span>GitLab</span>
+                            </a>
                         </div>
                     `;
                     grid.appendChild(card);
