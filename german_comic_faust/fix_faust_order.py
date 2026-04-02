@@ -28,10 +28,8 @@ import sys
 import shutil
 from pathlib import Path
 
-
 ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X",
          "XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX"]
-
 
 def extract_scenes(html: str) -> list[tuple[int, int, str]]:
     """
