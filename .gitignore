@@ -1,3 +1,5 @@
 *.zip
 */.claude
 .claude
+.vscode/ltex.dictionary.*.txt
+.gitignore
