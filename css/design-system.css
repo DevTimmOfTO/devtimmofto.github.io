@@ -1,0 +1,167 @@
+/* ==========================================================================
+   TIMM DESIGN SYSTEM — "Glass Deck"
+   Warm boutique-hardware skeuomorphism: real bevels, glass tints, glowing
+   LEDs, a physical terminal screen. Used across timmofto.dev and subsites.
+
+   HOW TO USE THIS FILE
+   1. In your page <head>, include (in this order):
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/design-system.css">
+   2. Use Tailwind utility classes for layout (flex, grid, gap, padding).
+   3. Use the component classes below (.deck-card, .glass, .btn-glossy, etc.)
+      for anything that should carry the "hardware" look.
+   4. Toggle dark mode by setting data-theme="dark" on <html> (see JS below).
+   ========================================================================== */
+
+:root{
+  /* ---- base palette (light) ---- */
+  --deck:#F4EFE6;
+  --deck-hi:#FFFCF6;
+  --panel:#FFFFFF;
+  --ink:#2B2620;
+  --ink-soft:#8A8175;
+
+  /* ---- accent palette — LOCKED to "mixed", do not vary per-page ---- */
+  --teal:#2F9C95;
+  --coral:#E8927C;
+  --brass:#C9A227;
+  --sapphire:#4C6FE7;
+
+  /* ---- terminal / screen ---- */
+  --panel-dark:#1B211F;
+  --screen-text:#8FF0C4;
+
+  /* ---- status LEDs — semantic, keep consistent meaning across all sites ----
+     green  = active / in development
+     blue   = finished / fully shipped
+     amber  = concept / in progress / planning
+     red    = paused / stopped
+  */
+  --led-green:#34D399;
+  --led-blue:#60A5FA;
+  --led-amber:#FBBF24;
+  --led-red:#F87171;
+}
+
+[data-theme="dark"]{
+  --deck:#26221D;
+  --deck-hi:#332D26;
+  --panel:#2E2822;
+  --ink:#F3ECE2;
+  --ink-soft:#B8AC9A;
+}
+
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .blink, .led-on{animation:none !important;}
+}
+
+body{
+  background:radial-gradient(1200px 600px at 20% -10%, var(--deck-hi), var(--deck));
+  color:var(--ink);
+  font-family:'Inter', system-ui, sans-serif;
+}
+
+/* ---- type helpers ---- */
+.sora{font-family:'Sora', system-ui, sans-serif;}
+.mono{font-family:'JetBrains Mono', ui-monospace, monospace;}
+
+/* ---- outer container: the "deck" every page sits inside ---- */
+.deck-card{
+  background:linear-gradient(180deg, var(--deck-hi), var(--deck));
+  border:1px solid rgba(43,38,32,0.1);
+  border-radius:28px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 20px 40px rgba(43,38,32,0.15);
+}
+
+/* ---- top/bottom accent stripe (four-color gradient bar) ---- */
+.stripe{
+  height:5px;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--teal), var(--brass), var(--coral), var(--sapphire));
+}
+
+/* ---- monogram / logo badge ---- */
+.badge{
+  width:40px; height:40px; border-radius:14px;
+  background:linear-gradient(145deg, var(--brass), #E9C965);
+  display:flex; align-items:center; justify-content:center;
+  color:#3A2E05; font-weight:800;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 4px 10px rgba(201,162,39,0.4);
+  position:relative; overflow:hidden;
+}
+.badge::after{
+  content:""; position:absolute; top:-40%; left:-20%;
+  width:60%; height:220%;
+  background:rgba(255,255,255,0.5);
+  transform:rotate(20deg);
+}
+
+/* ---- glass panels — pick a tint per card for visual rhythm.
+   Rotate teal → brass → coral → plain across lists so no two
+   adjacent cards share a tint. ---- */
+.glass{
+  backdrop-filter: blur(6px);
+  border-radius:18px;
+  border:1px solid rgba(43,38,32,0.08);
+}
+.glass-teal{background:rgba(47,156,149,0.09); box-shadow:0 1px 0 rgba(255,255,255,0.5) inset, 0 6px 16px rgba(47,156,149,0.12);}
+.glass-coral{background:rgba(232,146,124,0.1); box-shadow:0 1px 0 rgba(255,255,255,0.5) inset, 0 6px 16px rgba(232,146,124,0.14);}
+.glass-brass{background:rgba(201,162,39,0.1); box-shadow:0 1px 0 rgba(255,255,255,0.5) inset, 0 6px 16px rgba(201,162,39,0.14);}
+.glass-sapphire{background:rgba(76,111,231,0.09); box-shadow:0 1px 0 rgba(255,255,255,0.5) inset, 0 6px 16px rgba(76,111,231,0.14);}
+.glass-plain{background:rgba(255,255,255,0.55); box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 6px 14px rgba(43,38,32,0.08);}
+
+/* ---- terminal / LCD screen ---- */
+.lcd{
+  background:var(--panel-dark);
+  border:3px solid #3A4640;
+  border-radius:16px;
+  box-shadow:inset 0 3px 10px rgba(0,0,0,0.6), inset 0 -2px 4px rgba(255,255,255,0.04);
+}
+
+/* ---- status LED ----
+   Usage: <span class="led led-on" style="background:var(--led-green); color:var(--led-green);"></span>
+   Drop "led-on" for a static (non-pulsing) indicator. */
+.led{
+  width:10px; height:10px; border-radius:50%;
+  box-shadow:0 0 7px 1px currentColor, inset 0 -1px 1px rgba(0,0,0,0.35);
+  border:1px solid rgba(0,0,0,0.25);
+}
+.led-on{animation:led-pulse 2.4s ease-in-out infinite;}
+@keyframes led-pulse{0%,100%{opacity:1;} 50%{opacity:0.65;}}
+
+/* ---- glossy tactile button — has a real bevel and presses down on click ---- */
+.btn-glossy{
+  position:relative; overflow:hidden;
+  background:linear-gradient(180deg, #fff, var(--deck));
+  border:1px solid rgba(43,38,32,0.15);
+  border-radius:12px;
+  box-shadow:0 1px 0 rgba(255,255,255,0.7) inset, 0 3px 0 rgba(43,38,32,0.15), 0 5px 10px rgba(43,38,32,0.15);
+  transition:transform 0.08s ease;
+}
+.btn-glossy::after{
+  content:""; position:absolute; top:0; left:-30%;
+  width:35%; height:100%;
+  background:linear-gradient(120deg, rgba(255,255,255,0.55), rgba(255,255,255,0));
+  transform:skewX(-18deg);
+}
+.btn-glossy:active, .btn-glossy[aria-pressed="true"]{
+  transform:translateY(2px);
+  box-shadow:0 1px 3px rgba(0,0,0,0.25) inset;
+}
+
+/* ---- small helpers ---- */
+.lang-dot{width:8px; height:8px; border-radius:50%; display:inline-block;}
+.gauge-arc{stroke-linecap:round;}
+
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--sapphire);
+  outline-offset:2px;
+}

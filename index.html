@@ -1,418 +1,527 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DevTimmOfTO – Backend developer portfolio showcasing transit simulations, roleplay servers, and software engineering projects.">
-<a rel="me" href="https://mastodon.social/@DevTimmOfTO">Mastodon</a>
-    <title>Portfolio | DevTimmOfTO</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="shortcut icon" href="img/profil_pic.png">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
-    <link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
-    <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;1,200&display=swap"
-        rel="stylesheet">
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
-        }
-        .profile-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .profile-circle {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            opacity: 0.8;
-            z-index: -1;
-            background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Dark mode overrides */
-        .dark .dm-bg-page       { background-color: #111827 !important; }
-        .dark .dm-bg-header     { background-color: #0d1117 !important; }
-        .dark .dm-bg-nav        { background-color: #161b22 !important; }
-        .dark .dm-bg-card       { background-color: #1f2937 !important; }
-        .dark .dm-text-main     { color: #e2e8f0 !important; }
-        .dark .dm-text-sub      { color: #94a3b8 !important; }
-        .dark .dm-text-heading  { color: #cbd5e1 !important; }
-    </style>
-    <script src="scripts.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJS5QV5VZT"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-HJS5QV5VZT');
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DevTimmOfTO – Backend developer portfolio showcasing transit simulations, roleplay servers, and software engineering projects.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfolio | DevTimmOfTO">
+<meta property="og:description" content="DevTimmOfTO – Backend developer portfolio showcasing transit simulations, roleplay servers, and software engineering projects.">
+<meta property="og:url" content="https://timmofto.dev/">
+<meta property="og:image" content="https://timmofto.dev/img/profile.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Portfolio | DevTimmOfTO">
+<meta name="twitter:description" content="DevTimmOfTO – Backend developer portfolio showcasing transit simulations, roleplay servers, and software engineering projects.">
+<meta name="twitter:image" content="https://timmofto.dev/img/profile.png">
+<title>Portfolio | DevTimmOfTO</title>
+<link rel="shortcut icon" href="img/profile.png">
+<link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+<link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+<link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/design-system.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HJS5QV5VZT"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HJS5QV5VZT');
+</script>
 </head>
+<body class="antialiased">
 
-<body class="dm-bg-page dm-text-main bg-gray-100 font-sans text-gray-800 transition-colors duration-300">
-    <!-- Top bar: Language Switcher + Dark Mode -->
-    <div class="dm-bg-header bg-gray-800 text-white text-sm py-2 px-4 flex justify-between items-center">
-        <button onclick="toggleDarkMode()" class="flex items-center gap-1 hover:text-gray-300" title="Toggle dark mode">
-            <i id="darkModeIcon" class="fa-solid fa-moon"></i>
-        </button>
-        <div class="flex space-x-4">
-            <button onclick="setLanguage('de')">Deutsch</button>
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('fr')">Français</button>
+  <div class="max-w-4xl mx-auto px-4 py-6">
+    <div class="deck-card p-5 md:p-8">
+
+      <div class="stripe mb-6"></div>
+
+      <!-- NAV -->
+      <header class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div class="flex items-center gap-3">
+          <div class="badge sora"><img src="img/profile.png" alt="Timm" class="w-full h-full object-cover"></div>
+          <div>
+            <p class="sora font-bold text-sm leading-none">Timm</p>
+            <p class="text-xs mono" style="color:var(--ink-soft);">timmofto.dev · <a href="blog/index.html" class="hover:underline" target="_blank" rel="noopener noreferrer" data-i18n="nav_blog">blog</a></p>
+          </div>
         </div>
+
+        <div class="flex items-center gap-2 flex-wrap justify-end">
+          <div class="flex gap-1">
+            <button class="btn-glossy text-xs mono font-semibold px-2.5 py-1.5 lang-pill" data-lang="en" aria-pressed="true">EN</button>
+            <button class="btn-glossy text-xs mono font-semibold px-2.5 py-1.5 lang-pill" data-lang="de" aria-pressed="false">DE</button>
+            <button class="btn-glossy text-xs mono font-semibold px-2.5 py-1.5 lang-pill" data-lang="fr" aria-pressed="false">FR</button>
+          </div>
+          <button id="themeToggle" class="btn-glossy rounded-full px-4 py-1.5 text-xs mono font-semibold flex items-center gap-2">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green);"></span>
+            <span id="themeLabel">LIGHT</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+      <!-- HERO -->
+      <div class="grid md:grid-cols-[1fr_180px] gap-5 mb-9">
+        <div class="lcd p-6">
+          <p class="mono text-sm leading-7" style="color:var(--screen-text);">
+            <span class="blink">&gt;</span> whoami<br>
+            <span data-i18n="term_whoami" class="opacity-80">Computer Science student · Hochschule Nordhausen</span><br><br>
+            &gt; cat interests.md<br>
+            <span data-i18n="term_interests" class="opacity-80">self-hosted infrastructure, Rust, FOSS tooling,<br>OpenStreetMap. based in Germany, aiming for Toronto.</span><br><br>
+            &gt; <span class="blink">▊</span>
+          </p>
+        </div>
+
+        <div class="glass glass-brass p-4 flex flex-col items-center justify-center text-center relative">
+          <span class="panel-screw" style="top:8px; left:8px;"></span>
+          <span class="panel-screw" style="top:8px; right:8px;"></span>
+          <span class="panel-screw" style="bottom:8px; left:8px;"></span>
+          <span class="panel-screw" style="bottom:8px; right:8px;"></span>
+          <span class="tick-col" style="left:16px;"></span>
+          <span class="tick-col" style="right:16px;"></span>
+
+          <div class="grille mb-4">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="mono text-3xl font-bold px-4 py-1 rounded-lg mb-2" style="background:var(--panel-dark); color:var(--screen-text); box-shadow:inset 0 2px 6px rgba(0,0,0,0.5);">02</div>
+          <p class="text-xs mono" style="color:var(--ink-soft);" data-i18n="gauge_label">projects finished</p>
+
+          <div class="grille mt-4">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <section id="work" class="mb-9">
+        <h2 class="sora font-bold text-base mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>
+          <span data-i18n="projects_heading">Project modules</span>
+        </h2>
+        <div class="grid gap-3">
+
+          <!-- perron -->
+          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led led-on" style="background:var(--led-green); color:var(--led-green);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="8" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4M9 14h.01M15 14h.01"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">perron</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_perron_desc">Multimodal bike + transit routing · Flutter · F-Droid target</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- betterdrink -->
+          <div class="glass glass-coral p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led led-on" style="background:var(--led-green); color:var(--led-green);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">betterdrink</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_betterdrink_desc">Hydration reminder app · GPL-3.0 · no pro tier, ever</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- lotus-toronto-map -->
+          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led led-on" style="background:var(--led-green); color:var(--led-green);"></span>
+              <img src="img/lotus-toronto.png" alt="Toronto transit map icon" class="w-8 h-8 rounded-lg shrink-0" style="box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 4px rgba(43,38,32,0.2); border:1px solid rgba(43,38,32,0.15);">
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_lotusmap_title">Toronto Map for Lotus Simulator</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_lotusmap_desc">Detailed Toronto transit map with streetcars and buses for Lotus Simulator</p>
+              </div>
+            </div>
+            <a href="lotus_greater_toronto_area.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+          <!-- opentransitsim -->
+          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 12h8M8 15h5"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">opentransitsim</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_opentransitsim_desc">FOSS multiplayer transit sim · AGPL-3.0 · Codeberg</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ebikemanagernco -->
+          <div class="glass glass-coral p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h4l3-9h3M9 17l3-7 4 0M6 17l3-7"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">ebikemanagernco</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_ebikemanager_desc">Local-only e-bike companion · specs, OSM, Health Connect</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- GTA 5 RolePlay Server -->
+          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-red); color:var(--led-red);"></span>
+              <img src="img/tech-roleplay.png" alt="GTA 5 RolePlay Server icon" class="w-8 h-8 rounded-lg shrink-0" style="box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 4px rgba(43,38,32,0.2); border:1px solid rgba(43,38,32,0.15);">
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_gtarp_title">GTA 5 RolePlay Server</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_gtarp_desc">Realistic multiplayer roleplay server for GTA 5 — paused due to Rockstar's policy changes</p>
+              </div>
+            </div>
+            <a href="CivTechXR.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+          <!-- rss-reader -->
+          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a8 8 0 0 1 16 0M4 11v6a2 2 0 0 0 2 2h1M20 11v6a2 2 0 0 1-2 2h-1M4 11h16"/><circle cx="12" cy="11" r="2"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">rss-reader</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_rssreader_desc">Local-first RSS reader · rule-based filtering</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- food-tracker -->
+          <div class="glass glass-coral p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v6M11 2v6M7 5h4M15 2s-2 3-2 6a2 2 0 0 0 4 0c0-3-2-6-2-6zM13 13v9"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">food-tracker</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_foodtracker_desc">FOSS food/recipe/weight tracker · on-device only</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- spadina-ui -->
+          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">spadina-ui</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_spadinaui_desc">Fast, cross-platform desktop UI framework in Rust — no Chromium bloat, native rendering</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ai-npc-server -->
+          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="10" rx="2"/><path d="M9 4v4M15 4v4M7 12h.01M17 12h.01M9 16h6"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">ai-npc-server</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_aincpserver_desc">Private sim server · LLM-driven contextual NPCs</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- S-Bahn Berlin -->
+          <div class="glass glass-coral p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="4"/><path d="M4 11h16M8 17l-2 3M16 17l2 3"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_sbahn_title">S-Bahn Berlin for Subway Sim 2</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_sbahn_desc">Concept for a realistic Berlin S-Bahn system in Subway Sim 2 — not yet in active development</p>
+              </div>
+            </div>
+            <a href="s-bahn-berlin-subwaysim2.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+          <!-- Computer Science Projects -->
+          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-blue); color:var(--led-blue);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_csprojects_title">Computer Science Projects</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_csprojects_desc">Various programming projects from advanced computer science courses — algorithms, data structures</p>
+              </div>
+            </div>
+            <a href="it-course-projects.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+          <!-- healthcare-info-system -->
+          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-blue); color:var(--led-blue);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2M9 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2H9V3zM12 12v4M9.5 14.5h5"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_healthcare_title">Healthcare Information System</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_healthcare_desc">Informational web platform helping school students understand and manage diabetes</p>
+              </div>
+            </div>
+            <a href="https://DevTimmOfTO.github.io/website-seminarfach/" target="_blank" rel="noopener noreferrer" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+        </div>
+
+        <!-- LED legend -->
+        <div class="glass glass-plain px-4 py-3 flex flex-wrap gap-5 mt-3">
+          <div class="flex items-center gap-2">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green);"></span>
+            <span class="text-xs mono" style="color:var(--ink-soft);" data-i18n="legend_active">active</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="led" style="background:var(--led-blue); color:var(--led-blue);"></span>
+            <span class="text-xs mono" style="color:var(--ink-soft);" data-i18n="legend_finished">finished / fully shipped</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+            <span class="text-xs mono" style="color:var(--ink-soft);" data-i18n="legend_concept">concept / planning</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="led" style="background:var(--led-red); color:var(--led-red);"></span>
+            <span class="text-xs mono" style="color:var(--ink-soft);" data-i18n="legend_paused">paused</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACK -->
+      <section id="stack" class="mb-9">
+        <h2 class="sora font-bold text-base mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M4 10h2M4 14h2M18 10h2M18 14h2M10 4v2M14 4v2M10 18v2M14 18v2"/></svg>
+          <span data-i18n="stack_heading">Stack</span>
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="glass glass-teal mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            Dart / Flutter
+          </span>
+          <span class="glass glass-brass mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+            Rust
+          </span>
+          <span class="glass glass-coral mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            Python
+          </span>
+          <span class="glass glass-plain mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            Docker
+          </span>
+          <span class="glass glass-teal mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            Fedora
+          </span>
+          <span class="glass glass-brass mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Caddy
+          </span>
+          <span class="glass glass-coral mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            WireGuard
+          </span>
+          <span class="glass glass-plain mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            OSM
+          </span>
+          <span class="glass glass-teal mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            JavaScript
+          </span>
+          <span class="glass glass-brass mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+            Git
+          </span>
+          <span class="glass glass-coral mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4.5v11L12 22l-8-4.5v-11L12 2z"/></svg>
+            Node.js
+          </span>
+          <span class="glass glass-plain mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+            SQL
+          </span>
+        </div>
+      </section>
+
+      <!-- SOCIALS -->
+      <section id="socials" class="mb-9">
+        <h2 class="sora font-bold text-base mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+          <span data-i18n="socials_heading">Socials</span>
+        </h2>
+        <div class="glass glass-plain p-4 flex flex-wrap items-center gap-3">
+          <a href="https://gitlab.com/DevTimmOfTO" title="GitLab" class="btn-glossy w-10 h-10 rounded-full flex items-center justify-center" style="color:#E24329;"><i class="fa-brands fa-gitlab"></i></a>
+          <a href="https://github.com/DevTimmOfTO" title="GitHub" class="btn-glossy w-10 h-10 rounded-full flex items-center justify-center" style="color:var(--ink);"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/timm-johannes-g%C3%B6ring-476aa0245/" title="LinkedIn" class="btn-glossy w-10 h-10 rounded-full flex items-center justify-center" style="color:#0A66C2;"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://mastodon.social/@DevTimmOfTO" title="Mastodon" rel="me" class="btn-glossy w-10 h-10 rounded-full flex items-center justify-center" style="color:#6364FF;"><i class="fa-brands fa-mastodon"></i></a>
+          <a href="mailto:contact@timmofto.dev" title="E-Mail" class="btn-glossy w-10 h-10 rounded-full flex items-center justify-center" style="color:var(--teal);"><i class="fa-regular fa-envelope"></i></a>
+          <a href="https://devtimmofto.github.io/blog/" title="Blog / RSS" target="_blank" rel="noopener noreferrer" class="btn-glossy w-10 h-10 rounded-full flex items-center justify-center" style="color:var(--brass);"><i class="fa-solid fa-rss"></i></a>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="mb-9">
+        <h2 class="sora font-bold text-base mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          <span data-i18n="about_heading">About</span>
+        </h2>
+        <div class="glass glass-plain p-6 flex flex-col sm:flex-row gap-5 items-start">
+          <a href="privat.html"><img src="img/profile.png" alt="Timm" class="w-20 h-20 rounded-full shrink-0 object-cover" style="box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 10px rgba(43,38,32,0.2); border:2px solid var(--brass);"></a>
+          <p class="text-sm leading-7" style="color:var(--ink-soft);" data-i18n="about_body">
+            Studying Computer Science at Hochschule Nordhausen. I run most of my own
+            infrastructure — Nextcloud, Immich, a media server, a handful of side
+            projects — self-hosted, FOSS-first, no exceptions I can avoid. Long-term
+            plan is a move to Toronto, likely by way of a Master's somewhere else first.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="glass glass-sapphire p-6 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="led led-on" style="background:var(--sapphire); color:var(--sapphire);"></span>
+            <div>
+              <p class="sora font-semibold text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+                <span data-i18n="contact_heading">Contact</span>
+              </p>
+              <p class="text-xs mono" style="color:var(--ink-soft);">contact@timmofto.dev</p>
+            </div>
+          </div>
+          <a href="mailto:contact@timmofto.dev" class="btn-glossy mono text-xs font-semibold px-4 py-2" data-i18n="contact_send">SEND →</a>
+        </div>
+      </section>
+      </main>
+
+      <div class="stripe mt-8"></div>
     </div>
 
-    <header class="dm-bg-header bg-gray-800 text-white py-4 text-center">
-        <h1 class="text-2xl font-bold">DevTimmOfTO</h1>
-        <p class="text-lg" data-i18n="portfolioTopStartDesc">Welcome to my professional portfolio</p>
-    </header>
+  </div>
 
-    <nav class="dm-bg-nav bg-gray-700 py-2 flex justify-center sticky top-0 z-50">
-        <a href="#about" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navAbout">About</a>
-        <a href="#skills" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navSkills">Skills</a>
-        <a href="#projects" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navProjects">Projects</a>
-        <a href="#contact" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navContact">Contact</a>
-        <a href="blog/index.html" class="text-white hover:underline mx-4 px-2 py-1" data-i18n="navBlog" target="_blank" rel="noopener noreferrer">Blog</a>
-    </nav>
+  <footer class="text-center mono text-xs pb-6" style="color:var(--ink-soft);">
+    <p>© 2026 Timm Johannes Göring · timmofto.dev</p>
+  </footer>
 
-    <div class="container mx-auto mt-8 px-4">
-        <section id="about" class="mb-8">
-            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingAbout">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <div class="profile-container md:mr-8 shrink-0">
-                    <div class="profile-circle"></div>
-                    <a href="privat.html"><img src="img/profil_pic.png" alt="DevTimmOfTO's profile picture"
-                        title="The profile picture of DevTimmOfTO" class="rounded-full w-32 h-32 m-1 "></a>
-                </div>
-                <div>
-                    <p class="text-lg dm-text-main" data-i18n="textAboutMe">
-                        Hello! I'm DevTimmOfTO (longform: Developer Timm of Toronto), a passionate backend developer specializing in creating robust and scalable software solutions. <br>I focus on developing applications that solve real-world problems and add value to users' lives. <br>Feel free to explore my work and projects!
-                    </p>
-                </div>
-            </div>
-        </section>
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
 
-        <section id="skills" class="mb-8">
-            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingSkills">Skills</h2>
-            <div class="flex flex-wrap gap-3">
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-js mr-1 text-yellow-400"></i>JavaScript</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-html5 mr-1 text-orange-500"></i>HTML / CSS</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-database mr-1 text-blue-500"></i>SQL</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-python mr-1 text-blue-400"></i>Python</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-code mr-1 text-purple-500"></i>Lua</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-git-alt mr-1 text-red-500"></i>Git</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-brands fa-node-js mr-1 text-green-500"></i>Node.js</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-server mr-1 text-gray-500"></i>Backend Development</span>
-                <span class="dm-bg-card bg-white px-4 py-2 rounded-full shadow text-sm font-medium dm-text-main"><i class="fa-solid fa-cubes mr-1 text-teal-500"></i>3D Modeling</span>
-            </div>
-        </section>
+    function applyTheme(theme){
+      root.setAttribute('data-theme', theme);
+      themeLabel.textContent = theme === 'dark' ? 'DARK' : 'LIGHT';
+    }
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
 
-        <section id="projects" class="mb-8">
-            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingProjects">Projects</h2>
-            <p class="mb-4 dm-text-main" data-i18n="descProjects">Here are some of my recent projects:</p>
+    themeBtn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
 
-            <!-- GTA 5 RolePlay -->
-            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
-                <div class="md:flex">
-                    <div class="md:shrink-0">
-                        <img src="img/IMG_0430.png" alt="Tech-Roleplay"
-                            class="h-48 w-full object-cover md:h-full md:w-48">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-2 mb-1">
-                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                                data-i18n="projectsTitleTechRoleplay">GTA 5 RolePlay Server
-                            </div>
-                            <span class="px-2 py-0.5 text-xs rounded-full bg-red-100 text-red-700 font-medium">Paused</span>
-                        </div>
-                        <a href="CivTechXR.html"
-                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
-                            data-i18n="projectsDescTechRoleplay">
-                            A realistic multiplayer roleplay server for GTA 5 — currently paused due to Rockstar's policy changes
-                        </a>
-                        <p class="mt-2 text-gray-600 dm-text-sub">Backend development, server architecture, database management</p>
-                    </div>
-                </div>
-            </div>
+    const i18n = {
+      en:{
+        nav_blog:'blog',
+        term_whoami:'Computer Science student · Hochschule Nordhausen',
+        term_interests:'self-hosted infrastructure, Rust, FOSS tooling,<br>OpenStreetMap. based in Germany, aiming for Toronto.',
+        gauge_label:'projects finished',
+        projects_heading:'Project modules', stack_heading:'Stack', socials_heading:'Socials', about_heading:'About',
+        about_body:'Studying Computer Science at Hochschule Nordhausen. I run most of my own infrastructure — Nextcloud, Immich, a media server, a handful of side projects — self-hosted, FOSS-first, no exceptions I can avoid. Long-term plan is a move to Toronto, likely by way of a Master\'s somewhere else first.',
+        contact_heading:'Contact', contact_send:'SEND →',
+        legend_active:'active', legend_finished:'finished / fully shipped', legend_concept:'concept / planning', legend_paused:'paused',
+        proj_perron_desc:'Multimodal bike + transit routing · Flutter · F-Droid target',
+        proj_betterdrink_desc:'Hydration reminder app · GPL-3.0 · no pro tier, ever',
+        proj_lotusmap_title:'Toronto Map for Lotus Simulator',
+        proj_lotusmap_desc:'Detailed Toronto transit map with streetcars and buses for Lotus Simulator',
+        proj_opentransitsim_desc:'FOSS multiplayer transit sim · AGPL-3.0 · Codeberg',
+        proj_ebikemanager_desc:'Local-only e-bike companion · specs, OSM, Health Connect',
+        proj_gtarp_title:'GTA 5 RolePlay Server',
+        proj_gtarp_desc:'Realistic multiplayer roleplay server for GTA 5 — paused due to Rockstar\'s policy changes',
+        proj_rssreader_desc:'Local-first RSS reader · rule-based filtering',
+        proj_foodtracker_desc:'FOSS food/recipe/weight tracker · on-device only',
+        proj_spadinaui_desc:'Fast, cross-platform desktop UI framework in Rust — no Chromium bloat, native rendering',
+        proj_aincpserver_desc:'Private sim server · LLM-driven contextual NPCs',
+        proj_sbahn_title:'S-Bahn Berlin for Subway Sim 2',
+        proj_sbahn_desc:'Concept for a realistic Berlin S-Bahn system in Subway Sim 2 — not yet in active development',
+        proj_csprojects_title:'Computer Science Projects',
+        proj_csprojects_desc:'Various programming projects from advanced computer science courses — algorithms, data structures',
+        proj_healthcare_title:'Healthcare Information System',
+        proj_healthcare_desc:'Informational web platform helping school students understand and manage diabetes'
+      },
+      de:{
+        nav_blog:'blog',
+        term_whoami:'Informatikstudent · Hochschule Nordhausen',
+        term_interests:'Self-hosted Infrastruktur, Rust, FOSS-Tools,<br>OpenStreetMap. Deutschland, Ziel: Toronto.',
+        gauge_label:'abgeschlossene Projekte',
+        projects_heading:'Projektmodule', stack_heading:'Stack', socials_heading:'Socials', about_heading:'Über mich',
+        about_body:'Informatikstudent an der Hochschule Nordhausen. Ich betreibe fast meine gesamte Infrastruktur selbst — Nextcloud, Immich, einen Medienserver, diverse Nebenprojekte — self-hosted, FOSS-first, ohne Ausnahmen, die ich vermeiden kann. Langfristig soll es nach Toronto gehen, vermutlich über ein Masterstudium anderswo.',
+        contact_heading:'Kontakt', contact_send:'SENDEN →',
+        legend_active:'aktiv', legend_finished:'abgeschlossen / fertig ausgeliefert', legend_concept:'Konzept / Planung', legend_paused:'pausiert',
+        proj_perron_desc:'Multimodales Fahrrad- und ÖPNV-Routing · Flutter · Ziel: F-Droid',
+        proj_betterdrink_desc:'Trinkerinnerungs-App · GPL-3.0 · niemals eine Pro-Version',
+        proj_lotusmap_title:'Toronto Map für Lotus Simulator',
+        proj_lotusmap_desc:'Detaillierte Toronto-Verkehrskarte mit Straßenbahnen und Bussen für den Lotus Simulator',
+        proj_opentransitsim_desc:'FOSS-Mehrspieler-Verkehrssimulation · AGPL-3.0 · Codeberg',
+        proj_ebikemanager_desc:'Rein lokale E-Bike-Begleit-App · Spezifikationen, OSM, Health Connect',
+        proj_gtarp_title:'GTA 5 RolePlay-Server',
+        proj_gtarp_desc:'Realistischer Multiplayer-Roleplay-Server für GTA 5 — pausiert aufgrund von Rockstars Richtlinienänderungen',
+        proj_rssreader_desc:'Local-first RSS-Reader · regelbasierte Filterung',
+        proj_foodtracker_desc:'FOSS-Tracker für Essen, Rezepte und Gewicht · rein lokal',
+        proj_spadinaui_desc:'Schnelles, plattformübergreifendes Desktop-UI-Framework in Rust — kein Chromium-Overhead, natives Rendering',
+        proj_aincpserver_desc:'Privater Sim-Server · LLM-gesteuerte, kontextbewusste NPCs',
+        proj_sbahn_title:'S-Bahn Berlin für Subway Sim 2',
+        proj_sbahn_desc:'Konzept für ein realistisches Berliner S-Bahn-System in Subway Sim 2 — noch nicht in aktiver Entwicklung',
+        proj_csprojects_title:'Informatik-Projekte',
+        proj_csprojects_desc:'Verschiedene Programmierprojekte aus dem Informatik-Leistungskurs — Algorithmen, Datenstrukturen',
+        proj_healthcare_title:'Gesundheitsinformationssystem',
+        proj_healthcare_desc:'Informationswebplattform, die Schülerinnen und Schülern hilft, Diabetes zu verstehen und zu managen'
+      },
+      fr:{
+        nav_blog:'blog',
+        term_whoami:'Étudiant en informatique · Hochschule Nordhausen',
+        term_interests:'Infrastructure auto-hébergée, Rust, outils FOSS,<br>OpenStreetMap. En Allemagne, direction Toronto.',
+        gauge_label:'projets terminés',
+        projects_heading:'Modules projets', stack_heading:'Stack', socials_heading:'Réseaux', about_heading:'À propos',
+        about_body:'Étudiant en informatique à la Hochschule Nordhausen. J\'héberge moi-même la quasi-totalité de mon infrastructure — Nextcloud, Immich, un serveur média, plusieurs projets annexes — FOSS en priorité, sans exception évitable. L\'objectif à long terme est de m\'installer à Toronto, probablement après un master ailleurs.',
+        contact_heading:'Contact', contact_send:'ENVOYER →',
+        legend_active:'actif', legend_finished:'terminé / livré', legend_concept:'concept / planification', legend_paused:'en pause',
+        proj_perron_desc:'Routage multimodal vélo + transport en commun · Flutter · Cible F-Droid',
+        proj_betterdrink_desc:'Application de rappel d\'hydratation · GPL-3.0 · jamais de version pro',
+        proj_lotusmap_title:'Carte de Toronto pour Lotus Simulator',
+        proj_lotusmap_desc:'Carte de transport détaillée de Toronto avec tramways et bus pour Lotus Simulator',
+        proj_opentransitsim_desc:'Simulation de transport multijoueur FOSS · AGPL-3.0 · Codeberg',
+        proj_ebikemanager_desc:'Compagnon e-bike 100% local · spécifications, OSM, Health Connect',
+        proj_gtarp_title:'Serveur GTA 5 RolePlay',
+        proj_gtarp_desc:'Serveur de jeu de rôle multijoueur réaliste pour GTA 5 — en pause suite aux changements de politique de Rockstar',
+        proj_rssreader_desc:'Lecteur RSS local-first · filtrage basé sur des règles',
+        proj_foodtracker_desc:'Traqueur FOSS pour repas, recettes et poids · uniquement local',
+        proj_spadinaui_desc:'Framework desktop rapide et multiplateforme en Rust — sans Chromium, rendu natif',
+        proj_aincpserver_desc:'Serveur de simulation privé · PNJ contextuels pilotés par LLM',
+        proj_sbahn_title:'S-Bahn Berlin pour Subway Sim 2',
+        proj_sbahn_desc:'Concept d\'un système S-Bahn berlinois réaliste dans Subway Sim 2 — pas encore en développement actif',
+        proj_csprojects_title:'Projets d\'informatique',
+        proj_csprojects_desc:'Divers projets de programmation issus des cours avancés d\'informatique — algorithmes, structures de données',
+        proj_healthcare_title:'Système d\'information de santé',
+        proj_healthcare_desc:'Plateforme web informative aidant les élèves à comprendre et gérer le diabète'
+      }
+    };
 
-            <!-- Toronto Map -->
-            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
-                <div class="md:flex">
-                    <div class="md:shrink-0">
-                        <img src="img/lotus-toronto-icon.png" alt="Lotus Icon for the Toronto Map"
-                            class="h-48 w-full object-cover md:h-full md:w-48">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-2 mb-1">
-                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                                data-i18n="projectsTitleTorrontoLotus">Toronto Map for Lotus Simulator
-                            </div>
-                            <span class="px-2 py-0.5 text-xs rounded-full bg-blue-100 text-blue-700 font-medium">In Development</span>
-                        </div>
-                        <a href="lotus_greater_toronto_area.html" class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
-                            data-i18n="projectsDescTorrontoLotus">
-                            Detailed Toronto transit simulation with streetcars and buses — actively under development
-                        </a>
-                        <p class="mt-2 text-gray-600 dm-text-sub">3D modeling, simulation programming, real-time systems</p>
-                    </div>
-                </div>
-            </div>
+    const langButtons = document.querySelectorAll('.lang-pill');
+    function applyLang(lang){
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+      });
+      langButtons.forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.lang === lang));
+      document.documentElement.setAttribute('lang', lang);
+    }
+    langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+  </script>
 
-            <!-- Healthcare -->
-            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
-                <div class="md:flex">
-                    <div class="md:shrink-0">
-                        <div class="h-48 w-full md:h-full md:w-48 bg-indigo-700 flex flex-col items-center justify-center gap-2">
-                            <i class="fa-solid fa-heart-pulse text-white text-5xl"></i>
-                            <span class="text-white text-sm font-semibold tracking-wide">Healthcare</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-2 mb-1">
-                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                                data-i18n="projectsTitleDiabetes">Healthcare Information System
-                            </div>
-                            <span class="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 font-medium">Finished</span>
-                        </div>
-                        <a href="https://DevTimmOfTO.github.io/website-seminarfach/"
-                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
-                            data-i18n="projectsDescDiabetes">
-                            Informational web platform helping school students understand and manage diabetes
-                        </a>
-                        <p class="mt-2 text-gray-600 dm-text-sub">Web development, information architecture, responsive design</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- S-Bahn Berlin -->
-            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
-                <div class="md:flex">
-                    <div class="md:shrink-0">
-                        <div class="h-48 w-full md:h-full md:w-48 bg-emerald-700 flex flex-col items-center justify-center gap-2">
-                            <i class="fa-solid fa-train text-white text-5xl"></i>
-                            <span class="text-white text-sm font-semibold tracking-wide">S-Bahn Berlin</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-2 mb-1">
-                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                                data-i18n="projectsTitleSBahnBerlinSWS2">S-Bahn Berlin for Subway Sim 2
-                            </div>
-                            <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-600 font-medium">Concept</span>
-                        </div>
-                        <a href="s-bahn-berlin-subwaysim2.html"
-                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
-                            data-i18n="projectsDescSBahnBerlinSWS2">
-                            Concept for a realistic Berlin S-Bahn system in Subway Sim 2 — not yet in active development, but open
-                        </a>
-                        <p class="mt-2 text-gray-600 dm-text-sub">Game development, system modeling, user experience design</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SpadinaUI -->
-            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
-                <div class="md:flex">
-                    <div class="md:shrink-0">
-                        <div class="h-48 w-full md:h-full md:w-48 bg-orange-700 flex flex-col items-center justify-center gap-2">
-                            <i class="fa-solid fa-window-restore text-white text-5xl"></i>
-                            <span class="text-white text-sm font-semibold tracking-wide">SpadinaUI</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-2 mb-1">
-                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                                data-i18n="projectsTitleSpadinaUI">SpadinaUI — Rust Desktop Framework
-                            </div>
-                            <span class="px-2 py-0.5 text-xs rounded-full bg-orange-100 text-orange-700 font-medium">Concept</span>
-                        </div>
-                        <p class="block mt-1 text-lg leading-tight font-medium dm-text-main"
-                            data-i18n="projectsDescSpadinaUI">
-                            A fast, cross-platform desktop UI framework built in Rust — no Chromium bloat, native rendering, designed in the spirit of Toronto
-                        </p>
-                        <p class="mt-2 text-gray-600 dm-text-sub" data-i18n="projectsTagsSpadinaUI">Rust · Systems Programming · GPU Renderer · Cross-Platform · Plugin System</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CS Projects -->
-            <div class="dm-bg-card max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4 transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
-                <div class="md:flex">
-                    <div class="md:shrink-0">
-                        <div class="h-48 w-full md:h-full md:w-48 bg-violet-700 flex flex-col items-center justify-center gap-2">
-                            <i class="fa-solid fa-graduation-cap text-white text-5xl"></i>
-                            <span class="text-white text-sm font-semibold tracking-wide">Education</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-2 mb-1">
-                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                                data-i18n="projectsTitleITCourseGrammarSchoolProjects">Computer Science Projects</div>
-                            <span class="px-2 py-0.5 text-xs rounded-full bg-gray-100 text-gray-600 font-medium">Archived</span>
-                        </div>
-                        <a href="it-course-projects.html"
-                            class="block mt-1 text-lg leading-tight font-medium text-black dm-text-main hover:underline"
-                            data-i18n="projectsDescITCourseGrammarSchoolProjects">
-                            Various programming projects developed during advanced computer science courses
-                        </a>
-                        <p class="mt-2 text-gray-600 dm-text-sub">Projects from my Gymnasium years — algorithm development, data structures, software engineering</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="socials" class="mb-8">
-            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingSocialMedia">Professional Links</h2>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://gitlab.com/DevTimmOfTO" title="GitLab" class="text-black dm-text-main hover:text-orange-500"><i class="fa-brands fa-gitlab fa-2xl"></i></a>
-                <a href="https://github.com/DevTimmOfTO" title="GitHub" class="text-black dm-text-main hover:text-gray-500"><i
-                        class="fa-brands fa-github fa-2xl"></i></a>
-                <a href="https://www.linkedin.com/in/timm-johannes-g%C3%B6ring-476aa0245/" title="LinkedIn"
-                    class="text-blue-500 hover:text-blue-300"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
-                <a href="mailto:devtimmofto@mail.de" title="E-Mail" class="text-green-500 hover:text-green-300"><i
-                        class="fa-regular fa-envelope fa-2xl"></i></a>
-                <a href="https://devtimmofto.github.io/blog/" title="Blog" class="text-orange-500 hover:text-orange-300" target="_blank" rel="noopener noreferrer"><i
-                        class="fa-solid fa-rss fa-2xl"></i></a>
-            </div>
-        </section>
-
-        <section id="contact" class="mb-8">
-            <h2 class="dm-text-heading text-3xl font-semibold mb-4 text-gray-700" data-i18n="headingContactMe">Contact Me</h2>
-            <p class="text-lg dm-text-main">If you'd like to get in touch for professional opportunities or collaboration, feel free to email me at <a
-                    href="mailto:devtimmofto@mail.de"
-                    class="text-indigo-500 hover:underline">devtimmofto@mail.de</a> or connect with me on LinkedIn.</p>
-        </section>
-    </div>
-
-    <footer class="dm-bg-header bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2026 Timm Johannes Göring | Professional Portfolio</p>
-    </footer>
-    <script>
-        const translations = {
-            de: {
-                portfolioTopStartDesc: "Willkommen zu meinem professionellen Portfolio",
-                navAbout: "Über mich",
-                navSkills: "Fähigkeiten",
-                navProjects: "Projekte",
-                navContact: "Kontakt",
-                navBlog: "Blog",
-                headingAbout: "Über mich",
-                textAboutMe: "Hallo! Ich bin DevTimmOfTO, ein leidenschaftlicher Backend-Entwickler, spezialisiert auf robuste und skalierbare Softwarelösungen. <br>Ich konzentriere mich auf die Entwicklung von Anwendungen, die reale Probleme lösen und den Nutzern einen Mehrwert bieten. <br>Schauen Sie sich gerne meine Arbeit und Projekte an!",
-                btnDownloadCV: "CV herunterladen",
-                headingSkills: "Fähigkeiten",
-                headingProjects: "Projekte",
-                descProjects: "Hier sind einige meiner aktuellen Projekte:",
-                projectsTitleTechRoleplay: "GTA 5 RolePlay-Server",
-                projectsDescTechRoleplay: "Ein realistischer Multiplayer-Roleplay-Server für GTA 5 – derzeit pausiert aufgrund der Richtlinienänderungen von Rockstar",
-                projectsTitleTorrontoLotus: "Toronto Map für Lotus Simulator",
-                projectsDescTorrontoLotus: "Detaillierte Toronto-Verkehrssimulation mit Straßenbahnen und Bussen – aktiv in Entwicklung",
-                projectsTitleDiabetes: "Gesundheitsinformationssystem",
-                projectsDescDiabetes: "Informationswebplattform, die Schülerinnen und Schüler über Diabetes aufklärt",
-                projectsTitleSBahnBerlinSWS2: "S-Bahn Berlin für Subway Sim 2",
-                projectsDescSBahnBerlinSWS2: "Konzept für ein realistisches Berliner S-Bahn-System in Subway Sim 2 – noch nicht in aktiver Entwicklung, aber offen",
-                projectsTitleSpadinaUI: "SpadinaUI — Rust Desktop Framework",
-                projectsDescSpadinaUI: "Ein schnelles, plattformübergreifendes Desktop-UI-Framework in Rust — kein Chromium-Overhead, natives Rendering, inspiriert vom Geist Torontos",
-                projectsTagsSpadinaUI: "Rust · Systemprogrammierung · GPU-Renderer · Plattformübergreifend · Plugin-System",
-                projectsTitleITCourseGrammarSchoolProjects: "Informatik-Projekte",
-                projectsDescITCourseGrammarSchoolProjects: "Programmierprojekte aus meiner Gymnasialzeit – Algorithmen, Datenstrukturen, Softwareentwicklung",
-                headingSocialMedia: "Professionelle Links",
-                headingContactMe: "Kontaktieren Sie mich",
-            },
-            en: {
-                portfolioTopStartDesc: "Welcome to my professional portfolio",
-                navAbout: "About",
-                navSkills: "Skills",
-                navProjects: "Projects",
-                navContact: "Contact",
-                navBlog: "Blog",
-                headingAbout: "About Me",
-                textAboutMe: "Hello! I'm DevTimmOfTO, a passionate backend developer specializing in creating robust and scalable software solutions. <br>I focus on developing applications that solve real-world problems and add value to users' lives. <br>Feel free to explore my work and projects!",
-                btnDownloadCV: "Download CV",
-                headingSkills: "Skills",
-                headingProjects: "Projects",
-                descProjects: "Here are some of my recent projects:",
-                projectsTitleTechRoleplay: "GTA 5 RolePlay Server",
-                projectsDescTechRoleplay: "A realistic multiplayer roleplay server for GTA 5 — currently paused due to Rockstar's policy changes",
-                projectsTitleTorrontoLotus: "Toronto Map for Lotus Simulator",
-                projectsDescTorrontoLotus: "Detailed Toronto transit simulation with streetcars and buses — actively under development",
-                projectsTitleDiabetes: "Healthcare Information System",
-                projectsDescDiabetes: "Informational web platform helping school students understand and manage diabetes",
-                projectsTitleSBahnBerlinSWS2: "S-Bahn Berlin for Subway Sim 2",
-                projectsDescSBahnBerlinSWS2: "Concept for a realistic Berlin S-Bahn system in Subway Sim 2 — not yet in active development, but open",
-                projectsTitleSpadinaUI: "SpadinaUI — Rust Desktop Framework",
-                projectsDescSpadinaUI: "A fast, cross-platform desktop UI framework built in Rust — no Chromium bloat, native rendering, designed in the spirit of Toronto",
-                projectsTagsSpadinaUI: "Rust · Systems Programming · GPU Renderer · Cross-Platform · Plugin System",
-                projectsTitleITCourseGrammarSchoolProjects: "Computer Science Projects",
-                projectsDescITCourseGrammarSchoolProjects: "Projects from my Gymnasium years — algorithm development, data structures, software engineering",
-                headingSocialMedia: "Professional Links",
-                headingContactMe: "Contact Me",
-            },
-            fr: {
-                portfolioTopStartDesc: "Bienvenue dans mon portfolio professionnel",
-                navAbout: "À propos de moi",
-                navSkills: "Compétences",
-                navProjects: "Projets",
-                navContact: "Contact",
-                navBlog: "Blog",
-                headingAbout: "À propos de moi",
-                textAboutMe: "Bonjour ! Je suis DevTimmOfTO, un développeur backend passionné, spécialisé dans la création de solutions logicielles robustes et évolutives. <br>Je me concentre sur le développement d'applications qui résolvent des problèmes réels et apportent de la valeur aux utilisateurs. <br>N'hésitez pas à explorer mon travail et mes projets !",
-                btnDownloadCV: "Télécharger CV",
-                headingSkills: "Compétences",
-                headingProjects: "Projets",
-                descProjects: "Voici quelques-uns de mes projets récents :",
-                projectsTitleTechRoleplay: "Serveur GTA 5 RolePlay",
-                projectsDescTechRoleplay: "Un serveur de jeu de rôle multijoueur réaliste pour GTA 5 — actuellement en pause en raison des changements de politique de Rockstar",
-                projectsTitleTorrontoLotus: "Carte de Toronto pour Lotus Simulator",
-                projectsDescTorrontoLotus: "Simulation détaillée du transport de Toronto avec tramways et bus — en développement actif",
-                projectsTitleDiabetes: "Système d'information de santé",
-                projectsDescDiabetes: "Plateforme web informant les élèves sur le diabète et sa gestion en milieu scolaire",
-                projectsTitleSBahnBerlinSWS2: "S-Bahn Berlin pour Subway Sim 2",
-                projectsDescSBahnBerlinSWS2: "Concept pour un système S-Bahn de Berlin réaliste dans Subway Sim 2 — pas encore en développement actif, mais ouvert",
-                projectsTitleSpadinaUI: "SpadinaUI — Framework Desktop en Rust",
-                projectsDescSpadinaUI: "Un framework desktop rapide et multiplateforme en Rust — sans Chromium, rendu natif, conçu dans l'esprit de Toronto",
-                projectsTagsSpadinaUI: "Rust · Programmation système · Moteur GPU · Multiplateforme · Système de plugins",
-                projectsTitleITCourseGrammarSchoolProjects: "Projets d'informatique",
-                projectsDescITCourseGrammarSchoolProjects: "Projets réalisés durant mes années de lycée — algorithmes, structures de données, génie logiciel",
-                headingSocialMedia: "Liens professionnels",
-                headingContactMe: "Contactez-moi",
-            }
-        }
-
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-        }
-
-        function toggleDarkMode() {
-            const html = document.documentElement;
-            html.classList.toggle('dark');
-            const icon = document.getElementById('darkModeIcon');
-            icon.className = html.classList.contains('dark')
-                ? 'fa-solid fa-sun'
-                : 'fa-solid fa-moon';
-        }
-    </script>
 </body>
-
 </html>

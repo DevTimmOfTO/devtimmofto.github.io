@@ -3,3 +3,7 @@
 .claude
 .vscode/ltex.dictionary.*.txt
 .gitignore
+mockups/
+.vs/
+.idea/
+.vscode
