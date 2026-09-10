@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BetterDrink — a privacy-first Flutter app for Android that helps you stay hydrated and keep an eye on alcohol and sugar consumption. No accounts, no backend, no data ever leaves your device.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BetterDrink | DevTimmOfTO">
+<meta property="og:description" content="Privacy-first hydration, sugar, and alcohol tracker for Android. GPL-3.0, no accounts, no backend, no telemetry.">
+<meta property="og:url" content="https://timmofto.dev/projects/BetterDrink.html">
+<meta property="og:image" content="https://timmofto.dev/assets/img/profile.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BetterDrink | DevTimmOfTO">
+<meta name="twitter:description" content="Privacy-first hydration, sugar, and alcohol tracker for Android. GPL-3.0, no accounts, no backend, no telemetry.">
+<title>BetterDrink | DevTimmOfTO</title>
+<link rel="shortcut icon" href="../assets/img/profile.png">
+<link href="../assets/fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+<link href="../assets/fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+<link href="../assets/fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HJS5QV5VZT"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HJS5QV5VZT');
+</script>
+</head>
+<body class="antialiased">
+
+  <div class="max-w-4xl mx-auto px-4 py-6">
+    <div class="deck-card p-5 md:p-8">
+
+      <div class="stripe mb-6"></div>
+
+      <!-- NAV -->
+      <header class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div class="flex items-center gap-3">
+          <a href="../index.html" class="btn-glossy w-10 h-10 rounded-full flex items-center justify-center shrink-0" title="Back to home" aria-label="Back to home">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </a>
+          <div class="badge sora" style="background:linear-gradient(145deg, var(--coral), #F2B29E);">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#3A1F14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+          </div>
+          <div>
+            <p class="sora font-bold text-sm leading-none">BetterDrink</p>
+            <p class="text-xs mono" style="color:var(--ink-soft);"><span data-i18n="nav_tag">hydration · sugar · alcohol tracker</span></p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap justify-end">
+          <div class="flex gap-1">
+            <button class="btn-glossy text-xs mono font-semibold px-2.5 py-1.5 lang-pill" data-lang="en" aria-pressed="true">EN</button>
+            <button class="btn-glossy text-xs mono font-semibold px-2.5 py-1.5 lang-pill" data-lang="de" aria-pressed="false">DE</button>
+            <button class="btn-glossy text-xs mono font-semibold px-2.5 py-1.5 lang-pill" data-lang="fr" aria-pressed="false">FR</button>
+          </div>
+          <button id="themeToggle" class="btn-glossy rounded-full px-4 py-1.5 text-xs mono font-semibold flex items-center gap-2">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green);"></span>
+            <span id="themeLabel">LIGHT</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+      <!-- HERO -->
+      <div class="grid md:grid-cols-[1fr_180px] gap-5 mb-9">
+        <div class="lcd p-6">
+          <p class="mono text-sm leading-7" style="color:var(--screen-text);">
+            <span class="blink">&gt;</span> cat README.md<br>
+            <span data-i18n="term_desc" class="opacity-80">A Flutter app for Android that helps you stay hydrated and keep<br>an eye on alcohol and sugar consumption. No accounts, no<br>backend — nothing ever leaves your device.</span><br><br>
+            &gt; license<br>
+            <span class="opacity-80">GPL-3.0 · no pro tier, ever</span><br><br>
+            &gt; <span class="blink">▊</span>
+          </p>
+        </div>
+
+        <div class="glass glass-coral p-4 flex flex-col items-center justify-center text-center relative">
+          <span class="panel-screw" style="top:8px; left:8px;"></span>
+          <span class="panel-screw" style="top:8px; right:8px;"></span>
+          <span class="panel-screw" style="bottom:8px; left:8px;"></span>
+          <span class="panel-screw" style="bottom:8px; right:8px;"></span>
+
+          <svg class="w-10 h-10 mb-2" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+          <div class="mono text-2xl font-bold px-3 py-1 rounded-lg mb-1" style="background:var(--panel-dark); color:var(--screen-text); box-shadow:inset 0 2px 6px rgba(0,0,0,0.5);">GPL-3.0</div>
+          <p class="text-xs mono" style="color:var(--ink-soft);" data-i18n="badge_platform">Android · Flutter</p>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="flex flex-wrap gap-3 mb-9">
+        <a href="https://github.com/DevTimmOfTO/BetterDrink" target="_blank" rel="noopener noreferrer" class="btn-glossy mono text-xs font-semibold px-4 py-2 flex items-center gap-2">
+          <i class="fa-brands fa-github"></i> <span data-i18n="link_repo">View on GitHub</span>
+        </a>
+        <a href="https://github.com/DevTimmOfTO/BetterDrink#readme" target="_blank" rel="noopener noreferrer" class="btn-glossy mono text-xs font-semibold px-4 py-2 flex items-center gap-2">
+          <i class="fa-solid fa-book"></i> <span data-i18n="link_readme">README</span>
+        </a>
+        <a href="https://github.com/DevTimmOfTO/BetterDrink/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="btn-glossy mono text-xs font-semibold px-4 py-2 flex items-center gap-2">
+          <i class="fa-solid fa-scale-balanced"></i> <span data-i18n="link_license">License</span>
+        </a>
+      </div>
+
+      <!-- FEATURES -->
+      <section id="features" class="mb-9">
+        <h2 class="sora font-bold text-base mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>
+          <span data-i18n="features_heading">Features</span>
+        </h2>
+        <div class="grid gap-3">
+
+          <div class="glass glass-teal p-4 flex items-start gap-3">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green); margin-top:4px;"></span>
+            <svg class="w-5 h-5 shrink-0 mt-0.5" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 8-3.6 8-8 0-5-8-12-8-12S4 9 4 14c0 4.4 3.6 8 8 8z"/></svg>
+            <div>
+              <p class="sora font-semibold text-sm mb-1" data-i18n="feat_hydration_title">Hydration reminders</p>
+              <p class="text-xs leading-relaxed" style="color:var(--ink-soft);" data-i18n="feat_hydration_desc">A depleting countdown ring shows time until your next reminder. Notifications fire in the background on a configurable interval, respect an active-hours window, and let you log water, coffee, or tea with one tap — even from the notification itself.</p>
+            </div>
+          </div>
+
+          <div class="glass glass-brass p-4 flex items-start gap-3">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green); margin-top:4px;"></span>
+            <svg class="w-5 h-5 shrink-0 mt-0.5" style="color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v6M11 2v6M7 5h4M15 2s-2 3-2 6a2 2 0 0 0 4 0c0-3-2-6-2-6zM13 13v9"/></svg>
+            <div>
+              <p class="sora font-semibold text-sm mb-1" data-i18n="feat_sugar_title">Sugar tracking</p>
+              <p class="text-xs leading-relaxed" style="color:var(--ink-soft);" data-i18n="feat_sugar_desc">One-tap logging for typical sugary drinks with realistic defaults, plus a gentle nudge once today's total passes the WHO's recommended daily free-sugar guideline — informational only.</p>
+            </div>
+          </div>
+
+          <div class="glass glass-coral p-4 flex items-start gap-3">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green); margin-top:4px;"></span>
+            <svg class="w-5 h-5 shrink-0 mt-0.5" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+            <div>
+              <p class="sora font-semibold text-sm mb-1" data-i18n="feat_alcohol_title">Alcohol tracking</p>
+              <p class="text-xs leading-relaxed" style="color:var(--ink-soft);" data-i18n="feat_alcohol_desc">A rough BAC countdown estimated from the Widmark formula using your sex, age, and weight, one-tap logging for typical drinks, and a permanent reminder that alcohol is a drug — with links to support resources. Not medical advice, never for judging fitness to drive.</p>
+            </div>
+          </div>
+
+          <div class="glass glass-sapphire p-4 flex items-start gap-3">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green); margin-top:4px;"></span>
+            <svg class="w-5 h-5 shrink-0 mt-0.5" style="color:var(--sapphire);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 3h12v6a6 6 0 0 1-12 0V3z"/><path d="M4 5H2v2a4 4 0 0 0 4 4M20 5h2v2a4 4 0 0 1-4 4"/></svg>
+            <div>
+              <p class="sora font-semibold text-sm mb-1" data-i18n="feat_streaks_title">Streaks &amp; achievements</p>
+              <p class="text-xs leading-relaxed" style="color:var(--ink-soft);" data-i18n="feat_streaks_desc">Tracks your current and best hydration streak, unlocks achievements for milestones, and lets you compare streaks with friends by trading a short text code — entirely local, no accounts, nothing synced unless you share it yourself.</p>
+            </div>
+          </div>
+
+          <div class="glass glass-plain p-4 flex items-start gap-3">
+            <span class="led led-on" style="background:var(--led-green); color:var(--led-green); margin-top:4px;"></span>
+            <svg class="w-5 h-5 shrink-0 mt-0.5" style="color:var(--ink);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div>
+              <p class="sora font-semibold text-sm mb-1" data-i18n="feat_privacy_title">Private by design</p>
+              <p class="text-xs leading-relaxed" style="color:var(--ink-soft);" data-i18n="feat_privacy_desc">Everything is stored on-device with shared_preferences. An optional one-way sync mirrors logged water to Google Health Connect — nothing is ever read back, and no data reaches a server, because there isn't one.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section id="stack" class="mb-9">
+        <h2 class="sora font-bold text-base mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M4 10h2M4 14h2M18 10h2M18 14h2M10 4v2M14 4v2M10 18v2M14 18v2"/></svg>
+          <span data-i18n="stack_heading">Stack</span>
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="glass glass-teal mono text-xs font-medium px-3 py-1.5 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            Flutter
+          </span>
+          <span class="glass glass-brass mono text-xs font-medium px-3 py-1.5">Dart</span>
+          <span class="glass glass-coral mono text-xs font-medium px-3 py-1.5">Riverpod</span>
+          <span class="glass glass-plain mono text-xs font-medium px-3 py-1.5">flutter_local_notifications</span>
+          <span class="glass glass-teal mono text-xs font-medium px-3 py-1.5">shared_preferences</span>
+          <span class="glass glass-brass mono text-xs font-medium px-3 py-1.5">Health Connect</span>
+          <span class="glass glass-coral mono text-xs font-medium px-3 py-1.5">fl_chart</span>
+          <span class="glass glass-plain mono text-xs font-medium px-3 py-1.5">Material You</span>
+          <span class="glass glass-teal mono text-xs font-medium px-3 py-1.5">
+            <svg class="w-3.5 h-3.5 inline -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+            EN / DE / FR
+          </span>
+        </div>
+      </section>
+
+      <!-- GET IT -->
+      <section id="get-it">
+        <div class="glass glass-sapphire p-6 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="led led-on" style="background:var(--sapphire); color:var(--sapphire);"></span>
+            <div>
+              <p class="sora font-semibold text-sm flex items-center gap-2">
+                <i class="fa-brands fa-github"></i>
+                <span data-i18n="cta_heading">Source &amp; setup</span>
+              </p>
+              <p class="text-xs mono" style="color:var(--ink-soft);" data-i18n="cta_sub">Clone it, flutter pub get, flutter run</p>
+            </div>
+          </div>
+          <a href="https://github.com/DevTimmOfTO/BetterDrink" target="_blank" rel="noopener noreferrer" class="btn-glossy mono text-xs font-semibold px-4 py-2" data-i18n="cta_button">OPEN REPO →</a>
+        </div>
+      </section>
+      </main>
+
+      <div class="stripe mt-8"></div>
+    </div>
+
+  </div>
+
+  <footer class="text-center mono text-xs pb-6" style="color:var(--ink-soft);">
+    <p>© 2026 Timm Johannes Göring · timmofto.dev</p>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function applyTheme(theme){
+      root.setAttribute('data-theme', theme);
+      themeLabel.textContent = theme === 'dark' ? 'DARK' : 'LIGHT';
+    }
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+
+    themeBtn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    const i18n = {
+      en:{
+        nav_tag:'hydration · sugar · alcohol tracker',
+        term_desc:'A Flutter app for Android that helps you stay hydrated and keep<br>an eye on alcohol and sugar consumption. No accounts, no<br>backend — nothing ever leaves your device.',
+        badge_platform:'Android · Flutter',
+        link_repo:'View on GitHub', link_readme:'README', link_license:'License',
+        features_heading:'Features',
+        feat_hydration_title:'Hydration reminders',
+        feat_hydration_desc:'A depleting countdown ring shows time until your next reminder. Notifications fire in the background on a configurable interval, respect an active-hours window, and let you log water, coffee, or tea with one tap — even from the notification itself.',
+        feat_sugar_title:'Sugar tracking',
+        feat_sugar_desc:'One-tap logging for typical sugary drinks with realistic defaults, plus a gentle nudge once today\'s total passes the WHO\'s recommended daily free-sugar guideline — informational only.',
+        feat_alcohol_title:'Alcohol tracking',
+        feat_alcohol_desc:'A rough BAC countdown estimated from the Widmark formula using your sex, age, and weight, one-tap logging for typical drinks, and a permanent reminder that alcohol is a drug — with links to support resources. Not medical advice, never for judging fitness to drive.',
+        feat_streaks_title:'Streaks & achievements',
+        feat_streaks_desc:'Tracks your current and best hydration streak, unlocks achievements for milestones, and lets you compare streaks with friends by trading a short text code — entirely local, no accounts, nothing synced unless you share it yourself.',
+        feat_privacy_title:'Private by design',
+        feat_privacy_desc:'Everything is stored on-device with shared_preferences. An optional one-way sync mirrors logged water to Google Health Connect — nothing is ever read back, and no data reaches a server, because there isn\'t one.',
+        stack_heading:'Stack',
+        cta_heading:'Source & setup', cta_sub:'Clone it, flutter pub get, flutter run', cta_button:'OPEN REPO →'
+      },
+      de:{
+        nav_tag:'Trink- · Zucker- · Alkohol-Tracker',
+        term_desc:'Eine Flutter-App für Android, die beim Trinken hilft und<br>Alkohol- sowie Zuckerkonsum im Blick behält. Keine Accounts,<br>kein Backend — nichts verlässt jemals dein Gerät.',
+        badge_platform:'Android · Flutter',
+        link_repo:'Auf GitHub ansehen', link_readme:'README', link_license:'Lizenz',
+        features_heading:'Funktionen',
+        feat_hydration_title:'Trinkerinnerungen',
+        feat_hydration_desc:'Ein sich leerender Countdown-Ring zeigt die Zeit bis zur nächsten Erinnerung. Benachrichtigungen feuern im Hintergrund in einstellbarem Intervall, respektieren ein Ruhezeitfenster und erlauben das Loggen von Wasser, Kaffee oder Tee mit einem Tipp — sogar direkt aus der Benachrichtigung.',
+        feat_sugar_title:'Zucker-Tracking',
+        feat_sugar_desc:'Ein-Tipp-Logging für typische zuckerhaltige Getränke mit realistischen Vorgaben, plus ein sanfter Hinweis, sobald die heutige Menge die WHO-Empfehlung für freien Zucker überschreitet — rein informativ.',
+        feat_alcohol_title:'Alkohol-Tracking',
+        feat_alcohol_desc:'Ein grober BAK-Countdown nach der Widmark-Formel basierend auf Geschlecht, Alter und Gewicht, Ein-Tipp-Logging für typische Getränke und ein dauerhafter Hinweis, dass Alkohol eine Droge ist — mit Links zu Hilfsangeboten. Keine medizinische Beratung, niemals zur Beurteilung der Fahrtüchtigkeit.',
+        feat_streaks_title:'Streaks & Erfolge',
+        feat_streaks_desc:'Verfolgt deinen aktuellen und besten Trink-Streak, schaltet Erfolge für Meilensteine frei und erlaubt den Vergleich mit Freunden über einen kurzen Textcode — rein lokal, keine Accounts, nichts wird synchronisiert, außer du teilst es selbst.',
+        feat_privacy_title:'Privat by Design',
+        feat_privacy_desc:'Alles wird lokal mit shared_preferences gespeichert. Eine optionale Einweg-Synchronisation spiegelt geloggtes Wasser zu Google Health Connect — nichts wird je zurückgelesen, und keine Daten erreichen einen Server, weil es keinen gibt.',
+        stack_heading:'Stack',
+        cta_heading:'Quellcode & Setup', cta_sub:'Klonen, flutter pub get, flutter run', cta_button:'REPO ÖFFNEN →'
+      },
+      fr:{
+        nav_tag:'suivi hydratation · sucre · alcool',
+        term_desc:'Une application Flutter pour Android qui aide à rester<br>hydraté et à surveiller la consommation d\'alcool et de sucre.<br>Aucun compte, aucun serveur — rien ne quitte jamais l\'appareil.',
+        badge_platform:'Android · Flutter',
+        link_repo:'Voir sur GitHub', link_readme:'README', link_license:'Licence',
+        features_heading:'Fonctionnalités',
+        feat_hydration_title:'Rappels d\'hydratation',
+        feat_hydration_desc:'Un anneau de compte à rebours indique le temps avant le prochain rappel. Les notifications se déclenchent en arrière-plan selon un intervalle configurable, respectent une plage d\'heures actives, et permettent de consigner eau, café ou thé en un geste — même depuis la notification.',
+        feat_sugar_title:'Suivi du sucre',
+        feat_sugar_desc:'Enregistrement en un geste des boissons sucrées courantes avec des valeurs réalistes par défaut, plus un rappel doux dès que le total du jour dépasse la recommandation de l\'OMS pour le sucre libre — à titre informatif uniquement.',
+        feat_alcohol_title:'Suivi de l\'alcool',
+        feat_alcohol_desc:'Une estimation approximative du taux d\'alcoolémie via la formule de Widmark basée sur le sexe, l\'âge et le poids, un enregistrement en un geste des boissons courantes, et un rappel permanent que l\'alcool est une drogue — avec des liens vers des ressources d\'aide. Ne constitue pas un avis médical, jamais pour juger l\'aptitude à conduire.',
+        feat_streaks_title:'Séries & succès',
+        feat_streaks_desc:'Suit votre série d\'hydratation actuelle et record, débloque des succès pour les jalons atteints, et permet de comparer vos séries avec des amis via un court code texte — entièrement local, aucun compte, rien n\'est synchronisé sauf si vous le partagez vous-même.',
+        feat_privacy_title:'Confidentialité par conception',
+        feat_privacy_desc:'Tout est stocké sur l\'appareil via shared_preferences. Une synchronisation optionnelle à sens unique reflète l\'eau enregistrée vers Google Health Connect — rien n\'est jamais relu, et aucune donnée n\'atteint de serveur, car il n\'y en a pas.',
+        stack_heading:'Stack',
+        cta_heading:'Code source & installation', cta_sub:'Clonez, flutter pub get, flutter run', cta_button:'OUVRIR LE DÉPÔT →'
+      }
+    };
+
+    const langButtons = document.querySelectorAll('.lang-pill');
+    function applyLang(lang){
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+      });
+      langButtons.forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.lang === lang));
+      document.documentElement.setAttribute('lang', lang);
+    }
+    langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+  </script>
+
+</body>
+</html>
