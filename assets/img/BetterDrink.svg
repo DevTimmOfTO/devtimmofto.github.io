@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="BetterDrink logo">
+  <title>BetterDrink</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#134A57"/>
+      <stop offset="100%" stop-color="#071B21"/>
+    </linearGradient>
+    <linearGradient id="drop" x1="0%" y1="0%" x2="20%" y2="100%">
+      <stop offset="0%" stop-color="#7CE9EF"/>
+      <stop offset="45%" stop-color="#2BB6C4"/>
+      <stop offset="100%" stop-color="#0E6E86"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
+
+  <g transform="translate(256,256) scale(0.78) translate(-256,-256)">
+    <path
+      d="M256,44
+         C256,44 118,224 118,334
+         C118,410.5 179.9,472 256,472
+         C332.1,472 394,410.5 394,334
+         C394,224 256,44 256,44
+         Z"
+      fill="url(#drop)"/>
+
+    <path
+      d="M256,44
+         C256,44 118,224 118,334
+         C118,410.5 179.9,472 256,472
+         C332.1,472 394,410.5 394,334
+         C394,224 256,44 256,44
+         Z"
+      fill="none" stroke="#0A5568" stroke-opacity="0.18" stroke-width="4"/>
+
+    <ellipse cx="196" cy="248" rx="46" ry="88" fill="url(#sheen)" transform="rotate(-18 196 248)"/>
+  </g>
+</svg>
