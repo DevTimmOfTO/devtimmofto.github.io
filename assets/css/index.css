@@ -1,4 +1,9 @@
-﻿    body {
+﻿    /* index.css — styling for blog/ pages only.
+       Predates the "Glass Deck" design system (assets/css/design-system.css,
+       used by the homepage and project pages) and isn't shared with it.
+       #nav, #b1, #b3 below are unused placeholder selectors kept as-is. */
+
+    body {
         text-align: center;
         font-family: "Josefin Sans", serif;
         background-color: rgba(221, 56, 255, 0.81);

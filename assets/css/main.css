@@ -1,0 +1,4 @@
+/* main.css — legacy stylesheet, intentionally empty.
+   Still linked by blog/ pages and a few retired archive/ pages for
+   backward compatibility; their actual styling comes from index.css
+   (or, for archive pages, inline <style> blocks). Safe to leave empty. */

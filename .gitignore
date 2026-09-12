@@ -1,4 +1,6 @@
 *.zip
+__pycache__/
+*.pyc
 */.claude
 .claude
 .vscode/ltex.dictionary.*.txt
