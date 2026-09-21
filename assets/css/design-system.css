@@ -38,11 +38,13 @@
      blue   = finished / fully shipped
      amber  = concept / in progress / planning
      red    = paused / stopped
+     grey   = dead / discontinued, no longer worked on
   */
   --led-green:#34D399;
   --led-blue:#60A5FA;
   --led-amber:#FBBF24;
   --led-red:#F87171;
+  --led-grey:#9CA3AF;
 }
 
 [data-theme="dark"]{
@@ -136,6 +138,30 @@ body{
 }
 .led-on{animation:led-pulse 2.4s ease-in-out infinite;}
 @keyframes led-pulse{0%,100%{opacity:1;} 50%{opacity:0.65;}}
+
+/* ---- dead / discontinued project ----
+   Desaturates the card (not faded, so text contrast is kept) and adds a
+   small badge next to the title. Pair with a grey static LED. */
+.is-dead{filter:grayscale(0.75);}
+.tag-dead{
+  font-size:0.625rem; line-height:1; letter-spacing:0.05em; text-transform:uppercase;
+  padding:3px 8px; border-radius:999px;
+  background:rgba(107,114,128,0.16); color:var(--ink-soft);
+  border:1px solid rgba(107,114,128,0.35);
+}
+
+/* ---- project tags + tag filter ----
+   .tag-pill  = small label on a project card (carries data-tag)
+   .tag-chip  = filter button above the list (pair with .btn-glossy)
+   .is-filtered = card hidden by the active filter */
+.tag-pill{
+  font-size:0.625rem; line-height:1; padding:3px 7px; border-radius:999px;
+  color:var(--ink-soft);
+  background:rgba(138,129,117,0.12);
+  border:1px solid rgba(138,129,117,0.35);
+}
+.tag-chip{border-radius:999px;}
+.is-filtered{display:none !important;}
 
 /* ---- glossy tactile button — has a real bevel and presses down on click ---- */
 .btn-glossy{
