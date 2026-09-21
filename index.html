@@ -101,24 +101,13 @@
       <section id="work" class="mb-9">
         <h2 class="sora font-bold text-base mb-4 flex items-center gap-2">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>
-          <span data-i18n="projects_heading">Project modules</span>
+          <span id="projectsHeading" data-i18n="projects_heading">Project modules</span>
         </h2>
-        <div class="grid gap-3">
-
-          <!-- perron -->
-          <div class="glass glass-teal is-dead p-4 flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-3">
-              <span class="led" style="background:var(--led-grey); color:var(--led-grey);"></span>
-              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="8" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4M9 14h.01M15 14h.01"/></svg>
-              <div>
-                <div class="flex items-center gap-2 flex-wrap">
-                  <p class="sora font-semibold text-sm">perron</p>
-                  <span class="tag-dead mono" data-i18n="status_dead">discontinued</span>
-                </div>
-                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_perron_desc">Multimodal bike + transit routing · Flutter · F-Droid target</p>
-              </div>
-            </div>
-          </div>
+        <!-- filter chips are built by the script below from the .tag-pill tags; without JS the list simply shows everything -->
+        <div id="tagFilter" class="flex flex-wrap gap-2 mb-4 empty:hidden" role="group" aria-labelledby="projectsHeading"></div>
+        <div id="projectGrid" class="grid gap-3">
+          <!-- Order: active → finished → concept → paused → discontinued (same as the legend below).
+               Tags: data-tag on each .tag-pill drives the filter chips above. -->
 
           <!-- betterdrink -->
           <div class="glass glass-coral p-4 flex items-center justify-between gap-4 flex-wrap">
@@ -128,6 +117,10 @@
               <div>
                 <p class="sora font-semibold text-sm">betterdrink</p>
                 <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_betterdrink_desc">Hydration reminder app · GPL-3.0 · no pro tier, ever</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="apps" data-i18n="tag_apps">apps</span>
+                  <span class="tag-pill mono" data-tag="foss" data-i18n="tag_foss">FOSS</span>
+                </div>
               </div>
             </div>
             <a href="projects/BetterDrink.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
@@ -141,9 +134,45 @@
               <div>
                 <p class="sora font-semibold text-sm" data-i18n="proj_lotusmap_title">Toronto Map for Lotus Simulator</p>
                 <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_lotusmap_desc">Detailed Toronto transit map with streetcars and buses for Lotus Simulator</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="games" data-i18n="tag_games">games</span>
+                  <span class="tag-pill mono" data-tag="transit" data-i18n="tag_transit">transit</span>
+                </div>
               </div>
             </div>
             <a href="projects/lotus_greater_toronto_area.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+          <!-- Computer Science Projects -->
+          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-blue); color:var(--led-blue);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_csprojects_title">Computer Science Projects</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_csprojects_desc">Various programming projects from advanced computer science courses — algorithms, data structures</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="school" data-i18n="tag_school">school</span>
+                </div>
+              </div>
+            </div>
+            <a href="projects/it-course-projects.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+          <!-- healthcare-info-system -->
+          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-blue); color:var(--led-blue);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2M9 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2H9V3zM12 12v4M9.5 14.5h5"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_healthcare_title">Healthcare Information System</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_healthcare_desc">Informational web platform helping school students understand and manage diabetes</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="school" data-i18n="tag_school">school</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://DevTimmOfTO.github.io/website-seminarfach/" target="_blank" rel="noopener noreferrer" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
           </div>
 
           <!-- opentransitsim -->
@@ -154,6 +183,93 @@
               <div>
                 <p class="sora font-semibold text-sm">opentransitsim</p>
                 <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_opentransitsim_desc">FOSS multiplayer transit sim · AGPL-3.0 · Codeberg</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="games" data-i18n="tag_games">games</span>
+                  <span class="tag-pill mono" data-tag="transit" data-i18n="tag_transit">transit</span>
+                  <span class="tag-pill mono" data-tag="foss" data-i18n="tag_foss">FOSS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- food-tracker -->
+          <div class="glass glass-coral p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v6M11 2v6M7 5h4M15 2s-2 3-2 6a2 2 0 0 0 4 0c0-3-2-6-2-6zM13 13v9"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">food-tracker</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_foodtracker_desc">FOSS food/recipe/weight tracker · on-device only</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="apps" data-i18n="tag_apps">apps</span>
+                  <span class="tag-pill mono" data-tag="foss" data-i18n="tag_foss">FOSS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- spadina-ui -->
+          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">spadina-ui</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_spadinaui_desc">Fast, cross-platform desktop UI framework in Rust — no Chromium bloat, native rendering</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="dev" data-i18n="tag_dev">dev tools</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ai-npc-server -->
+          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="10" rx="2"/><path d="M9 4v4M15 4v4M7 12h.01M17 12h.01M9 16h6"/></svg>
+              <div>
+                <p class="sora font-semibold text-sm">ai-npc-server</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_aincpserver_desc">Private sim server · LLM-driven contextual NPCs</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="games" data-i18n="tag_games">games</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GTA 5 RolePlay Server -->
+          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-red); color:var(--led-red);"></span>
+              <img src="assets/img/tech-roleplay.png" alt="GTA 5 RolePlay Server icon" class="w-8 h-8 rounded-lg shrink-0" style="box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 4px rgba(43,38,32,0.2); border:1px solid rgba(43,38,32,0.15);">
+              <div>
+                <p class="sora font-semibold text-sm" data-i18n="proj_gtarp_title">GTA 5 RolePlay Server</p>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_gtarp_desc">Realistic multiplayer roleplay server for GTA 5 — paused due to Rockstar's policy changes</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="games" data-i18n="tag_games">games</span>
+                </div>
+              </div>
+            </div>
+            <a href="projects/CivTechXR.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
+          </div>
+
+          <!-- perron -->
+          <div class="glass glass-teal is-dead p-4 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-3">
+              <span class="led" style="background:var(--led-grey); color:var(--led-grey);"></span>
+              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="8" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4M9 14h.01M15 14h.01"/></svg>
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <p class="sora font-semibold text-sm">perron</p>
+                  <span class="tag-dead mono" data-i18n="status_dead">discontinued</span>
+                </div>
+                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_perron_desc">Multimodal bike + transit routing · Flutter · F-Droid target</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="apps" data-i18n="tag_apps">apps</span>
+                  <span class="tag-pill mono" data-tag="transit" data-i18n="tag_transit">transit</span>
+                  <span class="tag-pill mono" data-tag="foss" data-i18n="tag_foss">FOSS</span>
+                </div>
               </div>
             </div>
           </div>
@@ -169,21 +285,11 @@
                   <span class="tag-dead mono" data-i18n="status_dead">discontinued</span>
                 </div>
                 <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_ebikemanager_desc">Local-only e-bike companion · specs, OSM, Health Connect</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="apps" data-i18n="tag_apps">apps</span>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- GTA 5 RolePlay Server -->
-          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-3">
-              <span class="led" style="background:var(--led-red); color:var(--led-red);"></span>
-              <img src="assets/img/tech-roleplay.png" alt="GTA 5 RolePlay Server icon" class="w-8 h-8 rounded-lg shrink-0" style="box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 4px rgba(43,38,32,0.2); border:1px solid rgba(43,38,32,0.15);">
-              <div>
-                <p class="sora font-semibold text-sm" data-i18n="proj_gtarp_title">GTA 5 RolePlay Server</p>
-                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_gtarp_desc">Realistic multiplayer roleplay server for GTA 5 — paused due to Rockstar's policy changes</p>
-              </div>
-            </div>
-            <a href="projects/CivTechXR.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
           </div>
 
           <!-- rss-reader -->
@@ -197,42 +303,9 @@
                   <span class="tag-dead mono" data-i18n="status_dead">discontinued</span>
                 </div>
                 <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_rssreader_desc">Local-first RSS reader · rule-based filtering</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- food-tracker -->
-          <div class="glass glass-coral p-4 flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-3">
-              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
-              <svg class="w-5 h-5 shrink-0" style="color:var(--coral);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v6M11 2v6M7 5h4M15 2s-2 3-2 6a2 2 0 0 0 4 0c0-3-2-6-2-6zM13 13v9"/></svg>
-              <div>
-                <p class="sora font-semibold text-sm">food-tracker</p>
-                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_foodtracker_desc">FOSS food/recipe/weight tracker · on-device only</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- spadina-ui -->
-          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-3">
-              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
-              <svg class="w-5 h-5 shrink-0" style="color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
-              <div>
-                <p class="sora font-semibold text-sm">spadina-ui</p>
-                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_spadinaui_desc">Fast, cross-platform desktop UI framework in Rust — no Chromium bloat, native rendering</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- ai-npc-server -->
-          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-3">
-              <span class="led" style="background:var(--led-amber); color:var(--led-amber);"></span>
-              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="10" rx="2"/><path d="M9 4v4M15 4v4M7 12h.01M17 12h.01M9 16h6"/></svg>
-              <div>
-                <p class="sora font-semibold text-sm">ai-npc-server</p>
-                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_aincpserver_desc">Private sim server · LLM-driven contextual NPCs</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="apps" data-i18n="tag_apps">apps</span>
+                </div>
               </div>
             </div>
           </div>
@@ -248,37 +321,14 @@
                   <span class="tag-dead mono" data-i18n="status_dead">discontinued</span>
                 </div>
                 <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_sbahn_desc">Concept for a realistic Berlin S-Bahn system in Subway Sim 2 — a good idea, but no longer being worked on</p>
+                <div class="flex flex-wrap gap-1 mt-1.5">
+                  <span class="tag-pill mono" data-tag="games" data-i18n="tag_games">games</span>
+                  <span class="tag-pill mono" data-tag="transit" data-i18n="tag_transit">transit</span>
+                </div>
               </div>
             </div>
             <a href="projects/s-bahn-berlin-subwaysim2.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
           </div>
-
-          <!-- Computer Science Projects -->
-          <div class="glass glass-teal p-4 flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-3">
-              <span class="led" style="background:var(--led-blue); color:var(--led-blue);"></span>
-              <svg class="w-5 h-5 shrink-0" style="color:var(--teal);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>
-              <div>
-                <p class="sora font-semibold text-sm" data-i18n="proj_csprojects_title">Computer Science Projects</p>
-                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_csprojects_desc">Various programming projects from advanced computer science courses — algorithms, data structures</p>
-              </div>
-            </div>
-            <a href="projects/it-course-projects.html" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
-          </div>
-
-          <!-- healthcare-info-system -->
-          <div class="glass glass-brass p-4 flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-3">
-              <span class="led" style="background:var(--led-blue); color:var(--led-blue);"></span>
-              <svg class="w-5 h-5 shrink-0" style="color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2M9 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2H9V3zM12 12v4M9.5 14.5h5"/></svg>
-              <div>
-                <p class="sora font-semibold text-sm" data-i18n="proj_healthcare_title">Healthcare Information System</p>
-                <p class="text-xs" style="color:var(--ink-soft);" data-i18n="proj_healthcare_desc">Informational web platform helping school students understand and manage diabetes</p>
-              </div>
-            </div>
-            <a href="https://DevTimmOfTO.github.io/website-seminarfach/" target="_blank" rel="noopener noreferrer" class="btn-glossy mono text-xs font-semibold px-3 py-1.5">OPEN</a>
-          </div>
-
         </div>
 
         <!-- LED legend -->
@@ -451,6 +501,7 @@
         about_body:'Studying Computer Science at Hochschule Nordhausen. I run most of my own infrastructure — Nextcloud, Immich, a media server, a handful of side projects — self-hosted, FOSS-first, no exceptions I can avoid. Long-term plan is a move to Toronto, likely by way of a Master\'s somewhere else first.',
         contact_heading:'Contact', contact_send:'SEND →',
         legend_active:'active', legend_finished:'finished / fully shipped', legend_concept:'concept / planning', legend_paused:'paused', status_dead:'discontinued',
+        tag_all:'all', tag_apps:'apps', tag_games:'games', tag_transit:'transit', tag_foss:'FOSS', tag_school:'school', tag_dev:'dev tools',
         proj_perron_desc:'Multimodal bike + transit routing · Flutter · F-Droid target',
         proj_betterdrink_desc:'Hydration reminder app · GPL-3.0 · no pro tier, ever',
         proj_lotusmap_title:'Toronto Map for Lotus Simulator',
@@ -479,6 +530,7 @@
         about_body:'Informatikstudent an der Hochschule Nordhausen. Ich betreibe fast meine gesamte Infrastruktur selbst — Nextcloud, Immich, einen Medienserver, diverse Nebenprojekte — self-hosted, FOSS-first, ohne Ausnahmen, die ich vermeiden kann. Langfristig soll es nach Toronto gehen, vermutlich über ein Masterstudium anderswo.',
         contact_heading:'Kontakt', contact_send:'SENDEN →',
         legend_active:'aktiv', legend_finished:'abgeschlossen / fertig ausgeliefert', legend_concept:'Konzept / Planung', legend_paused:'pausiert', status_dead:'eingestellt',
+        tag_all:'alle', tag_apps:'Apps', tag_games:'Spiele', tag_transit:'ÖPNV', tag_foss:'FOSS', tag_school:'Schule', tag_dev:'Dev-Tools',
         proj_perron_desc:'Multimodales Fahrrad- und ÖPNV-Routing · Flutter · Ziel: F-Droid',
         proj_betterdrink_desc:'Trinkerinnerungs-App · GPL-3.0 · niemals eine Pro-Version',
         proj_lotusmap_title:'Toronto Map für Lotus Simulator',
@@ -507,6 +559,7 @@
         about_body:'Étudiant en informatique à la Hochschule Nordhausen. J\'héberge moi-même la quasi-totalité de mon infrastructure — Nextcloud, Immich, un serveur média, plusieurs projets annexes — FOSS en priorité, sans exception évitable. L\'objectif à long terme est de m\'installer à Toronto, probablement après un master ailleurs.',
         contact_heading:'Contact', contact_send:'ENVOYER →',
         legend_active:'actif', legend_finished:'terminé / livré', legend_concept:'concept / planification', legend_paused:'en pause', status_dead:'abandonné',
+        tag_all:'tout', tag_apps:'apps', tag_games:'jeux', tag_transit:'transports', tag_foss:'FOSS', tag_school:'école', tag_dev:'outils dev',
         proj_perron_desc:'Routage multimodal vélo + transport en commun · Flutter · Cible F-Droid',
         proj_betterdrink_desc:'Application de rappel d\'hydratation · GPL-3.0 · jamais de version pro',
         proj_lotusmap_title:'Carte de Toronto pour Lotus Simulator',
@@ -538,6 +591,38 @@
       document.documentElement.setAttribute('lang', lang);
     }
     langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+
+    // ---- project tag filter: one chip per tag found on the cards, click again to clear ----
+    const projectCards = [...document.querySelectorAll('#projectGrid > div')];
+    const tagFilter = document.getElementById('tagFilter');
+    const tagsOnCards = [];
+    projectCards.forEach(card => card.querySelectorAll('[data-tag]').forEach(pill => {
+      if(!tagsOnCards.includes(pill.dataset.tag)) tagsOnCards.push(pill.dataset.tag);
+    }));
+
+    let activeTag = '';
+    function setTagFilter(tag){
+      activeTag = tag;
+      projectCards.forEach(card => {
+        card.classList.toggle('is-filtered', tag !== '' && !card.querySelector(`[data-tag="${tag}"]`));
+      });
+      tagFilter.querySelectorAll('button').forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.filter === tag));
+    }
+
+    ['', ...tagsOnCards].forEach(tag => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'btn-glossy tag-chip mono text-xs font-semibold px-3 py-1.5';
+      btn.dataset.filter = tag;
+      btn.dataset.i18n = 'tag_' + (tag || 'all');
+      btn.innerHTML = i18n.en[btn.dataset.i18n];
+      tagFilter.appendChild(btn);
+    });
+    tagFilter.addEventListener('click', e => {
+      const btn = e.target.closest('button');
+      if(btn) setTagFilter(btn.dataset.filter === activeTag ? '' : btn.dataset.filter);
+    });
+    setTagFilter('');
   </script>
 
 </body>

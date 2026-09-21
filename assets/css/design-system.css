@@ -150,6 +150,19 @@ body{
   border:1px solid rgba(107,114,128,0.35);
 }
 
+/* ---- project tags + tag filter ----
+   .tag-pill  = small label on a project card (carries data-tag)
+   .tag-chip  = filter button above the list (pair with .btn-glossy)
+   .is-filtered = card hidden by the active filter */
+.tag-pill{
+  font-size:0.625rem; line-height:1; padding:3px 7px; border-radius:999px;
+  color:var(--ink-soft);
+  background:rgba(138,129,117,0.12);
+  border:1px solid rgba(138,129,117,0.35);
+}
+.tag-chip{border-radius:999px;}
+.is-filtered{display:none !important;}
+
 /* ---- glossy tactile button — has a real bevel and presses down on click ---- */
 .btn-glossy{
   position:relative; overflow:hidden;
